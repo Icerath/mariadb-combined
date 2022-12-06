@@ -1,0 +1,18 @@
+[package]
+name = "scraper"
+version = "0.1.0"
+edition = "2021"
+
+
+
+[profile.dev.package."*"]
+opt-level = 3
+
+[dependencies]
+log = "0.4.17"
+reqwest = { version = "0.11.12", features = ["blocking"] }
+simplelog = "0.12.0"
+kb_utils = { path="../kb_utils" }
+lazy-regex = "2.3.1"
+clap = { version = "4.0.29"}
+chrono = "0.4.23"

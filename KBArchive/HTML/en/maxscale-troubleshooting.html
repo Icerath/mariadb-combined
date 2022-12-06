@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html>
+<head data-cookie-domain=""
+      data-cookie-path="/">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/kb/static/images/favicons/apple-touch-icon.159e713979be.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/kb/static/images/favicons/favicon-32x32.bc0ac1d5d11e.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/kb/static/images/favicons/favicon-16x16.5801f8f0f34e.png">
+    <link rel="shortcut icon" href="/kb/static/images/favicons/favicon.d122d305dee4.ico" type="image/x-icon" />
+
+    <title>MaxScale Troubleshooting - MariaDB Knowledge Base</title>
+
+    <link href="/kb/static/css/main.9a0d7dcebefd.css" rel="stylesheet" type="text/css" />
+
+    
+
+    <!-- FB Open Graph tags -->
+    <meta property="og:title" content="MaxScale Troubleshooting" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mariadb.com/kb/en/maxscale-troubleshooting/" />
+    <meta property="og:image" content="http://mariadb.comaskmonty-logo.png" />
+    <meta property="og:site_name" content="MariaDB KnowledgeBase" />
+    <meta property="fb:admins" content="514852603" />
+    <meta property="og:description" content="Troubleshooting tips for all MaxScale versions." />
+
+    <meta name="description" content="Troubleshooting tips for all MaxScale versions." />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="//fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet"/>
+    
+</head>
+<body class="mpkb nodes products nodes_view jqui" id="nodes_view">
+
+
+
+
+
+<div id="menu-mobile" class="visible-sm visible-xs">
+
+    <div>
+        <div id="mobile-close-menu" class="text-right">
+            <a href="javascript:void(0)" title="Close Menu" id="back-main" class="toggle-menu">X<span></span></a>
+        </div>
+    </div>
+    <div class="mainmenu-mobile">
+        <ul class="ls-none ul-menu">
+            <li data-sub="submenu5"><a class="open-form-search" href="/kb/search/" title="Search">Search </a></li>
+            <li data-sub="submenu0"><a href="/products" title="Products">Products</a><span class="arrow-main"></span></li>
+            <li data-sub="submenu1"><a href="/services" title="Services">Services</a><span class="arrow-main"></span></li>
+            <li data-sub="submenu2"><a href="/resources" title="Resources">Resources</a><span class="arrow-main"></span></li>
+            <li data-sub="submenu3"><a href="/about-us" title="About">About</a><span class="arrow-main"></span></li>
+            <li data-sub="submenu4"><a href="/contact" title="Contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <div class="nav-top-mobile">
+        <div class="select-box form">
+
+            <ul class="inline-block-md mb-none top-nav">
+                <li>
+
+                </li>
+                
+                    <li>
+                        <a href="/kb/user/login?next=/kb/en/maxscale-troubleshooting/"> Login</a>
+                    </li>
+                
+            </ul>
+
+
+
+        </div>
+        <p class="text-center copyright">Copyright &copy; 2022 MariaDB. All rights reserved.</p>
+    </div>
+</div>
+<div id="wrapper">
+<div id="top-nav">
+    <div class="container">
+        <ul class="hidden-sm hidden-xs" >
+            <li><a href="https://mariadb.com/kb/">Knowledge Base</a></li>
+            <li><a href="https://mariadb.com/contact/">Contact</a></li>
+            
+                
+                    <li>
+                        <a href="/kb/user/login?next=/kb/en/maxscale-troubleshooting/" rel="nofollow">Login</a>
+                    </li>
+                
+            
+            
+            <li id="search-form">
+                <form action="/kb/en/+search/" method="get" id="search-block-form" accept-charset="UTF-8">
+                    <input id="search" title="Enter the terms you wish to search for."
+                           placeholder="Search . . ." type="text"
+                           name="q" value="" size="15" maxlength="128" class="form-text"
+                           data-autocomplete-url="/kb/en/+search/autocomplete/">
+                    <input type="hidden" name="quick" value="1" />
+                    <input type="hidden" name="source" value="kb" />
+                </form>
+            </li>
+            <li><a id="search-toggler" href="/kb/search/">Search</a></li>
+            
+        </ul>
+    </div>
+</div>
+<div id="navbar-bottom" class="navbar">
+    <div class="container">
+        
+        
+        
+        
+        <div class="row">
+            <div class="col-md-3 col-sm-9 col-xs-9">
+                <a class="brand" href="/" title="MariaDB">
+                    <img src="/kb/static/images/logo-2018-black.95f5978ae14d.png">
+                </a>
+            </div>
+            <div class="col-md-9 hidden-sm hidden-xs">
+                <div class="main-menu">
+                    <ul id="main-menu" class="nav navbar-nav inline-block-sm">
+    <li class="has-sub full-menu">
+        <a href="/products" title="Products">Products</a>
+    </li>
+    <li class="has-sub full-menu active">
+        <a href="/services" title="Services">Services</a>
+    </li>
+    <li class="has-sub full-menu active">
+        <a href="/pricing" title="Pricing">Pricing</a>
+    </li>
+    <li class="has-sub full-menu">
+        <a href="/resources" title="Resources">Resources</a>
+    </li>
+    <li class="has-sub full-menu">
+        <a href="/about-us" title="About Us">About Us</a>
+    </li>
+    <li class="">
+        <a class="button electric-eel small top-bar-right-download" href="/downloads/">Download</a>
+    </li>
+</ul>
+                </div>
+            </div>
+            <div class="col-md-3 visible-sm visible-xs col-sm-3 col-xs-3 ps-rv">
+                <div class="navbar-header text-right pull-right">
+                    <button type="button" class="menu-control toggle-menu" id="open-menu">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="main">
+    <div class="container">
+        
+
+        <div id="subheader1" class="clearfix">
+            <div class="pull-left">
+                
+                <div id="breadcrumbs" class="breadcrumb">
+                    <a href="/kb/en/">Knowledge Base</a>
+                    
+
+
+    
+    » <a class="crumb" href="/kb/en/maxscale/">MariaDB MaxScale</a>
+    
+
+
+    » <a class="node_link crumb" href="/kb/en/maxscale-troubleshooting/">MaxScale Troubleshooting</a>
+
+
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="container" id="container-main">
+        <div class="row">
+            
+            
+                
+                <aside id="sidebar-first" class="sidebar col-md-2 hidden-xs hidden-sm hidden-print">
+                    
+                        
+                        <ul id="category_menu" class="nav nav-pills nav-stacked">
+                            <li><a href="/kb/en/">Home</a></li>
+                            
+                                
+                                    <li><a href="/kb/en/+questions/">Open Questions</a></li>
+                                
+                                <li><a href="/kb/en/documentation/">MariaDB Server</a></li>
+                                <li><a href="/kb/en/maxscale/">MariaDB MaxScale</a></li>
+                                <li><a href="/kb/en/mariadb-columnstore/">MariaDB ColumnStore</a></li>
+                                <li><a href="/kb/en/connectors/">Connectors</a></li>
+                            
+
+                        </ul>
+                    
+
+                    
+<div>
+
+
+
+<div class="well well-small box actions"><div>
+
+        <a class="btn btn-block btn-blue btn-sm" href="/kb/en/maxscale-troubleshooting/+history" rel="nofollow">History</a>
+        
+        
+        
+        <a class="btn btn-block btn-blue btn-sm" href="/kb/en/maxscale-troubleshooting/+source/">Source</a>
+        
+        <a class="btn btn-block btn-blue btn-sm flag" href="/kb/en/maxscale-troubleshooting/+flag"
+                data-flag-url="/kb/en/maxscale-troubleshooting/+flag" rel="nofollow">
+                Flag as Spam / Inappropriate</a>
+        
+        <a class="btn btn-block btn-blue btn-sm" href="/kb/en/maxscale-troubleshooting/+translate/">
+                Translate</a>
+        
+
+</div>
+</div>
+
+
+
+
+
+<div class="well well-small box node_info"><div>
+
+    <dl>
+        <dt>Created</dt>
+        <dd>
+
+<span class="datetime" title="2018-03-05 07:52">4 years, 9 months ago</span></dd>
+
+        <dt>Modified</dt>
+        <dd>
+
+<span class="datetime" title="2021-02-26 03:27">1 year, 9 months ago</span></dd>
+
+        <dt>Type</dt>
+        <dd>article</dd>
+
+        <dt>Status</dt>
+        <dd>active</dd>
+
+        <dt>License</dt>
+        <dd>
+            
+                <a href="/kb/en/maxscale-troubleshooting/+license/">CC BY-SA / Gnu FDL</a>
+            
+        </dd>
+
+        
+    </dl>
+
+    
+    <ul class="rss_feeds">
+        <li><a href="/kb/en/maxscale-troubleshooting/+history/feed/">
+            History</a>
+        </li>
+        <li><a href="/kb/en/maxscale-troubleshooting/+comments/feed/">
+            Comments</a>
+        </li>
+    </ul>
+    
+
+</div>
+</div>
+
+
+
+
+
+    
+    
+    
+
+<div class="well well-small box attachments"><div><div class="edit_link pull-right"><a href="/kb/en/maxscale-troubleshooting/+edit/attachments/">Edit</a></div><h5>Attachments</h5></div><div>
+
+        
+            <div class="no_data">No attachments exist</div>
+        
+    
+</div>
+</div>
+
+    
+
+
+
+    
+    
+
+
+
+
+
+
+</div>
+
+
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </aside>
+            
+            
+            
+                
+            
+            
+                
+            
+            <section id="content" class="limited_width col-md-8 clearfix">
+                
+                    <h1>MaxScale Troubleshooting</h1>
+                
+
+                
+
+
+
+                <div>
+                    
+    
+
+    
+    
+    
+
+    <div class="node creole">
+        
+        
+        
+
+
+    
+    <div class="answer formatted">
+        <div class="table_of_contents well well-small">
+<h3>Contents</h3>
+ <ol class="toc">
+
+ <li class=""><a href="#authentication-errors" title="Authentication Errors">Authentication Errors</a> <ol class="toc">
+
+    <li class=""><a href="#access-denied" title="Access Denied">Access Denied</a>    <ol class="toc">
+
+        <li class=""><a href="#verifying-that-a-user-is-allowed-to-connect" title="Verifying that a user is allowed to connect">Verifying that a user is allowed to connect</a></li>
+
+        <li class=""><a href="#checking-maxscale-has-correct-grants" title="Checking MaxScale has correct grants">Checking MaxScale has correct grants</a>        <ol class="toc">
+
+            <li class=""><a href="#service-grants" title="Service Grants">Service Grants</a></li>
+
+            <li class=""><a href="#monitor-grants" title="Monitor Grants">Monitor Grants</a>        </ol>
+    </ol>
+</li>
+
+    <li class=""><a href="#ssltls-errors-on-connect" title="SSL/TLS Errors on connect">SSL/TLS Errors on connect</a></li>
+
+    <li class=""><a href="#loaded-0-mysql-users" title="Loaded 0 MySQL users">Loaded 0 MySQL users</a></li>
+
+    <li class=""><a href="#other-errors" title="Other Errors">Other Errors</a>    <ol class="toc">
+
+        <li class=""><a href="#authentication-queries" title="Authentication queries">Authentication queries</a>        <ol class="toc">
+
+            <li class=""><a href="#maxscale-250-and-newer" title="MaxScale 2.5.0 and newer">MaxScale 2.5.0 and newer</a></li>
+
+            <li class=""><a href="#maxscale-2214-to-maxscale-250" title="MaxScale 2.2.14 to MaxScale 2.5.0">MaxScale 2.2.14 to MaxScale 2.5.0</a></li>
+
+            <li class=""><a href="#maxscale-2210-to-maxscale-2213" title="MaxScale 2.2.10 to MaxScale 2.2.13">MaxScale 2.2.10 to MaxScale 2.2.13</a></li>
+
+            <li class=""><a href="#maxscale-21-up-to-2210" title="MaxScale 2.1 up to 2.2.10">MaxScale 2.1 up to 2.2.10</a></li>
+
+            <li class=""><a href="#maxscale-20-and-14" title="MaxScale 2.0 and 1.4">MaxScale 2.0 and 1.4</a></li>
+
+            <li class=""><a href="#pre-140" title="Pre-1.4.0">Pre-1.4.0</a>        </ol>
+    </ol>
+</li>
+
+    <li class=""><a href="#access-denied-errors-for-user-root" title="Access denied errors for user root!">Access denied errors for user root!</a></li>
+
+    <li class=""><a href="#access-denied-for-userlocalhost" title="Access denied for user@localhost">Access denied for user@localhost</a></li>
+
+    <li class=""><a href="#access-denied-on-databasestables-containing-underscores" title="Access denied on databases/tables containing underscores">Access denied on databases/tables containing underscores</a> </ol>
+</li>
+
+ <li class=""><a href="#system-errors" title="System Errors">System Errors</a> <ol class="toc">
+
+    <li class=""><a href="#failed-to-write-message-11-resource-temporarily-unavailable" title="Failed to write message: 11, Resource temporarily unavailable">Failed to write message: 11, Resource temporarily unavailable</a></li>
+
+    <li class=""><a href="#error-23-too-many-open-files" title="Error 23: Too many open files">Error 23: Too many open files</a>    <ol class="toc">
+
+        <li class=""><a href="#systemd" title="Systemd">Systemd</a></li>
+
+        <li class=""><a href="#sysv" title="SysV">SysV</a>    </ol>
+</li>
+
+    <li class=""><a href="#listeners-not-starting" title="Listeners not starting">Listeners not starting</a> </ol>
+</li>
+
+ <li class=""><a href="#binlogrouter" title="Binlogrouter">Binlogrouter</a> <ol class="toc">
+
+    <li class=""><a href="#commands-not-working" title="Commands not Working">Commands not Working</a> </ol>
+</li>
+
+ <li class=""><a href="#maxscale-cdc-avrorouter" title="MaxScale CDC: Avrorouter">MaxScale CDC: Avrorouter</a> <ol class="toc">
+
+    <li class=""><a href="#resetting-conversion-state" title="Resetting conversion state">Resetting conversion state</a></li>
+
+    <li class=""><a href="#binlog-files-are-not-found" title="Binlog files are not found">Binlog files are not found</a></li>
+
+    <li class=""><a href="#access-denied-to-cdc-interface" title="Access denied to CDC interface">Access denied to CDC interface</a> </ol>
+</li>
+</div>
+<h1 class="anchored_heading" id="authentication-errors">Authentication Errors</h1>
+<h2 class="anchored_heading" id="access-denied"><code>Access Denied</code></h2>
+<p>If you are receiving authentication errors like this:</p>
+<pre>
+ERROR 1045 (28000): Access denied for user 'bob'@'office' (using password: YES)
+</pre>
+<p>Make sure you create users for both <code>'bob'@'office'</code> and <code>'bob'@'maxscale'</code>. The host <code>'office'</code> is where the client is attempting to connect from and <code>'maxscale'</code> is the host where MaxScale is installed.</p>
+<h3 class="anchored_heading" id="verifying-that-a-user-is-allowed-to-connect">Verifying that a user is allowed to connect</h3>
+<ul start="1"><li>MaxScale connection
+<ol start="1"><li>SSH to the server where MaxScale is installed
+</li><li>Connect to MariaDB
+</li><li>Check output of <a href="/kb/en/show-grants/"><code>SHOW GRANTS</code></a>
+</li></ol>
+</li></ul>
+<ul start="1"><li>Client connection
+<ol start="1"><li>SSH to theserver where client is connecting from
+</li><li>Connect to MariaDB
+</li><li>Check output of <a href="/kb/en/show-grants/"><code>SHOW GRANTS</code></a>
+</li></ol>
+</li></ul>
+<h3 class="anchored_heading" id="checking-maxscale-has-correct-grants">Checking MaxScale has correct grants</h3>
+<h4 class="anchored_heading" id="service-grants">Service Grants</h4>
+<p>Make sure that the MaxScale services have a user configured and that it has the correct grants.</p>
+<pre>
+CREATE USER 'maxscale'@'maxscalehost' IDENTIFIED BY 'maxscale-password';
+GRANT SELECT ON mysql.user TO 'maxscale'@'maxscalehost';
+GRANT SELECT ON mysql.db TO 'maxscale'@'maxscalehost';
+GRANT SELECT ON mysql.tables_priv TO 'maxscale'@'maxscalehost';
+GRANT SELECT ON mysql.columns_priv TO 'maxscale'@'maxscalehost';
+GRANT SELECT ON mysql.procs_priv TO 'maxscale'@'maxscalehost';
+GRANT SELECT ON mysql.proxies_priv TO 'maxscale'@'maxscalehost';
+GRANT SELECT ON mysql.roles_mapping TO 'maxscale'@'maxscalehost';
+GRANT SHOW DATABASES ON *.* TO 'maxscale'@'maxscalehost';
+</pre>
+<h4 class="anchored_heading" id="monitor-grants">Monitor Grants</h4>
+<p>The monitor user requires different grants than the service user and each monitor type requires different grants.</p>
+<ul start="1"><li><a href="https://mariadb.com/kb/en/mariadb-maxscale-25-mariadb-monitor/#required-grants">Asynchronous MariaDB replication with mariadbmon</a>
+</li></ul>
+<ul start="1"><li><a href="https://mariadb.com/kb/en/mariadb-maxscale-25-galera-monitor/#required-grants">Galera clusters with galeramon</a>
+</li></ul>
+<h2 class="anchored_heading" id="ssltls-errors-on-connect">SSL/TLS Errors on connect</h2>
+<p>If you are using self-signed certificates, turn off <a href="https://mariadb.com/kb/en/mariadb-maxscale-23-mariadb-maxscale-configuration-usage-scenarios/#ssl_verify_peer_certificate">ssl_verify_peer_certificate</a>. This skips the certificate validation that OpenSSL does when it connects to a server.</p>
+<h2 class="anchored_heading" id="loaded-0-mysql-users">Loaded 0 MySQL users</h2>
+<p>If the databases are configured with <code> init_connect = 'SET NAMES utf8mb4' </code>, then MaxScale will receive the following error:</p>
+<pre>
+ERROR 1267 (HY000): Illegal mix of collations (utf8mb4_unicode_ci,COERCIBLE) and (utf8mb4_general_ci,COERCIBLE) for operation '&lt;&gt;'
+</pre>
+<p> This will result in zero users being loaded and all authentication attempts will fail. To prevent this, remove the <code>init_connect</code> line from <code>my.cnf</code>.</p>
+<h2 class="anchored_heading" id="other-errors">Other Errors</h2>
+<p>For all authentication errors, executing the following query will show what MaxScale sees and could help you understand if some grants are missing.</p>
+<h3 class="anchored_heading" id="authentication-queries">Authentication queries</h3>
+<h4 class="anchored_heading" id="maxscale-250-and-newer">MaxScale 2.5.0 and newer</h4>
+<p>MaxScale 2.5.0 simplified the user loading by moving the processing into MaxScale. As a result of this, MaxScale 2.5.0 does the same queries for all server versions:</p>
+<pre>
+SELECT * FROM mysql.user;
+SELECT DISTINCT * FROM (
+    (SELECT a.user, a.host, a.db FROM mysql.db AS a) UNION 
+    (SELECT a.user, a.host, a.db FROM mysql.tables_priv AS a) UNION 
+    (SELECT a.user, a.host, a.db FROM mysql.columns_priv AS a) ) AS c;
+SELECT a.user, a.host, a.role FROM mysql.roles_mapping AS a;
+SELECT DISTINCT a.user, a.host FROM mysql.proxies_priv AS a  WHERE a.proxied_host &lt;&gt; '' AND a.proxied_user &lt;&gt; '';
+</pre>
+<h4 class="anchored_heading" id="maxscale-2214-to-maxscale-250">MaxScale 2.2.14 to MaxScale 2.5.0</h4>
+<p>This query is used with MariaDB versions 10.2.2 and newer. Older server versions use the 2.2.10 query.</p>
+<pre>
+WITH RECURSIVE t AS ( 
+    SELECT u.user, u.host, d.db, u.select_priv, 
+           IF(u.password &lt;&gt; '', u.password, u.authentication_string) AS password, 
+           u.is_role, u.default_role
+    FROM mysql.user AS u LEFT JOIN mysql.db AS d 
+    ON (u.user = d.user AND u.host = d.host) 
+    WHERE u.plugin IN ('', 'mysql_native_password') 
+    UNION 
+    SELECT u.user, u.host, t.db, u.select_priv, 
+           IF(u.password &lt;&gt; '', u.password, u.authentication_string), 
+           u.is_role, u.default_role 
+    FROM mysql.user AS u LEFT JOIN mysql.tables_priv AS t 
+    ON (u.user = t.user AND u.host = t.host)
+    WHERE u.plugin IN ('', 'mysql_native_password') 
+  ), users AS (
+    SELECT t.user, t.host, t.db, t.select_priv, t.password, t.default_role AS role FROM t
+    WHERE t.is_role &lt;&gt; 'Y'
+    UNION
+    SELECT u.user, u.host, t.db, t.select_priv, u.password, r.role FROM t
+    JOIN users AS u
+    ON (t.user = u.role)
+    LEFT JOIN mysql.roles_mapping AS r
+    ON (t.user = r.user)
+  )
+  SELECT DISTINCT t.user, t.host, t.db, t.select_priv, t.password FROM users AS t;
+</pre>
+<h4 class="anchored_heading" id="maxscale-2210-to-maxscale-2213">MaxScale 2.2.10 to MaxScale 2.2.13</h4>
+<p>This query is used with MariaDB versions 10.1.1 and newer.</p>
+<pre>
+SELECT t.user, t.host, t.db, t.select_priv, t.password FROM 
+( 
+    SELECT u.user, u.host, d.db, u.select_priv, u.password AS password, u.is_role 
+    FROM mysql.user AS u LEFT JOIN mysql.db AS d 
+    ON (u.user = d.user AND u.host = d.host) 
+    UNION 
+    SELECT u.user, u.host, t.db, u.select_priv, u.password AS password, u.is_role 
+    FROM mysql.user AS u LEFT JOIN mysql.tables_priv AS t 
+    ON (u.user = t.user AND u.host = t.host) 
+) AS t 
+-- Discard any users that are roles
+WHERE t.is_role &lt;&gt; 'Y'
+UNION 
+-- Then select all users again
+SELECT r.user, r.host, u.db, u.select_priv, t.password FROM 
+( 
+    SELECT u.user, u.host, d.db, u.select_priv, u.password AS password, u.default_role 
+    FROM mysql.user AS u LEFT JOIN mysql.db AS d 
+    ON (u.user = d.user AND u.host = d.host) 
+    UNION 
+    SELECT u.user, u.host, t.db, u.select_priv, u.password AS password, u.default_role 
+    FROM mysql.user AS u LEFT JOIN mysql.tables_priv AS t 
+    ON (u.user = t.user AND u.host = t.host) 
+) AS t 
+-- Join it to the roles_mapping table to only have users with roles
+JOIN mysql.roles_mapping AS r 
+ON (r.user = t.user AND r.host = t.host) 
+-- Then join it into itself to get the privileges of the role with the name of the user
+JOIN 
+( 
+    SELECT u.user, u.host, d.db, u.select_priv, u.password AS password, u.is_role 
+    FROM mysql.user AS u LEFT JOIN mysql.db AS d 
+    ON (u.user = d.user AND u.host = d.host) 
+    UNION 
+    SELECT u.user, u.host, t.db, u.select_priv, u.password AS password, u.is_role 
+    FROM mysql.user AS u LEFT JOIN mysql.tables_priv AS t 
+    ON (u.user = t.user AND u.host = t.host) 
+) AS u 
+ON (u.user = r.role AND u.is_role = 'Y') 
+-- We only care about users that have a default role assigned
+WHERE t.default_role = u.user;
+</pre>
+<h4 class="anchored_heading" id="maxscale-21-up-to-2210">MaxScale 2.1 up to 2.2.10</h4>
+<p>This query is also used when a pre-10.1.1 MariaDB version or a MySQL variant is used.</p>
+<pre>
+SELECT u.user, u.host, d.db, u.select_priv, u.password
+    FROM mysql.user AS u LEFT JOIN mysql.db AS d
+    ON (u.user = d.user AND u.host = d.host)
+UNION
+SELECT u.user, u.host, t.db, u.select_priv, u.password
+    FROM mysql.user AS u LEFT JOIN mysql.tables_priv AS t
+    ON (u.user = t.user AND u.host = t.host);
+</pre>
+<h4 class="anchored_heading" id="maxscale-20-and-14">MaxScale 2.0 and 1.4</h4>
+<pre>
+SELECT DISTINCT
+    user.user AS user,
+    user.host AS host,
+    user.password AS password,
+    concat(user.user,user.host,user.password,
+      IF((user.Select_priv+0)||find_in_set('Select',Coalesce(tp.Table_priv,0)),'Y','N') ,
+      COALESCE( db.db,tp.db, '')) AS userdata,
+    user.Select_priv AS anydb,
+    COALESCE( db.db,tp.db, NULL) AS db
+    FROM
+    mysql.user LEFT JOIN
+    mysql.db ON user.user=db.user AND user.host=db.host LEFT JOIN
+    mysql.tables_priv tp ON user.user=tp.user AND user.host=tp.host
+    WHERE user.user IS NOT NULL AND user.user &lt;&gt; '';
+</pre>
+<h4 class="anchored_heading" id="pre-140">Pre-1.4.0</h4>
+<pre>
+SELECT
+    user.user AS user,
+    user.host AS host,
+    user.password AS password,
+    concat(user.user,user.host,user.password,user.Select_priv,IFNULL(db,'')) AS userdata,
+    user.Select_priv AS anydb,
+    db.db AS db
+    FROM mysql.user LEFT JOIN mysql.db
+    ON user.user=db.user AND user.host=db.host
+    WHERE user.user IS NOT NULL;
+</pre>
+<p>IF you are suspecting some users are lacking permissions, execute the following and check that the right grants are given.</p>
+<pre>SHOW GRANTS FOR user@IP</pre>
+<p>Executing <code>SHOW GRANTS</code> though MaxScale will tell you which user and which grans are being used.</p>
+<h2 class="anchored_heading" id="access-denied-errors-for-user-root">Access denied errors for user root!</h2>
+<p>If you want to connect as root, you need to set <code>enable_root_user=1</code> in the service declaration within your MaxScale.cnf.</p>
+<h2 class="anchored_heading" id="access-denied-for-userlocalhost">Access denied for user@localhost</h2>
+<p>If you have added your users with wildcard host in MariaDB, you may try the <code>localhost_match_wildcard_host=1</code> option in the service declaration within your maxscale.cnf. Also read the MaxScale documentation regarding permissions.</p>
+<h2 class="anchored_heading" id="access-denied-on-databasestables-containing-underscores">Access denied on databases/tables containing underscores</h2>
+<p>There seems to be a bug for databases containing underscores. Connect as root and use "SHOW GRANTS FOR user".</p>
+<div style="margin-left:2em"><p> GRANT SELECT ON `my\_database`.* TO 'user'@'%' &lt;-- bad</p>
+</div>
+<div style="margin-left:2em"><p> GRANT SELECT ON `my_database`.* TO 'user'@'%' &lt;-- good</p>
+</div>
+<p>If you got a grant containing a escaped underscore, you can add the `strip_db_esc=true` parameter to the service to automatically strip escape characters or just replace the grant with a unescaped one.</p>
+<p>If you have a lot of grants you want to update, you can use the pt-show-grants utility from percona toolkit like that:</p>
+<pre>pt-show-grants -pyourpw | grep '\_' | sed 's/\_/_/g' &gt; fixedgrants.sql</pre>
+<p>after reviewing fixedgrants.sql, you can apply them.</p>
+<h1 class="anchored_heading" id="system-errors">System Errors</h1>
+<h2 class="anchored_heading" id="failed-to-write-message-11-resource-temporarily-unavailable"><code>Failed to write message: 11, Resource temporarily unavailable</code></h2>
+<p>Starting with MaxScale 2.1, MaxScale can log the <code>Failed to write message: 11, Resource temporarily unavailable</code> message under extremely intensive workloads (see <a href="https://jira.mariadb.org/browse/MXS-1983">MXS-1983</a>). To correct it increase the pipe buffer size from the default 1MB to a higher value. At least 8MB is recommended and should be increased until the message stops appearing.</p>
+<p>To set the pipe buffer size, execute the following command.</p>
+<pre>
+sudo sysctl -w fs.pipe-max-size=8388608
+</pre>
+<h2 class="anchored_heading" id="error-23-too-many-open-files">Error 23: Too many open files</h2>
+<p>This is a common error when system limits for open files is too low. The fix to this is to increase the limits.</p>
+<h3 class="anchored_heading" id="systemd">Systemd</h3>
+<p>Edit or add <code>LimitNOFILE=&lt;number of files&gt;</code> under the <code>[Service]</code> section in <code>/usr/lib/systemd/system/maxscale.service</code>.</p>
+<h3 class="anchored_heading" id="sysv">SysV</h3>
+<p>Edit the values in <code>/etc/security/limits.conf</code>.</p>
+<h2 class="anchored_heading" id="listeners-not-starting">Listeners not starting</h2>
+<p>While having multiple listeners, it takes time to load all user data from the backend servers. The default value of TimeoutStartSec in <code>/usr/lib/systemd/system/maxscale.service</code> for MaxScale is 120. If all listeners do not start before Systemd times out, increase the value from 120 to 360.</p>
+<h1 class="anchored_heading" id="binlogrouter">Binlogrouter</h1>
+<h2 class="anchored_heading" id="commands-not-working">Commands not Working</h2>
+<p>Make sure you are connecting on the port where the binlogrouter is listening. A common mistake is to connect to a readwritesplit or readconnroute port and execute the replication configuration commands there.</p>
+<h1 class="anchored_heading" id="maxscale-cdc-avrorouter">MaxScale CDC: Avrorouter</h1>
+<p>For most problems, resetting the conversion state is the solution. If the conversion repeatedly stops at a certain point, please <a href="https://jira.mariadb.org/browse/MXS">open a bug report</a>.</p>
+<h2 class="anchored_heading" id="resetting-conversion-state">Resetting conversion state</h2>
+<ul start="1"><li>Stop MaxScale
+</li><li>Remove the <code>avro.index</code> and <code>avro-conversion.ini</code> files along with any generated <code>.avro</code> files from the director where the Avro files are stored
+</li><li>Start MaxScale
+</li></ul>
+<h2 class="anchored_heading" id="binlog-files-are-not-found">Binlog files are not found</h2>
+<p>Make sure the <code>start_index</code> parameter is set to the lowest binlog file number. For example, to start from <code>mariadb-bin-000005</code>, set <code>start_index=5</code>.</p>
+<h2 class="anchored_heading" id="access-denied-to-cdc-interface">Access denied to CDC interface</h2>
+<p>Create the user with <code>maxadmin call command cdc add_user &lt;service name&gt; &lt;user&gt; &lt;password&gt;</code> or <code>maxctrl call command cdc add_user &lt;service name&gt; &lt;user&gt; &lt;password&gt;</code>.</p>
+
+    </div>
+
+
+        
+            <div id="subscribe" class="well well-small hide hidden-print"
+                 data-subscribe-url="/kb/en/maxscale-troubleshooting/+subscriptions/add"
+                 data-unsubscribe-url="/kb/en/maxscale-troubleshooting/+subscriptions/remove">
+            </div>
+        
+
+        
+        
+    
+        <div class="simple_section_nav">
+            <ul class="nav nav-pills">
+                
+                
+                    <li><a href="/kb/en/maxscale/">
+                        ↑ MariaDB MaxScale ↑
+                    </a>
+                    </li>
+                
+                
+                    <li class="pull-right"><a href="/kb/en/mariadb-maxscale-2208/">
+                        MariaDB MaxScale 22.08 →
+                    </a>
+                    </li>
+                
+            </ul>
+        </div>
+    
+
+        
+
+        
+        <h2>Comments</h2>
+        
+    
+    <div id="comments" data-node-id="7466" data-comments-url="/kb/en/maxscale-troubleshooting/+comments"
+         data-reply-url="/kb/en/maxscale-troubleshooting/comments/post/">
+        Comments loading...
+    </div>
+
+        
+
+    </div>
+
+
+                    <div id="content_disclaimer" class="graybox">
+                        Content reproduced on this site is the property of its respective owners,
+                        and this content is not reviewed in advance by MariaDB. The views, information and opinions
+                        expressed by this content do not necessarily represent those of MariaDB or any other party.
+                    </div>
+                </div>
+            </section>
+
+            
+                <div id="right_bar" class="col-md-2">
+                    
+    
+        
+        <ul class="section_navigation well well-small hidden-xs hidden-sm">
+            
+                <li class="parent"><a href="/kb/en/maxscale/">
+                    ↑ MariaDB MaxScale ↑
+                </a>
+                </li>
+            
+            
+                
+                    <li class="active">
+                        <span>MaxScale Troubleshooting</span>
+                        
+                    </li>
+                
+            
+                
+                    <li>
+                        <a href="/kb/en/mariadb-maxscale-2208/">
+                            <span class="pull-right not_primary"></span>
+                            MariaDB MaxScale 22.08
+                        </a>
+                    </li>
+                
+            
+                
+                    <li>
+                        <a href="/kb/en/mariadb-maxscale-6/">
+                            
+                            MariaDB MaxScale 6
+                        </a>
+                    </li>
+                
+            
+                
+                    <li>
+                        <a href="/kb/en/mariadb-maxscale-25/">
+                            
+                            MariaDB MaxScale 2.5
+                        </a>
+                    </li>
+                
+            
+                
+                    <li>
+                        <a href="/kb/en/mariadb-maxscale-24/">
+                            
+                            MariaDB MaxScale 2.4
+                        </a>
+                    </li>
+                
+            
+                
+                    <li>
+                        <a href="/kb/en/mariadb-maxscale-14/">
+                            
+                            MariaDB MaxScale 1.4
+                        </a>
+                    </li>
+                
+            
+                
+                    <li>
+                        <a href="/kb/en/mariadb-maxscale-mariadb-maxscale-20/">
+                            
+                            MariaDB MaxScale 2.0
+                        </a>
+                    </li>
+                
+            
+                
+                    <li>
+                        <a href="/kb/en/mariadb-maxscale-mariadb-maxscale-21/">
+                            
+                            MariaDB MaxScale 2.1
+                        </a>
+                    </li>
+                
+            
+                
+                    <li>
+                        <a href="/kb/en/mariadb-maxscale-mariadb-maxscale-22/">
+                            
+                            MariaDB MaxScale 2.2
+                        </a>
+                    </li>
+                
+            
+                
+                    <li>
+                        <a href="/kb/en/mariadb-maxscale-mariadb-maxscale-23/">
+                            
+                            MariaDB MaxScale 2.3
+                        </a>
+                    </li>
+                
+            
+        </ul>
+    
+    
+
+                </div>
+            
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer id="footer">
+    <div class="footer">
+        <div class="container">
+            <div class="row row-10">
+                <div class="col-md-2 col-xs-4 item">
+                    <h5>
+                        <a href="/products" title="Products">Products</a>
+                    </h5>
+                    <ul>
+                        <li id="menu-item-7816" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7816"><a href="https://mariadb.com/products/mariadb-platform/">MariaDB Platform</a></li>
+                        <li id="menu-item-7815" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7815"><a href="https://mariadb.com/products/skysql/">MariaDB SkySQL</a></li>
+                        <li id="menu-item-4172" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4172"><a href="https://mariadb.com/pricing/">Pricing</a></li>
+                        <li id="menu-item-4163" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4163"><a href="https://mariadb.com/downloads/">Download MariaDB</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 col-xs-4 item">
+                    <h5>
+                        <a href="/services" title="Services">Services</a>
+                    </h5>
+                    <ul>
+                        <li id="menu-item-4169" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4169"><a href="https://mariadb.com/services/remote-dba/">Remote DBA</a></li>
+                        <li id="menu-item-41691" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4169"><a href="https://mariadb.com/services/skydba/">SkyDBA</a></li>
+                        <li id="menu-item-4167" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4167"><a href="https://mariadb.com/services/enterprise-architect/">Enterprise Architect</a></li>
+                        <li id="menu-item-4170" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4170"><a href="https://mariadb.com/services/technical-support-services/">Technical Support</a></li>
+                        <li id="menu-item-4168" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4168"><a href="https://mariadb.com/services/migration-practice/">Migration Practice</a></li>
+                        <li id="menu-item-4166" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4166"><a href="https://mariadb.com/services/consulting/">Consulting</a></li>
+                        <li id="menu-item-4171" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4171"><a href="https://mariadb.com/services/training/">Training</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 col-xs-4 item">
+                    <h5>
+                        <a href="/resources" title="Resources">Resources</a>
+                    </h5>
+                    <ul>
+                        <li id="menu-item-41751" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4175"><a href="https://mariadb.com/docs/">Documentation</a></li>
+                        <li id="menu-item-41752" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4175"><a href="https://mariadb.com/developers/">Developers</a></li>
+                        <li id="menu-item-4175" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4175"><a href="https://mariadb.com/resources/blog/">Blog</a></li>
+                        <li id="menu-item-5462" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5462"><a href="https://support.mariadb.com">Support</a></li>
+                        <li id="menu-item-6004" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6004"><a href="https://mariadb.com/openworks/">OpenWorks</a></li>
+                        <li id="menu-item-60041" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6004"><a href="https://mariadb.com/resources/customer-stories/">Customer Stories</a></li>
+                        <li id="menu-item-7817" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7817"><a href="https://mariadb.com/resources/events/">Events</a></li>
+                        <li id="menu-item-4177" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4177"><a href="https://mariadb.com/roadshow/">MariaDB Roadshow</a></li>
+                    </ul>
+                </div>
+                <div class="visible-xs visible-sm clear"></div>
+                <div class="col-md-2 col-xs-5 item">
+                    <h5>
+                        <a href="/about-us" title="About MariaDB">About</a>
+                    </h5>
+                    <ul>
+                        <li id="menu-item-4173" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4173"><a href="https://mariadb.com/contact/">Contact</a></li>
+                        <li id="menu-item-4161" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4161"><a href="https://mariadb.com/about-us/leadership/">Leadership</a></li>
+                        <li id="menu-item-4162" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4162"><a href="https://mariadb.com/about-us/partners/">Partners</a></li>
+                        <li id="menu-item-4174" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4174"><a href="https://mariadb.com/newsroom/">Newsroom</a></li>
+                        <li id="menu-item-4160" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4160"><a href="https://mariadb.com/about-us/investors/">Investors</a></li>
+                        <li id="menu-item-4159" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4159"><a href="https://mariadb.com/about-us/careers/">Careers</a></li>
+                        <li id="menu-item-41591" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4159"><a href="https://mariadb.com/trust/">Trust Center</a></li>
+                        <li id="menu-item-41592" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4159"><a href="https://mariadb.com/vulnerability-reporting/">Vulnerability Reporting</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-xs-7 item">
+                    <div id="block-footercontact" class="block block-block-content block-block-content22b3af28-0754-44ec-a5c6-4466568f37e3">
+                        <h5><a href="/contact" title="Contact">Contact</a></h5>
+                    </div>
+                    <div class="social">
+                        <ul class="list-inline">
+                            <li>
+                                <a target="_blank" href="https://www.facebook.com/MariaDB.dbms/" title="Facebook">
+                                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="https://twitter.com/mariadb" title="Twitter">
+                                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="https://www.linkedin.com/company/mariadb-corporation?trk=company_logo " title="LinkedIn">
+                                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="block-footerformcontact" class="block block-block-content block-block-contentd754ee1b-3cc9-40e7-9ef4-f504f1197fb1">
+                        
+                            <p>Subscribe to our newsletter!</p>
+                            <script src="//app-sj15.marketo.com/js/forms2/js/forms2.min.js"></script><form id="mktoForm_1498"></form>
+                            <script>
+                                <!--//--><![CDATA[// ><!--
+                                MktoForms2.loadForm("//app-sj15.marketo.com", "573-PXI-984", 1498);
+                                //--><!]]]]><![CDATA[>
+                                //--><!]]>
+                            </script>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container text-center">
+            <ul class="list-inline no-margin">
+                <li>
+                    <a href="/legal" title="Legal">Legal</a>
+                </li>
+                <li>
+                    <a href="/privacy-policy" title="Privacy Policy">Privacy Policy</a>
+                </li>
+                <li>
+                    <a href="/cookie-policy/" title="Cookies">Cookie Policy</a>
+                </li>
+            </ul>
+            <p>Copyright &copy; 2022 MariaDB. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+</div>
+
+<div id="ajax_loading">
+    <img src="/kb/static/images/ajax-loader.a51c5608d01a.gif" />
+</div>
+
+    <!-- Google Tag Manager -->
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MK2847"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MK2847');</script>
+    <!-- End Google Tag Manager -->
+
+</body>
+
+<script type="text/javascript" src="/kb/static/js/main.636174abe200.js" charset="utf-8"></script>
+
+</html>
