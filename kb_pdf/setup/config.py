@@ -42,7 +42,6 @@ def read_config(filepath: str) -> Config:
 
     return config
 
-
 @dataclass
 class _ArgConfig:
     nopdf: bool
@@ -53,7 +52,6 @@ class _ArgConfig:
     numrows: int
     quiet: bool
     verbose: bool
-
 
 def generate_config(arg_config: _ArgConfig, dict_config: dict[str, Any]) -> Config:
     return Config(
@@ -68,6 +66,7 @@ def generate_config(arg_config: _ArgConfig, dict_config: dict[str, Any]) -> Conf
         wkhtml_settings=dict_config["wkhtmltopdf"],
 
     )
+
 def _read_args() -> _ArgConfig:
     """Parses and return the information from system arguments"""
     parser = argparse.ArgumentParser()
@@ -85,44 +84,6 @@ def _read_args() -> _ArgConfig:
     parser.add_argument("--htmlpath", "--html_path", type=str, help="Path to write HTML Output")
 
     return parser.parse_args(namespace=_ArgConfig) # type: ignore
-
-# def _parse_config(config: dict[str, Any], args: _ArgConfig) -> Config:
-#     """Merges system arguments and config arguments into one easy to read dataclass"""
-#     creation = config["creation"]
-#     filenames = config["filenames"]
-
-#     full_run = config["full_run"] or (args.fullrun and (not args.nofullrun))
-
-#     if full_run:
-#         creation["pdf"] = True
-#         creation["repeat_outline"] = True
-#         creation["num_rows"] = -1
-    
-#     if args.pdf is not None:
-#         pdf = args.pdf
-    
-
-#     pdf = (creation["pdf"] or config["full_run"] or args.pdf or args.fullrun) and (not args.nopdf)
-#     repeat_outline = (creation["repeat_outline"] or config["full_run"] or args.repeat or args.fullrun) and (not args.norepeat)
-#     # Sets the item to element if it exists prioritizing the first element
-#     (languages := args.langs or config["langs"])
-#     (pdf_path := args.pdfpath or filenames["pdf"])
-#     (html_path := args.htmlpath or filenames["html"])
-#     if full_run:
-#         num_rows = -1
-#     else:
-#         (num_rows := args.num_rows or creation["num_rows"])
-
-#     return Config(
-#         pdf=pdf,
-#         repeat_outline=repeat_outline,
-#         languages=languages,
-#         num_rows=num_rows,
-#         html_path=Path(html_path),
-#         pdf_path=Path(pdf_path),
-#         wkhtml_settings=config["wkhtmltopdf"],
-#         toc_config=read_toc_config(config["TOC"]),
-#     )
 
 def read_toc_config(config: dict[str, Any]) -> TocConfig:
     main = TocTypeConfig(
