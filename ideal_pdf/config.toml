@@ -1,38 +1,26 @@
-full_run = true # turns on necessary features for a complete pdf (num_rows, pdf, repeat_outline, etc...)
-langs = ["en"]
-[creation]
-repeat_outline = false # repeats html and pdf generation with pagenumbers. (approx 2x duration)
-pdf = true # generates a pdf from the generated html
-num_rows = -1 # number of valid rows to read from the csv, ignores include '0', -1 = all
-debug_csv = true # TODO
-[filenames]
-html = "output.html" # filename for html output
-pdf = "MariaDBServerKnowledgeBase.pdf" # filename for pdf output
-[TOC] # settings for initial table of contents
-main_font_size = "12px" # font size of headers
-main_indent = "1em" # indent for each depth
-main_margin = "0.5em" # surrounding margin for each item
+[TOC] 
+main_font_size = "12px"
+main_indent = "1em"
+main_margin = "0.5em"
 
 chapter_font_size = "18px"
 chapter_indent = "3em"
 chapter_margin = "1em"
 
-[wkhtmltopdf] # passed directly to wkhtmltopdf
-dpi = 120 # quality to generate pdf with, higher means better quality but longer generation time and bigger filesize
-footer-font-size = 7 # font size for footer pagenumbers
-page-size = "A4" # PDF page format
-# margins surrounding each page
+[wkhtmltopdf]
+dpi = 120
+footer-font-size = 7
+page-size = "A4"
 margin-top = "0.6cm"
 margin-bottom = "0.6cm"
 margin-left = "2cm"
 margin-right = "2cm"
 
-footer-right = "[page]/[topage]" # info provided in footer (other footer locations available)
-zoom = 0.8 # zoom level (lower is zoomed out)
-# Unsafe to modify
-disable-smart-shrinking = true # "smart" shrinking causes unpredictable shrinking.
-dump-outline = "outline" # filepath for the outline for reading pagenumbers
-encoding = "UTF-8" # text encoding format
-footer-line = "" # creates a line above the footer
-quiet = "" # makes wkhtmltopdf shut up
-disable-javascript = true # haven't seen a use for js so rather off
+footer-right = "[page]/[topage]"
+zoom = 0.8
+disable-smart-shrinking = true
+dump-outline = "outline"
+encoding = "UTF-8"
+footer-line = ""
+quiet = ""
+disable-javascript = true
