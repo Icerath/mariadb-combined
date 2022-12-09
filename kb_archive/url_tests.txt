@@ -1,0 +1,6 @@
+https://mariadb.com/kb/en/ https://mariadb.com/kb/en/
+/kb/en/select https://mariadb.com/kb/en/select
+en/select/+source/ https://mariadb.com/kb/en/select/+source/
+en/alter-user/#description https://mariadb.com/kb/en/alter-user/
+en/user/?id=10 https://mariadb.com/kb/en/user/
+static/123456789abc.css https://mariadb.com/kb/static/123456789abc.css
