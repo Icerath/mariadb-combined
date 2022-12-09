@@ -67,3 +67,19 @@ pub fn valid_url(url: &str) -> bool {
 pub fn filter_urls(urls: impl Iterator<Item = String>) -> impl Iterator<Item = String> {
     urls.map(format_url).filter(|url| valid_url(url))
 }
+
+
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn test_format_url_bulk() {
+        let inputs_and_outputs = include_str!("../../url_tests.txt");
+        for content in inputs_and_outputs.lines() {
+            let (input, output) = content.split_once(' ').unwrap();
+            assert_eq!(format_url(input.trim()), output.trim());
+
+        }
+    }
+}
