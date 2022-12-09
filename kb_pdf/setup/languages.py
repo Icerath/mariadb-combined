@@ -1,9 +1,8 @@
 from setup.kb_urls import CsvItem, apply_depth
 from setup.config import Config
-from setup.paths import format_url, url_to_path
+from setup.paths import format_url, url_to_path, DIR_PATH, DIR_PATH_STR
 
 from copy import copy
-from pathlib import Path
 from bs4 import BeautifulSoup, Tag
 
 def read_languages(en_csv: list[CsvItem], config: Config) -> dict[str, list[CsvItem]]:
@@ -55,6 +54,6 @@ def _find_languages(row: CsvItem) -> dict[str, str]:
 def _create_lang_row(row: CsvItem, url: str) -> CsvItem:
     new_row = copy(row)
     new_row.url = url
-    new_row.path = url_to_path(Path("../KBArchive/HTML"), url)
-    row.id_path = "/".join(new_row.path.parts).removeprefix("../KBArchive/HTML/")
+    new_row.path = url_to_path(DIR_PATH, url)
+    row.id_path = "/".join(new_row.path.parts).removeprefix(DIR_PATH_STR)
     return new_row

@@ -1,8 +1,0 @@
-en/
-en/select
-en/select/+source/
-en/alter-user/#description
-en/user/?id=10
-static/123456789abc.css
-https://mariadb.com/kb/static/123456789abc.css
-https://mariadb.com/kb/en/

@@ -1,6 +1,7 @@
 from pathlib import Path
 
-DIR_PATH = Path("../KBArchive/HTML")
+DIR_PATH_STR ="../kb_archive/HTML" 
+DIR_PATH = Path(DIR_PATH_STR)
 BASE_KB = "https://mariadb.com/kb/"
 
 IGNORED_SUFFIXES: list[str] = ["+translate", "+flag", "+history", "/ask", "+search", "+change_order", "/post", "/remove"]

@@ -22,7 +22,7 @@ class CsvItem:
     def from_dict(cls, row: dict[str, str]):
         url: str = row["URL"]
         path: Path = url_to_path(DIR_PATH, url)
-        id_path = "/".join(path.parts).removeprefix("../KBArchive/HTML/")
+        id_path = "/".join(path.parts).removeprefix("../kb_archive/HTML/")
         slugs: list[str]
         include: int
         depth: int

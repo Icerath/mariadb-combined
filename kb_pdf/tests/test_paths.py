@@ -1,14 +1,11 @@
 from setup.paths import url_to_path, format_url, BASE_KB, DIR_PATH
-from pathlib import Path
-
-# test format_url
 
 def test_format_url_bulk():
-    inputs = Path("tests/test_inputs.txt").read_text(encoding="utf-8").split('\n')
-    outputs = Path("tests/test_outputs.txt").read_text(encoding="utf-8").split('\n')
+    inputs_and_outputs = (DIR_PATH / "../url_tests.txt").read_text(encoding="utf-8").split("\n")
 
-    for (input, output) in zip(inputs, outputs, strict=True):
-        assert format_url(input) == output
+    for content in inputs_and_outputs:
+        input, output = content.split(" ")
+        assert format_url(input.strip()) == output.strip()
 
 # test url_to_path
 def test_url_to_path_en():
