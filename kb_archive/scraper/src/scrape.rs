@@ -7,7 +7,7 @@ use std::time::{Duration, Instant};
 use std::{fs, thread};
 
 use crate::Result;
-use kb_utils::{filter_urls, url_to_path};
+use kb_utils::{filter_urls, url_to_path, BASE_PATH};
 
 #[derive(Debug, Clone)]
 pub struct Scraper {
@@ -169,7 +169,7 @@ impl Scraper {
         let str = path
             .to_str()
             .unwrap()
-            .trim_start_matches("HTML/")
+            .trim_start_matches(BASE_PATH)
             .replace('\\', "/");
         String::from("https://mariadb.com/kb/") + &str
     }

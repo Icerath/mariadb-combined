@@ -268,7 +268,7 @@
         <dt>Modified</dt>
         <dd>
 
-<span class="datetime" title="2020-06-07 22:47">2 years, 6 months ago</span></dd>
+<span class="datetime" title="2022-12-06 16:25">5 days, 19 hours ago</span></dd>
 
         <dt>Type</dt>
         <dd>article</dd>
@@ -422,14 +422,14 @@
         <div class="mariadb_from_10_5 mariadb from_10_5 product"><h5 class="product_title">MariaDB starting with <a href="/kb/en/what-is-mariadb-105/">10.5</a></h5><p>The <a href="/kb/en/information_schema/">Information Schema</a> <code>THREAD_POOL_GROUPS</code> table was introduced in <a href="/kb/en/mariadb-1050-release-notes/">MariaDB 10.5.0</a>.</p>
 </div><p>The table provides information about <a href="/kb/en/thread-pool-in-mariadb/">thread pool</a> groups, and contains the following columns:</p>
 <div class="cstm-style darkheader-nospace-borders"><table><tr><th>Column</th><th>Description</th></tr>
-<tr><td><code>GROUP_ID</code></td><td></td></tr>
-<tr><td><code>CONNECTIONS</code></td><td></td></tr>
-<tr><td><code>THREADS</code></td><td></td></tr>
-<tr><td><code>ACTIVE_THREADS</code></td><td></td></tr>
-<tr><td><code>STANDBY_THREADS</code></td><td></td></tr>
-<tr><td><code>QUEUE_LENGTH</code></td><td></td></tr>
-<tr><td><code>HAS_LISTENER</code></td><td></td></tr>
-<tr><td><code>IS_STALLED</code></td><td></td></tr>
+<tr><td><code>GROUP_ID</code></td><td>the thread group this row is showing data for</td></tr>
+<tr><td><code>CONNECTIONS</code></td><td>the number of clients currently connected to this thread group</td></tr>
+<tr><td><code>THREADS</code></td><td>total number of threads in this group (ACTIVE+STANDBY+LISTENER)</td></tr>
+<tr><td><code>ACTIVE_THREADS</code></td><td>number of threads currently executing a query</td></tr>
+<tr><td><code>STANDBY_THREADS</code></td><td>number of threads in reserve that do not currently execute anything</td></tr>
+<tr><td><code>QUEUE_LENGTH</code></td><td>number of client requests waiting for execution</td></tr>
+<tr><td><code>HAS_LISTENER</code></td><td>whether there is an active listener thread right now, always 1 if <a href="/kb/en/thread-pool-system-status-variables/#thread_pool_dedicated_listener">thread_pool_dedicated_listener</a> is ON</td></tr>
+<tr><td><code>IS_STALLED</code></td><td>whether there's currently an active worker thread in this group that has exceeded <a href="/kb/en/thread-pool-system-status-variables/#thread_pool_stall_limit_time">thread_pool_stall_limit time</a></td></tr>
 </table>
 </div><p>Setting <a href="/kb/en/thread-pool-system-status-variables/#thread_pool_dedicated_listener">thread_pool_dedicated_listener</a> will give each group its own dedicated listener, and the listener thread will not pick up work items. As a result, the actual queue size in the table will be more exact, since IO requests are immediately dequeued from poll, without delay.</p>
 
