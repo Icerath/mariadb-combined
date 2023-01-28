@@ -284,7 +284,7 @@
     <div class="revision_info">
         <dl class="table">
             <dt>Revision</dt>
-            <dd><a href="/kb/en/mariadb-crashes/+r/121927/">121927</a></dd>
+            <dd><a href="/kb/en/mariadb-crashes/+r/122358/">122358</a></dd>
             <dt>User</dt>
             <dd>
 <span class="user" id="user-6187">
@@ -293,7 +293,7 @@
             <dt>Date</dt>
             <dd>
 
-<span class="datetime" title="2022-11-28 21:46">2022-11-28 21:46</span></dd>
+<span class="datetime" title="2022-12-20 07:54">2022-12-20 07:54</span></dd>
         </dl>
     </div>
     
@@ -304,6 +304,16 @@
     
         
         <textarea id="answer_source" class="creole_source autogrow">There are a number of causes of MariaDB crashes. Most of these are MariaDB encountering a situation where it cannot safely proceed. Crashes on Linux/Unix systems are fatal signals. On Windows these are similar looking exceptions.
+
+
+== InnoDB Semaphore wait
+
+These are indicated by the following text in the error log:
+{{{
+[ERROR] [FATAL] InnoDB: Semaphore wait has lasted &gt; 600 seconds. We intentionally crash the server because it appears to be hung.
+}}}
+
+For this its essential that a full backtrace of [how-to-produce-a-full-stack-trace-for-mysqld/#getting-full-backtraces-for-all-threads-from-a-running-mariadbd-process|all the running threads].
 
 == Assertions
 

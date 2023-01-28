@@ -72,7 +72,7 @@
 
 
         </div>
-        <p class="text-center copyright">Copyright &copy; 2022 MariaDB. All rights reserved.</p>
+        <p class="text-center copyright">Copyright &copy; 2023 MariaDB. All rights reserved.</p>
     </div>
 </div>
 <div id="wrapper">
@@ -251,12 +251,12 @@
         <dt>Created</dt>
         <dd>
 
-<span class="datetime" title="2010-08-11 20:55">12 years, 3 months ago</span></dd>
+<span class="datetime" title="2010-08-11 20:55">12 years, 5 months ago</span></dd>
 
         <dt>Modified</dt>
         <dd>
 
-<span class="datetime" title="2022-03-10 06:14">9 months ago</span></dd>
+<span class="datetime" title="2023-01-16 12:37">1 week, 3 days ago</span></dd>
 
         <dt>Type</dt>
         <dd>article</dd>
@@ -412,6 +412,8 @@
 
     <li class=""><a href="#description" title="Description">Description</a></li>
 
+    <li class=""><a href="#identical-tables" title="Identical Tables">Identical Tables</a></li>
+
     <li class=""><a href="#differences-between-mariadb-and-mysql" title="Differences Between MariaDB and MySQL">Differences Between MariaDB and MySQL</a> </ol>
 </li>
 </div>
@@ -434,6 +436,10 @@ it and scans the table otherwise.</p>
 <code class="fixed" style="white-space:pre-wrap">NULL</code> and generates a warning.</p>
 <p>The table row format affects the checksum value. If the row format changes, the checksum will change. This means that when a table created with a MariaDB/MySQL version is upgraded to another version, the checksum value will probably change.</p>
 <p>Two identical tables should always match to the same checksum value; however, also for non-identical tables there is a very slight chance that they will return the same value as the hashing algorithm is not completely collision-free.</p>
+<h2 class="anchored_heading" id="identical-tables">Identical Tables</h2>
+<p>Identical tables mean that the CREATE statement is identical and that the following variable, which affects the storage formats, was the same when the tables were created:</p>
+<ul start="1"><li><a href="/kb/en/server-system-variables/#mysql56_temporal_format">mysql56-temporal-format</a>
+</li></ul>
 <h2 class="anchored_heading" id="differences-between-mariadb-and-mysql">Differences Between MariaDB and MySQL</h2>
 <p><code class="fixed" style="white-space:pre-wrap">CHECKSUM TABLE</code> may give a different result as MariaDB doesn't
 ignore <code class="fixed" style="white-space:pre-wrap">NULL</code>s in the columns as MySQL 5.1 does (Later MySQL
@@ -855,7 +861,7 @@ slower as it needs to calculate the checksum row by row. Starting from MariaDB S
                     <a href="/cookie-policy/" title="Cookies">Cookie Policy</a>
                 </li>
             </ul>
-            <p>Copyright &copy; 2022 MariaDB. All rights reserved.</p>
+            <p>Copyright &copy; 2023 MariaDB. All rights reserved.</p>
         </div>
     </div>
 </footer>

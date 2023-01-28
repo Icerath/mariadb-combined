@@ -260,7 +260,7 @@
         <dt>Modified</dt>
         <dd>
 
-<span class="datetime" title="2022-11-29 18:26">6 days, 1 hour ago</span></dd>
+<span class="datetime" title="2022-12-12 15:47">1 week, 6 days ago</span></dd>
 
         <dt>Type</dt>
         <dd>article</dd>
@@ -455,6 +455,8 @@ export_options:
   FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '&#34;'
   LINES TERMINATED BY '\n'
   FROM customers;
+</pre><p>If you want to use the ANSI syntax with <code>UNION</code> or similar construct you have to use the syntax:</p>
+<pre class="fixed">SELECT  * INTO OUTFILE &#34;/tmp/skr3&#34; FROM (SELECT * FROM t1 UNION SELECT * FROM t1);
 </pre><h2 class="anchored_heading" id="see-also">See Also</h2>
 <ul start="1"><li><a href="/kb/en/select/">SELECT</a>
 </li><li><a href="/kb/en/load_file/">LOAD_DATA()</a> function

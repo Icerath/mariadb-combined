@@ -3,15 +3,21 @@ from pathlib import Path
 DIR_PATH_STR ="../kb_archive/HTML" 
 DIR_PATH = Path(DIR_PATH_STR)
 BASE_KB = "https://mariadb.com/kb/"
+URL_LOCATIONS_PATH = Path("../url_locations.txt")
 
-IGNORED_SUFFIXES: list[str] = ["+translate", "+flag", "+history", "/ask", "+search", "+change_order", "/post", "/remove"]
-IGNORED_CONTAINED: list[str] = ["/+search/"]
 
-def url_to_path(dir_path: Path, url: str) -> Path:
-    url_suffix = url.strip().removeprefix(BASE_KB).strip('/')
-    return (dir_path / url_suffix).with_suffix(".html")
+def load_url_locations() -> dict[str, Path]:
+    lines = URL_LOCATIONS_PATH.read_text(encoding="utf-8").splitlines()
+    lines = [line.split(' ', maxsplit=1) for line in lines]
+    return { left: Path(right.replace("../html/", "../kb_archive/html/")) for left, right in lines }
 
-def format_url(suffix: str) -> str|None:
+def url_to_path(url: str) -> Path:
+    url = url.strip().removesuffix('/')
+    path = URL_LOCATIONS.get(url)
+    assert path is not None, f"{url}"
+    return path 
+
+def format_url(suffix: str) -> str:
     for symbol in ('#', '?'):
         if symbol in suffix:
             idx = suffix.index(symbol)
@@ -24,7 +30,6 @@ def format_url(suffix: str) -> str|None:
         .removeprefix("kb/")\
         .strip()
 
-    should_ignore: bool = any(url.removesuffix('/').endswith(suffix) for suffix in IGNORED_SUFFIXES)
-    if not url or should_ignore:
-        return None
     return BASE_KB + url
+
+URL_LOCATIONS = load_url_locations()

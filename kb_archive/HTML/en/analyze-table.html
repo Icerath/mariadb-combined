@@ -72,7 +72,7 @@
 
 
         </div>
-        <p class="text-center copyright">Copyright &copy; 2022 MariaDB. All rights reserved.</p>
+        <p class="text-center copyright">Copyright &copy; 2023 MariaDB. All rights reserved.</p>
     </div>
 </div>
 <div id="wrapper">
@@ -251,12 +251,12 @@
         <dt>Created</dt>
         <dd>
 
-<span class="datetime" title="2010-08-11 17:16">12 years, 3 months ago</span></dd>
+<span class="datetime" title="2010-08-11 17:16">12 years, 5 months ago</span></dd>
 
         <dt>Modified</dt>
         <dd>
 
-<span class="datetime" title="2022-11-02 10:24">1 month ago</span></dd>
+<span class="datetime" title="2023-01-23 15:34">3 days, 20 hours ago</span></dd>
 
         <dt>Type</dt>
         <dd>article</dd>
@@ -421,9 +421,12 @@
     
     <div class="answer formatted">
         <h2 class="anchored_heading" id="syntax">Syntax</h2>
-<pre class="fixed">ANALYZE [NO_WRITE_TO_BINLOG | LOCAL] TABLE tbl_name [,tbl_name ...] 
-  [PERSISTENT FOR [ALL|COLUMNS ([col_name [,col_name ...]])] 
-    [INDEXES ([index_name [,index_name ...]])]]           
+<pre class="fixed">ANALYZE [NO_WRITE_TO_BINLOG | LOCAL] TABLE tbl_name [,tbl_name ...]
+  [PERSISTENT FOR 
+    { ALL
+      | COLUMNS ([col_name [,col_name ...]]) INDEXES ([index_name [,index_name ...]])
+    }
+  ]         
 </pre><div class="table_of_contents well well-small">
 <h3>Contents</h3>
  <ol class="toc">
@@ -435,6 +438,8 @@
     <li class=""><a href="#engine-independent-statistics" title="Engine-Independent Statistics">Engine-Independent Statistics</a></li>
 
     <li class=""><a href="#useful-variables" title="Useful Variables">Useful Variables</a></li>
+
+    <li class=""><a href="#examples" title="Examples">Examples</a></li>
 
     <li class=""><a href="#see-also" title="See Also">See Also</a> </ol>
 </li>
@@ -459,8 +464,27 @@ more partitions.</p>
 <p><code>ANALYZE TABLE</code> supports <a href="/kb/en/engine-independent-table-statistics/">engine-independent statistics</a>. See <a href="/kb/en/engine-independent-table-statistics/#collecting-statistics-with-the-analyze-table-statement">Engine-Independent Table Statistics: Collecting Statistics with the ANALYZE TABLE Statement</a> for more information.</p>
 <h2 class="anchored_heading" id="useful-variables">Useful Variables</h2>
 <p>For calculating the number of duplicates, <code>ANALYZE TABLE</code> uses a buffer of <a href="/kb/en/server-system-variables/#sort_buffer_size">sort_buffer_size</a> bytes per column. You can slightly increase the speed of <code>ANALYZE TABLE</code> by increasing this variable.</p>
-<h2 class="anchored_heading" id="see-also">See Also</h2>
-<ul start="1"><li><a href="/kb/en/index-statistics/">Index Statistics</a>
+<h2 class="anchored_heading" id="examples">Examples</h2>
+<pre class="fixed"><span class="c1">-- update all engine-independent statistics for all columns and indexes</span>
+<span class="k">ANALYZE</span> <span class="k">TABLE</span> <span class="n">tbl</span> <span class="n">PERSISTENT</span> <span class="k">FOR</span> <span class="k">ALL</span><span class="p">;</span>
+
+<span class="c1">-- update specific columns and indexes:</span>
+<span class="k">ANALYZE</span> <span class="k">TABLE</span> <span class="n">tbl</span> <span class="n">PERSISTENT</span> <span class="k">FOR</span> <span class="n">COLUMNS</span> <span class="p">(</span><span class="n">col1</span><span class="p">,</span><span class="n">col2</span><span class="p">,...)</span> <span class="n">INDEXES</span> <span class="p">(</span><span class="n">idx1</span><span class="p">,</span><span class="n">idx2</span><span class="p">,...);</span>
+
+<span class="c1">-- empty lists are allowed:</span>
+<span class="k">ANALYZE</span> <span class="k">TABLE</span> <span class="n">tbl</span> <span class="n">PERSISTENT</span> <span class="k">FOR</span> <span class="n">COLUMNS</span> <span class="p">(</span><span class="n">col1</span><span class="p">,</span><span class="n">col2</span><span class="p">,...)</span> <span class="n">INDEXES</span> <span class="p">();</span>
+<span class="k">ANALYZE</span> <span class="k">TABLE</span> <span class="n">tbl</span> <span class="n">PERSISTENT</span> <span class="k">FOR</span> <span class="n">COLUMNS</span> <span class="p">()</span> <span class="n">INDEXES</span> <span class="p">(</span><span class="n">idx1</span><span class="p">,</span><span class="n">idx2</span><span class="p">,...);</span>
+
+<span class="c1">-- the following will only update mysql.table_stats fields:</span>
+<span class="k">ANALYZE</span> <span class="k">TABLE</span> <span class="n">tbl</span> <span class="n">PERSISTENT</span> <span class="k">FOR</span> <span class="n">COLUMNS</span> <span class="p">()</span> <span class="n">INDEXES</span> <span class="p">();</span>
+
+<span class="c1">-- when use_stat_tables is set to &#39;COMPLEMENTARY&#39; or &#39;PREFERABLY&#39;, </span>
+<span class="c1">-- a simple ANALYZE TABLE  collects engine-independent statistics for all columns and indexes.</span>
+<span class="k">SET</span> <span class="k">SESSION</span> <span class="n">use_stat_tables</span><span class="o">=</span><span class="s1">&#39;COMPLEMENTARY&#39;</span><span class="p">;</span>
+<span class="k">ANALYZE</span> <span class="k">TABLE</span> <span class="n">tbl</span><span class="p">;</span>
+</pre><h2 class="anchored_heading" id="see-also">See Also</h2>
+<ul start="1"><li><a href="https://mariadb.org/mariadb-30x-faster/">This one trick can make MariaDB 30x faster!</a> (mariadb.org blog)
+</li><li><a href="/kb/en/index-statistics/">Index Statistics</a>
 </li><li><a href="/kb/en/innodb-persistent-statistics/">InnoDB Persistent Statistics</a>
 </li><li><a href="/kb/en/progress-reporting/">Progress Reporting</a>
 </li><li><a href="/kb/en/engine-independent-table-statistics/">Engine-independent Statistics</a>
@@ -878,7 +902,7 @@ more partitions.</p>
                     <a href="/cookie-policy/" title="Cookies">Cookie Policy</a>
                 </li>
             </ul>
-            <p>Copyright &copy; 2022 MariaDB. All rights reserved.</p>
+            <p>Copyright &copy; 2023 MariaDB. All rights reserved.</p>
         </div>
     </div>
 </footer>

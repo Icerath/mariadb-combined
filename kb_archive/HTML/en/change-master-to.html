@@ -72,7 +72,7 @@
 
 
         </div>
-        <p class="text-center copyright">Copyright &copy; 2022 MariaDB. All rights reserved.</p>
+        <p class="text-center copyright">Copyright &copy; 2023 MariaDB. All rights reserved.</p>
     </div>
 </div>
 <div id="wrapper">
@@ -255,12 +255,12 @@
         <dt>Created</dt>
         <dd>
 
-<span class="datetime" title="2010-08-30 18:59">12 years, 3 months ago</span></dd>
+<span class="datetime" title="2010-08-30 18:59">12 years, 5 months ago</span></dd>
 
         <dt>Modified</dt>
         <dd>
 
-<span class="datetime" title="2022-12-02 12:22">3 days, 7 hours ago</span></dd>
+<span class="datetime" title="2023-01-26 07:15">1 day, 18 hours ago</span></dd>
 
         <dt>Type</dt>
         <dd>article</dd>
@@ -832,10 +832,7 @@ master_retry_count=4294967295
 </li><li><code>slave_pos</code> - Replicate in <a href="/kb/en/gtid/">GTID</a> mode and use <a href="/kb/en/gtid/#gtid_slave_pos">gtid_slave_pos</a> as the position to start downloading transactions from the primary. From <a href="/kb/en/mariadb-1051-release-notes/">MariaDB 10.5.1</a>, <code>replica_pos</code> is an alias for <code>slave_pos</code>.
 </li><li><code>no</code> - Don't replicate in <a href="/kb/en/gtid/">GTID</a> mode.
 </li></ul>
-<h4 class="anchored_heading" id="master_demote_to_slave">MASTER_DEMOTE_TO_SLAVE</h4>
-<div class="mariadb_from_10_10 mariadb from_10_10 product"><h5 class="product_title">MariaDB starting with <a href="/kb/en/what-is-mariadb-1010/">10.10</a></h5><p>Used to transition a primary to become a replica. Replaces the old <a href="#master_use_gtid">MASTER_USE_GTID=current_pos</a> with a safe alternative by forcing users to set <code>Using_Gtid=Slave_Pos</code> and merging <code>gtid_binlog_pos</code> into <code>gtid_slave_pos</code> once at <code>CHANGE MASTER TO</code> time. If <code>gtid_slave_pos</code> is more
-recent than <code>gtid_binlog_pos</code> (as in the case of chain replication), the replication state should be preserved.</p>
-</div><p>For example:</p>
+<p>For example:</p>
 <pre class="fixed"><span class="n">STOP</span> <span class="n">SLAVE</span><span class="p">;</span>
 <span class="k">CHANGE</span> <span class="n">MASTER</span> <span class="k">TO</span>
    <span class="n">MASTER_USE_GTID</span> <span class="o">=</span> <span class="n">current_pos</span><span class="p">;</span>
@@ -845,6 +842,14 @@ recent than <code>gtid_binlog_pos</code> (as in the case of chain replication), 
 <span class="kt">SET</span> <span class="n">GLOBAL</span> <span class="n">gtid_slave_pos</span><span class="o">=</span><span class="s1">&#39;0-1-153&#39;</span><span class="p">;</span>
 <span class="k">CHANGE</span> <span class="n">MASTER</span> <span class="k">TO</span>
    <span class="n">MASTER_USE_GTID</span> <span class="o">=</span> <span class="n">slave_pos</span><span class="p">;</span>
+<span class="n">START</span> <span class="n">SLAVE</span><span class="p">;</span>
+</pre><h4 class="anchored_heading" id="master_demote_to_slave">MASTER_DEMOTE_TO_SLAVE</h4>
+<div class="mariadb_from_10_10 mariadb from_10_10 product"><h5 class="product_title">MariaDB starting with <a href="/kb/en/what-is-mariadb-1010/">10.10</a></h5><p>Used to transition a primary to become a replica. Replaces the old <a href="#master_use_gtid">MASTER_USE_GTID=current_pos</a> with a safe alternative by forcing users to set <code>Using_Gtid=Slave_Pos</code> and merging <code>gtid_binlog_pos</code> into <code>gtid_slave_pos</code> once at <code>CHANGE MASTER TO</code> time. If <code>gtid_slave_pos</code> is more
+recent than <code>gtid_binlog_pos</code> (as in the case of chain replication), the replication state should be preserved.</p>
+</div><p>For example:</p>
+<pre class="fixed"><span class="n">STOP</span> <span class="n">SLAVE</span><span class="p">;</span>
+<span class="k">CHANGE</span> <span class="n">MASTER</span> <span class="k">TO</span>
+   <span class="n">MASTER_DEMOTE_TO_SLAVE</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 <span class="n">START</span> <span class="n">SLAVE</span><span class="p">;</span>
 </pre><h3 class="anchored_heading" id="replication-filter-options">Replication Filter Options</h3>
 <p>Also see <a href="/kb/en/replication-filters/">Replication filters</a>.</p>
@@ -1239,7 +1244,7 @@ This is used when you want to set up the replica to replicate the primary:</p>
                     <a href="/cookie-policy/" title="Cookies">Cookie Policy</a>
                 </li>
             </ul>
-            <p>Copyright &copy; 2022 MariaDB. All rights reserved.</p>
+            <p>Copyright &copy; 2023 MariaDB. All rights reserved.</p>
         </div>
     </div>
 </footer>

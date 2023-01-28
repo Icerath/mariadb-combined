@@ -247,12 +247,12 @@
         <dt>Created</dt>
         <dd>
 
-<span class="datetime" title="2011-10-16 11:03">11 years, 1 month ago</span></dd>
+<span class="datetime" title="2011-10-16 11:03">11 years, 2 months ago</span></dd>
 
         <dt>Modified</dt>
         <dd>
 
-<span class="datetime" title="2022-11-24 06:52">1 week, 4 days ago</span></dd>
+<span class="datetime" title="2022-12-20 07:59">2 days, 18 hours ago</span></dd>
 
         <dt>Type</dt>
         <dd>article</dd>
@@ -624,13 +624,13 @@ set logging off
 <h3 class="anchored_heading" id="getting-full-backtraces-for-all-threads-from-a-core-file">Getting Full Backtraces For All Threads From a Core File</h3>
 <p>Sometimes it can be helpful to get <strong>full</strong> <a href="https://sourceware.org/gdb/current/onlinedocs/gdb/Backtrace.html#Backtrace">backtraces</a> for all threads. The full <a href="https://sourceware.org/gdb/current/onlinedocs/gdb/Backtrace.html#Backtrace">backtraces</a> will contain function arguments, which can contain useful information such as query strings, so it can make the information easier to analyze.</p>
 <p>To get <strong>full</strong> <a href="https://sourceware.org/gdb/current/onlinedocs/gdb/Backtrace.html#Backtrace">backtraces</a> for all threads from a  <code>mariadbd</code> core file, execute a command like the following:</p>
-<pre class="fixed">sudo gdb --batch --eval-command=&#34;thread apply all bt  -frame-arguments all full&#34; /usr/sbin/mariadbd /var/lib/mysql/core.932  &gt; mariadbd_full_bt_all_threads.txt
+<pre class="fixed">sudo gdb --batch --eval-command=&#34;set print frame-arguments all&#34; --eval-command=&#34;thread apply all bt full&#34; /usr/sbin/mariadbd /var/lib/mysql/core.932  &gt; mariadbd_full_bt_all_threads.txt
 </pre><p>Be sure to replace <code>/usr/sbin/mariadbd</code> with the path to your <code>mariadbd</code> binary and to also replace <code>/var/lib/mysql/core.932</code> with the path to your core dump.</p>
 <p>The <a href="https://sourceware.org/gdb/current/onlinedocs/gdb/Backtrace.html#Backtrace">backtraces</a> will be output to the file <code>mariadbd_full_bt_all_threads.txt</code>.</p>
 <h3 class="anchored_heading" id="getting-full-backtraces-for-all-threads-from-a-running-mariadbd-process">Getting Full Backtraces For All Threads From a Running <code>mariadbd</code> Process</h3>
 <p>Sometimes it can be helpful to get <strong>full</strong> <a href="https://sourceware.org/gdb/current/onlinedocs/gdb/Backtrace.html#Backtrace">backtraces</a> for all threads. The full backtraces will contain function arguments, which can contain useful information such as query strings, so it can make the information easier to analyze.</p>
 <p>To get <strong>full</strong> <a href="https://sourceware.org/gdb/current/onlinedocs/gdb/Backtrace.html#Backtrace">backtraces</a> for all threads from a running <code>mariadbd</code> process, execute a command like the following:</p>
-<pre class="fixed">sudo gdb --batch --eval-command=&#34;thread apply all bt  -frame-arguments all full&#34; /usr/sbin/mariadbd $(pgrep -xn mariadbd)  &gt; mariadbd_full_bt_all_threads.txt
+<pre class="fixed">sudo gdb --batch --eval-command=&#34;set print frame-arguments all&#34;  --eval-command=&#34;thread apply all bt full&#34; /usr/sbin/mariadbd $(pgrep -xn mariadbd)  &gt; mariadbd_full_bt_all_threads.txt
 </pre><p>Be sure to replace <code>/usr/sbin/mariadbd</code> with the path to your <code>mariadbd</code> binary.</p>
 <p>The <a href="https://sourceware.org/gdb/current/onlinedocs/gdb/Backtrace.html#Backtrace">backtraces</a> will be output to the file <code>mariadbd_full_bt_all_threads.txt</code>.</p>
 <p>Sometimes very busy systems are too busy to batch obtain the backtrace. If this is the case, <code>gcore $(pidof mariadbd)</code> can save the core and then obtain the backtrace out of the dumped core.</p>

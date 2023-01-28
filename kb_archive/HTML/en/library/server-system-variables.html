@@ -252,7 +252,7 @@
         <dt>Modified</dt>
         <dd>
 
-<span class="datetime" title="2022-11-30 09:08">1 week, 2 days ago</span></dd>
+<span class="datetime" title="2022-12-20 02:04">3 days, 2 hours ago</span></dd>
 
         <dt>Type</dt>
         <dd>article</dd>
@@ -3106,7 +3106,7 @@ Variables that can be changed at runtime are described as "Dynamic" below, and e
 
 
 <h4 class="anchored_heading" id="character_set_client"><code>character_set_client</code></h4>
-<ul start="1"><li><strong>Description:</strong> Determines the <a href="/kb/en/data-types-character-sets-and-collations/">character set</a> for queries arriving from the client. It can be set per session by the client, although the server can be configured to ignore client requests with the <code>--skip-character-set-client-handshake</code> option. If the client does not request a character set, or requests a character set that the server does not support, the global value will be used. utf16, utf32 and ucs2 cannot be used as client character sets. From <a href="/kb/en/what-is-mariadb-106/">MariaDB 10.6</a>, the <code>utf8</code> <a href="/kb/en/character-sets/">character set</a> (and related collations) is by default an alias for <code>utf8mb3</code> rather than the other way around. It can be set to imply <code>utf8mb4</code> by changing the value of the <a href="/kb/en/server-system-variables/#old_mode">old_mode</a> system variable.
+<ul start="1"><li><strong>Description:</strong> Determines the <a href="/kb/en/data-types-character-sets-and-collations/">character set</a> for queries arriving from the client. It can be set per session by the client, although the server can be configured to ignore client requests with the <code>--skip-character-set-client-handshake</code> option. If the client does not request a character set, or requests a character set that the server does not support, the global value will be used. utf16, utf16le, utf32 and ucs2 cannot be used as client character sets. From <a href="/kb/en/what-is-mariadb-106/">MariaDB 10.6</a>, the <code>utf8</code> <a href="/kb/en/character-sets/">character set</a> (and related collations) is by default an alias for <code>utf8mb3</code> rather than the other way around. It can be set to imply <code>utf8mb4</code> by changing the value of the <a href="/kb/en/server-system-variables/#old_mode">old_mode</a> system variable.
 </li><li><strong>Scope:</strong> Global, Session
 </li><li><strong>Dynamic:</strong> Yes
 </li><li><strong>Data Type:</strong> <code>string</code>

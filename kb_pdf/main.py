@@ -17,7 +17,7 @@ def main():
     for lang, lang_csv in language_csvs.items():
         log.info(f"Generating {lang}({len(lang_csv)})")
         generate_full_pdf(lang_csv, Path(f"output_{lang}"), config)
-    Path(config.wkhtml_settings["dump-outline"]).unlink()
+    Path(config.wkhtml_settings["dump-outline"]).unlink(missing_ok=True)
     log.info("Finished")
 
 if __name__ == "__main__":

@@ -72,7 +72,7 @@
 
 
         </div>
-        <p class="text-center copyright">Copyright &copy; 2022 MariaDB. All rights reserved.</p>
+        <p class="text-center copyright">Copyright &copy; 2023 MariaDB. All rights reserved.</p>
     </div>
 </div>
 <div id="wrapper">
@@ -251,12 +251,12 @@
         <dt>Created</dt>
         <dd>
 
-<span class="datetime" title="2016-08-11 12:10">6 years, 3 months ago</span></dd>
+<span class="datetime" title="2016-08-11 12:10">6 years, 5 months ago</span></dd>
 
         <dt>Modified</dt>
         <dd>
 
-<span class="datetime" title="2020-06-10 21:31">2 years, 5 months ago</span></dd>
+<span class="datetime" title="2023-01-23 14:02">3 days, 9 hours ago</span></dd>
 
         <dt>Type</dt>
         <dd>article</dd>
@@ -473,7 +473,7 @@
 </li></ul>
 <hr>
 <h4 class="anchored_heading" id="thread_handling"><code>thread_handling</code></h4>
-<ul start="1"><li><strong>Description:</strong> Determines how the server handles threads for client connections. In addition to threads for client connections, this also applies to certain internal server threads, such as <a href="/kb/en/about-galera-replication/#galera-slave-threads">Galera slave threads</a>.
+<ul start="1"><li><strong>Description:</strong> Determines how the server handles threads for client connections. In addition to threads for client connections, this also applies to certain internal server threads, such as <a href="/kb/en/about-galera-replication/#galera-slave-threads">Galera slave threads</a>. On Windows, if you would like to use the thread pool, then you do not need to do anything, because the default for the thread_handling system variable is already preset to <code>pool-of-threads</code>. 
 <ul start="1"><li>When the default <code>one-thread-per-connection</code> mode is enabled, the server uses one thread to handle each client connection.
 </li><li>When the <code>pool-of-threads</code> mode is enabled, the server uses the <a href="/kb/en/thread-pool-in-mariadb/">thread pool</a> for client connections.
 </li><li>When the <code>no-threads</code> mode is enabled, the server uses a single thread for all client connections, which is really only usable for debugging.
@@ -482,10 +482,10 @@
 </li><li><strong>Scope:</strong> Global
 </li><li><strong>Dynamic:</strong> No
 </li><li><strong>Data Type:</strong> <code>enumeration</code>
-</li><li><strong>Default Value:</strong> <code>one-thread-per-connection</code>
+</li><li><strong>Default Value:</strong> <code>one-thread-per-connection</code> (non-Windows), <code>pool-of-threads</code> (Windows)
 </li><li><strong>Valid Values:</strong> <code>no-threads</code>, <code>one-thread-per-connection</code>, <code>pool-of-threads</code>.
 </li><li><strong>Documentation:</strong> <a href="/kb/en/thread-pool-in-mariadb/">Using the thread pool</a>.
-</li><li><strong>Notes:</strong> In MySQL the thread pool is only available in MySQL enterprise 5.5.16 and above. In MariaDB it's available in all versions.
+</li><li><strong>Notes:</strong> In MySQL, the thread pool is only available in MySQL Enterprise. In MariaDB it's available in all versions.
 </li></ul>
 <hr>
 <h4 class="anchored_heading" id="thread_pool_dedicated_listener"><code>thread_pool_dedicated_listener</code></h4>
@@ -874,7 +874,7 @@ If set to 'auto' (the default), the actual priority (low or high) is determined 
                     <a href="/cookie-policy/" title="Cookies">Cookie Policy</a>
                 </li>
             </ul>
-            <p>Copyright &copy; 2022 MariaDB. All rights reserved.</p>
+            <p>Copyright &copy; 2023 MariaDB. All rights reserved.</p>
         </div>
     </div>
 </footer>

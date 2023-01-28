@@ -72,7 +72,7 @@
 
 
         </div>
-        <p class="text-center copyright">Copyright &copy; 2022 MariaDB. All rights reserved.</p>
+        <p class="text-center copyright">Copyright &copy; 2023 MariaDB. All rights reserved.</p>
     </div>
 </div>
 <div id="wrapper">
@@ -247,12 +247,12 @@
         <dt>Created</dt>
         <dd>
 
-<span class="datetime" title="2013-05-11 07:51">9 years, 7 months ago</span></dd>
+<span class="datetime" title="2013-05-11 07:51">9 years, 8 months ago</span></dd>
 
         <dt>Modified</dt>
         <dd>
 
-<span class="datetime" title="2022-12-08 08:21">4 days, 3 hours ago</span></dd>
+<span class="datetime" title="2023-01-16 14:14">1 week, 3 days ago</span></dd>
 
         <dt>Type</dt>
         <dd>article</dd>
@@ -3561,13 +3561,13 @@ innodb_log_file_buffering=ON. Linux and Windows only.
 </li></ul>
 <hr>
 <h4 class="anchored_heading" id="innodb_undo_tablespaces"><code>innodb_undo_tablespaces</code></h4>
-<ul start="1"><li><strong>Description:</strong> Number of tablespaces files used for dividing up the <a href="/kb/en/undo-log/">undo logs</a>. By default, undo logs are all part of the system tablespace, which contains one undo tablespace more than the <code>innodb_undo_tablespaces</code> setting. When the undo logs can grow large, splitting them over multiple tablespaces will reduce the size of any single tablespace. Until <a href="mdb-10-11-1">MariaDB 10.11.1</a>, must be set before InnoDB is initialized, or else MariaDB will fail to start, with an error saying that <code>InnoDB did not find the expected number of undo tablespaces</code>. The files are created in the directory specified by <a href="/kb/en/xtradbinnodb-server-system-variables/#innodb_undo_directory">innodb_undo_directory</a>, and are named <code>undoN</code>, N being an integer. The default size of an undo tablespace is 10MB. <a href="/kb/en/innodb-system-variables/#innodb_undo_logs">innodb_undo_logs</a> must have a non-zero setting for <code>innodb_undo_tablespaces</code> to take effect.
+<ul start="1"><li><strong>Description:</strong> Number of tablespaces files used for dividing up the <a href="/kb/en/undo-log/">undo logs</a>. By default (0), undo logs are all part of the system tablespace, which contains one undo tablespace more than the <code>innodb_undo_tablespaces</code> setting. A value of 1 is reset to 0 as 2 or more are needed for separate tablespaces. When the undo logs can grow large, splitting them over multiple tablespaces will reduce the size of any single tablespace. Until <a href="mdb-10-11-1">MariaDB 10.11.1</a>, must be set before InnoDB is initialized, or else MariaDB will fail to start, with an error saying that <code>InnoDB did not find the expected number of undo tablespaces</code>. The files are created in the directory specified by <a href="#innodb_undo_directory">innodb_undo_directory</a>, and are named <code>undoN</code>, N being an integer. The default size of an undo tablespace is 10MB. <a href="#innodb_undo_logs">innodb_undo_logs</a> must have a non-zero setting for <code>innodb_undo_tablespaces</code> to take effect.
 </li><li><strong>Commandline:</strong> <code class="fixed" style="white-space:pre-wrap">--innodb-undo-tablespaces=#</code>
 </li><li><strong>Scope:</strong> Global
 </li><li><strong>Dynamic:</strong> No
 </li><li><strong>Data Type:</strong> <code>numeric</code>
-</li><li><strong>Default Value:</strong> <code>0</code>
-</li><li><strong>Range:</strong> <code>0</code> to <code>95</code> (&gt;= <a href="/kb/en/mariadb-1022-release-notes/">MariaDB 10.2.2</a>), <code>0</code> to <code>126</code> (&lt;= <a href="/kb/en/mariadb-1021-release-notes/">MariaDB 10.2.1</a>)
+</li><li><strong>Default Value:</strong> <code>3</code> (&gt;= <a href="/kb/en/what-is-mariadb-110/">MariaDB 11.0</a>), <code>0</code> (&lt;= <a href="/kb/en/what-is-mariadb-1011/">MariaDB 10.11</a>)
+</li><li><strong>Range:</strong> <code>0</code>, or <code>2</code> to <code>95</code> (&gt;= <a href="/kb/en/mariadb-1022-release-notes/">MariaDB 10.2.2</a>), <code>0</code>, or <code>2</code> to <code>126</code> (&lt;= <a href="/kb/en/mariadb-1021-release-notes/">MariaDB 10.2.1</a>)
 </li></ul>
 <hr>
 <h4 class="anchored_heading" id="innodb_use_atomic_writes"><code>innodb_use_atomic_writes</code></h4>
@@ -4131,7 +4131,7 @@ For more information, see Fusion.
                     <a href="/cookie-policy/" title="Cookies">Cookie Policy</a>
                 </li>
             </ul>
-            <p>Copyright &copy; 2022 MariaDB. All rights reserved.</p>
+            <p>Copyright &copy; 2023 MariaDB. All rights reserved.</p>
         </div>
     </div>
 </footer>

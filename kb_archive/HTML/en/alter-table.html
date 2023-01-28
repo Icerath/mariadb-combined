@@ -72,7 +72,7 @@
 
 
         </div>
-        <p class="text-center copyright">Copyright &copy; 2022 MariaDB. All rights reserved.</p>
+        <p class="text-center copyright">Copyright &copy; 2023 MariaDB. All rights reserved.</p>
     </div>
 </div>
 <div id="wrapper">
@@ -255,12 +255,12 @@
         <dt>Created</dt>
         <dd>
 
-<span class="datetime" title="2010-04-02 19:04">12 years, 8 months ago</span></dd>
+<span class="datetime" title="2010-04-02 19:04">12 years, 9 months ago</span></dd>
 
         <dt>Modified</dt>
         <dd>
 
-<span class="datetime" title="2022-11-08 20:46">3 weeks, 5 days ago</span></dd>
+<span class="datetime" title="2022-12-12 13:59">1 month, 2 weeks ago</span></dd>
 
         <dt>Type</dt>
         <dd>article</dd>
@@ -1004,7 +1004,7 @@ DROP CONSTRAINT constraint_name;
 <pre class="fixed"><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">tab_name</span> <span class="n">ENGINE</span> <span class="o">=</span> <span class="n">InnoDB</span><span class="p">;</span>
 </pre><p>The <code>FORCE</code> option can be used instead. For example, :</p>
 <pre class="fixed"><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">tab_name</span> <span class="k">FORCE</span><span class="p">;</span>
-</pre><p>With InnoDB, the table rebuild will only reclaim unused space (i.e. the space previously used for deleted rows) if the <a href="/kb/en/innodb-system-variables/#innodb_file_per_table">innodb_file_per_table</a> system variable is set to <code>ON</code>. If the system variable is <code>OFF</code>, then the space will not be reclaimed, but it will be-re-used for new data that's later added.</p>
+</pre><p>With InnoDB, the table rebuild will only reclaim unused space (i.e. the space previously used for deleted rows) if the <a href="/kb/en/innodb-system-variables/#innodb_file_per_table">innodb_file_per_table</a> system variable is set to <code>ON</code> (the default). If the system variable is <code>OFF</code>, then the space will not be reclaimed, but it will be-re-used for new data that's later added.</p>
 <h3 class="anchored_heading" id="exchange-partition">EXCHANGE PARTITION</h3>
 <p>This is used to exchange the contents of a partition with another table.</p>
 <p>This is performed by swapping the tablespaces of the partition with the other table.</p>
@@ -1422,7 +1422,7 @@ recovery, either the old table and associated triggers and status will be intact
                     <a href="/cookie-policy/" title="Cookies">Cookie Policy</a>
                 </li>
             </ul>
-            <p>Copyright &copy; 2022 MariaDB. All rights reserved.</p>
+            <p>Copyright &copy; 2023 MariaDB. All rights reserved.</p>
         </div>
     </div>
 </footer>

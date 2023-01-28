@@ -239,12 +239,12 @@
         <dt>Created</dt>
         <dd>
 
-<span class="datetime" title="2010-07-13 17:33">12 years, 4 months ago</span></dd>
+<span class="datetime" title="2010-07-13 17:33">12 years, 5 months ago</span></dd>
 
         <dt>Modified</dt>
         <dd>
 
-<span class="datetime" title="2022-03-28 23:33">8 months, 1 week ago</span></dd>
+<span class="datetime" title="2022-12-20 10:05">6 days, 2 hours ago</span></dd>
 
         <dt>Type</dt>
         <dd>article</dd>
@@ -416,7 +416,7 @@
 This primer is designed to teach you the basics of getting information into and out of an existing MariaDB database using the <a href="/kb/en/mysql-command-line-client/">mysql</a> command-line client program.  It's not a complete reference and will not touch on any advanced topics. It is just a quick jump-start into using MariaDB.</p>
 <h4 class="anchored_heading" id="logging-into-mariadb">Logging into MariaDB</h4>
 <p>Log into your MariaDB server from the command-line like so:</p>
-<pre class="fixed">mysql -u //user_name// -p -h //ip_address// //db_name//
+<pre class="fixed">mysql -u user_name -p -h ip_address db_name
 </pre><p>Replace <em>user_name</em> with your database username. Replace <em>ip_address</em> with the host name or address of your server.  If you're accessing MariaDB from the same server you're logged into, then don't include <code>-h</code> and the <em>ip_address</em>.  Replace <em>db_name</em> with the name of the database you want to access (such as <em>test</em>, which sometimes comes already created for testing purposes - note that Windows does not create this database, and some setups may also have removed the <code>test</code> database by running <a href="/kb/en/mysql_secure_installation/">mariadb-secure-installation/mysql_secure_installation</a>, in which case you can leave the <em>db_name</em> out). </p>
 <p>When prompted to enter your password, enter it. If your login is successful you should see something that looks similar to this:</p>
 <pre class="fixed"><span class="n">MariaDB</span> <span class="p">[</span><span class="n">test</span><span class="p">]</span><span class="o">&gt;</span> 

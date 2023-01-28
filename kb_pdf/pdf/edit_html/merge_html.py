@@ -2,10 +2,13 @@ from setup.kb_urls import CsvItem
 from setup.paths import BASE_KB
 from setup.config import Config
 from setup.logger import log
+from pathlib import Path
 
 from .contents import create_contents, TocItem
 import re
 
+PREFACE_PATH = "preface.html"
+PAGE_BREAK = '<div style = "page-break-after:always;"></div>\n'
 
 def merge_html(pages: list[str], kburls: list[CsvItem], outline: list[TocItem], config: Config) -> str:
     log.info("Merging HTML")
@@ -13,7 +16,8 @@ def merge_html(pages: list[str], kburls: list[CsvItem], outline: list[TocItem], 
     html = create_contents(outline, config.toc_config) + html
     html = absolute_links(html)
     html = internalise_links(html, kburls)
-    html = START_BOILERPLATE + html + END_BOILERPLATE
+    preface = Path(PREFACE_PATH).read_text(encoding="utf-8")
+    html = START_BOILERPLATE + preface + html + PAGE_BREAK + END_BOILERPLATE
     return html
 
 def absolute_links(html: str) -> str:

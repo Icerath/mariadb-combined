@@ -72,7 +72,7 @@
 
 
         </div>
-        <p class="text-center copyright">Copyright &copy; 2022 MariaDB. All rights reserved.</p>
+        <p class="text-center copyright">Copyright &copy; 2023 MariaDB. All rights reserved.</p>
     </div>
 </div>
 <div id="wrapper">
@@ -247,12 +247,12 @@
         <dt>Created</dt>
         <dd>
 
-<span class="datetime" title="2013-01-15 15:29">9 years, 10 months ago</span></dd>
+<span class="datetime" title="2013-01-15 15:29">10 years ago</span></dd>
 
         <dt>Modified</dt>
         <dd>
 
-<span class="datetime" title="2022-11-30 15:58">5 days, 3 hours ago</span></dd>
+<span class="datetime" title="2023-01-24 17:37">3 days, 8 hours ago</span></dd>
 
         <dt>Type</dt>
         <dd>article</dd>
@@ -401,7 +401,7 @@
     
     <div class="answer formatted">
         <div class="cstm-style bluebox text-center centered"><p>The most recent <strong><em><a href="/kb/en/release-criteria/">Stable</a> (GA)</em></strong> release of <a href="/kb/en/about-mariadb-connector-j/">MariaDB Connector/J</a> is:<br>
-<span class="cstm-style lead"><strong><a href="/kb/en/mariadb-connector-j-3-1-0-release-notes/">MariaDB Connector/J 3.1.0</a></strong></span></p>
+<span class="cstm-style lead"><strong><a href="/kb/en/mariadb-connector-j-3-1-2-release-notes/">MariaDB Connector/J 3.1.2</a></strong></span></p>
 </div>
 <div class="cstm-style centered"><p><a class="btn btn-success btn-large" href="https://mariadb.com/downloads/connector">Download<span>&nbsp;</span>MariaDB<span>&nbsp;</span>Connector/J</a></p>
 </div><p>MariaDB Connector/J is used to connect applications developed in Java to
@@ -409,13 +409,14 @@ MariaDB and MySQL databases using the standard JDBC API. The library is LGPL
 licensed.
 </p>
 <div class="cstm-style centered"><div class="cstm-style underheader graybox"><table><tr><th><span>&nbsp;</span>Date<span>&nbsp;</span></th><th><span>&nbsp;</span>Release<span>&nbsp;</span></th><th><span>&nbsp;</span>Status<span>&nbsp;</span></th><th><span>&nbsp;</span>Min. Java Compat.<span>&nbsp;</span></th><th><span>&nbsp;</span>Release Notes<span>&nbsp;</span></th><th><span>&nbsp;</span>Changelog<span>&nbsp;</span></th></tr>
-<tr><td>15 Nov 2022</td><td>3.1.0</td><td>Stable (GA)</td><td>Java 8</td><td><a href="/kb/en/mariadb-connector-j-3-1-0-release-notes/">Release Notes</a></td><td><a href="/kb/en/mariadb-connector-j-3-1-0-changelog/">Changelog</a></td></tr>
+<tr><td>24 Jan 2023</td><td>3.1.2</td><td>Stable (GA)</td><td>Java 8</td><td><a href="/kb/en/mariadb-connector-j-3-1-2-release-notes/">Release Notes</a></td><td><a href="/kb/en/mariadb-connector-j-3-1-2-changelog/">Changelog</a></td></tr>
+<tr><td>11 Jan 2023</td><td>3.1.1</td><td>Stable (GA)</td><td>Java 8</td><td><a href="/kb/en/mariadb-connector-j-3-1-1-release-notes/">Release Notes</a></td><td><a href="/kb/en/mariadb-connector-j-3-1-1-changelog/">Changelog</a></td></tr>
 <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>11 Jan 2023</td><td>3.0.10</td><td>Stable (GA)</td><td>Java 8</td><td><a href="/kb/en/mariadb-connector-j-3-0-10-release-notes/">Release Notes</a></td><td><a href="/kb/en/mariadb-connector-j-3-0-10-changelog/">Changelog</a></td></tr>
 <tr><td>08 Nov 2022</td><td>3.0.9</td><td>Stable (GA)</td><td>Java 8</td><td><a href="/kb/en/mariadb-connector-j-3-0-9-release-notes/">Release Notes</a></td><td><a href="/kb/en/mariadb-connector-j-3-0-9-changelog/">Changelog</a></td></tr>
-<tr><td>20 Sep 2022</td><td>3.0.8</td><td>Stable (GA)</td><td>Java 8</td><td><a href="/kb/en/mariadb-connector-j-308-release-notes/">Release Notes</a></td><td><a href="/kb/en/mariadb-connector-j-308-changelog/">Changelog</a></td></tr>
 <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>24 Jan 2023</td><td>2.7.8</td><td>Stable (GA)</td><td>Java 8</td><td><a href="/kb/en/mariadb-connector-j-2-7-8-release-notes/">Release Notes</a></td><td><a href="/kb/en/mariadb-connector-j-2-7-8-changelog/">Changelog</a></td></tr>
 <tr><td>08 Nov 2022</td><td>2.7.7</td><td>Stable (GA)</td><td>Java 8</td><td><a href="/kb/en/mariadb-connector-j-2-7-7-release-notes/">Release Notes</a></td><td><a href="/kb/en/mariadb-connector-j-2-7-7-changelog/">Changelog</a></td></tr>
-<tr><td>29 Jun 2022</td><td>2.7.6</td><td>Stable (GA)</td><td>Java 8</td><td><a href="/kb/en/mariadb-connector-j-276-release-notes/">Release Notes</a></td><td><a href="/kb/en/mariadb-connector-j-276-changelog/">Changelog</a></td></tr>
 </table>
 </div><p><a href="/kb/en/mariadb-connector-j-releases/">see all releases</a></p>
 </div><div class="table_of_contents well well-small">
@@ -469,6 +470,8 @@ licensed.
 </li>
 
     <li class=""><a href="#jdbc-api-implementation-notes" title="JDBC API Implementation Notes">JDBC API Implementation Notes</a>    <ol class="toc">
+
+        <li class=""><a href="#size-consideration" title="Size consideration">Size consideration</a></li>
 
         <li class=""><a href="#timezone-consideration" title="Timezone consideration">Timezone consideration</a></li>
 
@@ -747,8 +750,32 @@ Issues for Aurora were piling up without the community proposing any PR for them
 </table>
 </div><p><br><br></p>
 <h2 class="anchored_heading" id="jdbc-api-implementation-notes">JDBC API Implementation Notes</h2>
-<h3 class="anchored_heading" id="timezone-consideration">Timezone consideration</h3>
-<p>The best solution is always having client and server sharing the same timezone.</p>
+<h3 class="anchored_heading" id="size-consideration">Size consideration</h3>
+<p>GSSAPI in windows isn't well supported in java, causing recurrent issues. Since 3.1, waffle-jna is marked as a dependency to provide good GSSAPI support without problems. This has the drawback to make connector and dependencies to a size of around 4Mb. </p>
+<p>If size is important, the dependency can be removed, the connector working great, just will have some limitation using GSSAPI on windows :</p>
+<p>this can be done like this: </p>
+<ul start="1"><li>using maven
+</li></ul>
+<pre class="fixed">&lt;dependency&gt;
+	&lt;groupId&gt;org.mariadb.jdbc&lt;/groupId&gt;
+	&lt;artifactId&gt;mariadb-java-client&lt;/artifactId&gt;
+	&lt;version&gt;3.1.0&lt;/version&gt;
+        &lt;exclusions&gt;
+          &lt;exclusion&gt;
+            &lt;groupId&gt;com.github.waffle&lt;/groupId&gt;
+            &lt;artifactId&gt;waffle-jna&lt;/artifactId&gt;
+          &lt;/exclusion&gt;
+      &lt;/exclusions&gt; 
+&lt;/dependency&gt;
+</pre><ul start="1"><li>using graddle:
+</li></ul>
+<pre class="fixed">dependencies {
+    implementation('org.mariadb.jdbc:mariadb-java-client:3.1.0') {
+        exclude group: 'com.github.waffle', module: 'waffle-jna'
+    }
+}
+</pre><h3 class="anchored_heading" id="timezone-consideration">Timezone consideration</h3>
+<p>The simple solution is always having client and server sharing the same timezone.</p>
 <p>If that's not the case, some options permit to correct that behavior. In 2.x version, there was 2 options `useLegacyDatetimeCode` and `serverTimezone` that control timezone difference. Those options are now removed in 3.x version, since they didn't comply well with <a href="/kb/en/time-zones/#time-zone-effects-on-functions">time function</a>.</p>
 <p>Since 3.0.0, a new option 'timezone' permit to handle time_zone differences.</p>
 <p>The option `timezone` can have 3 types of value:</p>
@@ -756,6 +783,7 @@ Issues for Aurora were piling up without the community proposing any PR for them
 </li><li>'auto' : connector will set time_zone connection variable to java default timezone
 </li><li>'&lt;a timezone&gt;': connector will set connection variable to value. 
 </li></ul>
+<p>The solution is to explicitly set timezone either to 'auto' or to explicit timezone.</p>
 <p>example :</p>
 <ul start="1"><li>jdbc:mariadb:<em>localhost/?timezone=+5:00</em>
 </li><li>jdbc:mariadb:<em>localhost/?timezone=auto</em>
@@ -763,6 +791,7 @@ Issues for Aurora were piling up without the community proposing any PR for them
 </li></ul>
 <p>The recommended value is setting timezone to 'auto'. Connector will then time_zone connection variable to `timezone` value at connection creation. This permits safe use of server  <a href="/kb/en/time-zones/#time-zone-effects-on-functions">time function</a>.
 If client use IANA timezone, server might have to load time zones information see <a href="/kb/en/mysql_tzinfo_to_sql/">mysql_tzinfo_to_sql</a> and <a href="/kb/en/time-zones/">time-zones</a>, and those are not filled by default.</p>
+<p>This correspond to behavior of MySQL connector with options "connectionTimeZone" set with option "forceConnectionTimeZoneToSession" set to true. </p>
 <h3 class="anchored_heading" id="load-data-infile">"LOAD DATA INFILE"</h3>
 <div class="cstm-style bluebox"><p>LOAD DATA INFILE was the fastest way to load data. Since <a href="/kb/en/what-is-mariadb-102/">MariaDB 10.2</a>, now the fastest way is the standard JDBC executeBatch() when option 'useBulkStmts' is enabled</p>
 </div><p>The fastest way to load lots of data is using <a href="https://mariadb.com/kb/en/mariadb/load-data-infile/">LOAD DATA INFILE</a>. <br>However, using "LOAD DATA LOCAL INFILE" (ie: loading a file from the client) may be a security problem if someone can execute a query from the client, he can have access to any file on the client (according to the rights of the user running the client process).</p>
@@ -1254,7 +1283,7 @@ Connection pool using JDBC4 Validation are using automatically this Connection.i
                     <a href="/cookie-policy/" title="Cookies">Cookie Policy</a>
                 </li>
             </ul>
-            <p>Copyright &copy; 2022 MariaDB. All rights reserved.</p>
+            <p>Copyright &copy; 2023 MariaDB. All rights reserved.</p>
         </div>
     </div>
 </footer>

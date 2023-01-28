@@ -217,9 +217,67 @@ Comments - Failed to start MariaDB 10.3.23 database server.
                 </label>
             </div>
         </div>
+        <a name="comment_6042"></a>
+        <div class="comment approved" style="margin-left: 0px">
+            <div class="info">
+                
+
+<span class="datetime" title="2022-12-07 08:33">2 weeks, 1 day ago</span>
+                
+<span class="user" id="user-13053">
+<a href="/kb/user/id/13053" title="Portal del Empleo DayToWork">Portal del Empleo DayToWork</a>
+</span>
+            </div>
+            <div class="title">
+                <a href="#comment_6042">Re: Failed to start MariaDB 10.3.23 database server.</a>
+                
+            </div><div class="comment_text">
+                <p>I am not very dexterous and I got this error how can I solve it.
+Thank you very much for your kind guidance to solve this problem.</p>
+<p>Job for mariadb.service failed because a fatal signal was delivered to the contr                       ol process. See "systemctl status mariadb.service" and "journalctl -xe" for deta                       ils.
+loft8339:# systemctl status mariadb.service
+● mariadb.service - <a href="/kb/en/mariadb-10244-release-notes/">MariaDB 10.2.44</a> database server
+   Loaded: loaded (/usr/lib/systemd/system/mariadb.service; disabled; vendor pre                       set: disabled)
+  Drop-In: /etc/systemd/system/mariadb.service.d
+           └─migrated-from-my.cnf-settings.conf
+        /usr/lib/systemd/system/mariadb.service.d
+           └─respawn.conf
+   Active: activating (auto-restart) (Result: signal) since Wed 2022-12-07 02:04                       :23 CST; 1s ago
+     Docs: man:mysqld(8)
+           <a href="https://mariadb.com/kb/en/library/systemd/">https://mariadb.com/kb/en/library/systemd/</a>
+  Process: 45493 ExecStart=/usr/sbin/mysqld $MYSQLD_OPTS --basedir=/usr $_WSREP_                       NEW_CLUSTER $_WSREP_START_POSITION (code=killed, signal=ABRT)
+  Process: 45466 ExecStartPre=/bin/sh -c [ ! -e /usr/bin/galera_recovery ] &amp;&amp; VA                       R= ||   VAR=`cd /usr/bin/..; /usr/bin/galera_recovery`; [ $? -eq 0 ]   &amp;&amp; system                       ctl set-environment _WSREP_START_POSITION=$VAR || exit 1 (code=exited, status=0/                       SUCCESS)
+  Process: 45463 ExecStartPre=/bin/sh -c systemctl unset-environment _WSREP_STAR                       T_POSITION (code=exited, status=0/SUCCESS)
+ Main PID: 45493 (code=killed, signal=ABRT)
+   CGroup: /system.slice/mariadb.service</p>
+<p>Dec 07 02:04:23 loft8339.serverprofi24.com systemd[1]: Failed to start MariaD...
+Dec 07 02:04:23 loft8339.serverprofi24.com systemd[1]: Unit mariadb.service e...
+Dec 07 02:04:23 loft8339.serverprofi24.com systemd[1]: mariadb.service failed.
+Hint: Some lines were ellipsized, use -l to show in full.</p>
+
+            </div>
+            <div class="comment_actions hidden-print">
+                
+                
+                &nbsp;
+
+                <div class="pull-right">
+                    
+                    <a class="flag btn btn-mini" href="/kb/en/failed-to-start-mariadb-10323-database-server/+comments/6042/flag"
+                       data-flag-url="/kb/en/failed-to-start-mariadb-10323-database-server/+comments/6042/flag"
+                            title="Flag as Spam/Inappropriate">
+                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                        </a>
+                    
+                    
+                    
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
         
-            <div class="no_comments" style="clear: left">No comments</div>
-        
+    
+
     
 
 </div>

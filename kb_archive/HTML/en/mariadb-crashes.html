@@ -243,12 +243,12 @@
         <dt>Created</dt>
         <dd>
 
-<span class="datetime" title="2022-11-28 07:06">1 week ago</span></dd>
+<span class="datetime" title="2022-11-28 07:06">3 weeks, 3 days ago</span></dd>
 
         <dt>Modified</dt>
         <dd>
 
-<span class="datetime" title="2022-11-28 21:46">6 days, 19 hours ago</span></dd>
+<span class="datetime" title="2022-12-20 07:54">2 days, 19 hours ago</span></dd>
 
         <dt>Type</dt>
         <dd>article</dd>
@@ -381,6 +381,12 @@
     
     <div class="answer formatted">
         <p>There are a number of causes of MariaDB crashes. Most of these are MariaDB encountering a situation where it cannot safely proceed. Crashes on Linux/Unix systems are fatal signals. On Windows these are similar looking exceptions.</p>
+<h2 class="anchored_heading" id="innodb-semaphore-wait">InnoDB Semaphore wait</h2>
+<p>These are indicated by the following text in the error log:</p>
+<pre>
+[ERROR] [FATAL] InnoDB: Semaphore wait has lasted &gt; 600 seconds. We intentionally crash the server because it appears to be hung.
+</pre>
+<p>For this its essential that a full backtrace of [how-to-produce-a-full-stack-trace-for-mysqld/#getting-full-backtraces-for-all-threads-from-a-running-mariadbd-process|all the running threads].</p>
 <h2 class="anchored_heading" id="assertions">Assertions</h2>
 <p>These look like <code>[ERROR] mariadbd got signal 6</code>. There might be associated text in the error log like:</p>
 <pre>

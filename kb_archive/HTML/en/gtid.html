@@ -72,7 +72,7 @@
 
 
         </div>
-        <p class="text-center copyright">Copyright &copy; 2022 MariaDB. All rights reserved.</p>
+        <p class="text-center copyright">Copyright &copy; 2023 MariaDB. All rights reserved.</p>
     </div>
 </div>
 <div id="wrapper">
@@ -243,12 +243,12 @@
         <dt>Created</dt>
         <dd>
 
-<span class="datetime" title="2013-05-07 09:36">9 years, 7 months ago</span></dd>
+<span class="datetime" title="2013-05-07 09:36">9 years, 8 months ago</span></dd>
 
         <dt>Modified</dt>
         <dd>
 
-<span class="datetime" title="2022-11-08 21:56">3 weeks, 5 days ago</span></dd>
+<span class="datetime" title="2023-01-25 02:39">2 days, 23 hours ago</span></dd>
 
         <dt>Type</dt>
         <dd>article</dd>
@@ -915,7 +915,7 @@ START ALL SLAVES;
 </pre><p>This system variable's value can be reset by manually changing its value to the empty string. For example:</p>
 <pre class="fixed">SET GLOBAL gtid_slave_pos = '';
 </pre><p>The GTID position defined by <code>gtid_slave_pos</code> can be used as a replica's starting replication position by setting <a href="/kb/en/change-master-to/#master_use_gtid">MASTER_USE_GTID=slave_pos</a> when the replica is configured with the <a href="/kb/en/change-master-to/">CHANGE MASTER TO</a> statement. As an alternative, the <a href="#gtid_current_pos">gtid_current_pos</a> system variable can also be used as a replica's starting replication position.</p>
-<p>If a user sets the value of the <code>gtid_slave_pos</code> system variable, and <a href="#gtid_binlog_pos">gtid_binlog_pos</a> contains later GTIDs for certain replication domains, then <a href="#gtid_current_pos">gtid_current_pos</a> will contain the GTIDs from <a href="#gtid_binlog_pos">gtid_binlog_pos</a> for those replication domains. To protect users in this scenario, if a user sets tthe <code>gtid_slave_pos</code> system variable to a GTID position that is behind the GTID position in <a href="#gtid_binlog_pos">gtid_binlog_pos</a>, then the server will give the user a warning.</p>
+<p>If a user sets the value of the <code>gtid_slave_pos</code> system variable, and <a href="#gtid_binlog_pos">gtid_binlog_pos</a> contains later GTIDs for certain replication domains, then <a href="#gtid_current_pos">gtid_current_pos</a> will contain the GTIDs from <a href="#gtid_binlog_pos">gtid_binlog_pos</a> for those replication domains. To protect users in this scenario, if a user sets the <code>gtid_slave_pos</code> system variable to a GTID position that is behind the GTID position in <a href="#gtid_binlog_pos">gtid_binlog_pos</a>, then the server will give the user a warning.</p>
 <p>This can help protect the user when the replica is configured to use <a href="#gtid_current_pos">gtid_current_pos</a>  as its replication position. This can also help protect the user when a server has been rolled back to restart replication from an earlier point in time, but the user has forgotten to reset <a href="#gtid_binlog_pos">gtid_binlog_pos</a> with <a href="/kb/en/reset-master/">RESET MASTER</a>.</p>
 <p>The <a href="/kb/en/mysqlgtid_slave_pos-table/">mysql.gtid_slave_pos</a> system table is used to store the contents of global.gtid_slave_pos and preserve it over restarts.</p>
 <ul start="1"><li><strong>Commandline:</strong> None
@@ -1601,7 +1601,7 @@ possible to specify engines that are not enabled in the server. The server will 
                     <a href="/cookie-policy/" title="Cookies">Cookie Policy</a>
                 </li>
             </ul>
-            <p>Copyright &copy; 2022 MariaDB. All rights reserved.</p>
+            <p>Copyright &copy; 2023 MariaDB. All rights reserved.</p>
         </div>
     </div>
 </footer>

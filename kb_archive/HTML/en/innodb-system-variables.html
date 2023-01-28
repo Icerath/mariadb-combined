@@ -247,12 +247,12 @@
         <dt>Created</dt>
         <dd>
 
-<span class="datetime" title="2013-05-11 07:51">9 years, 6 months ago</span></dd>
+<span class="datetime" title="2013-05-11 07:51">9 years, 7 months ago</span></dd>
 
         <dt>Modified</dt>
         <dd>
 
-<span class="datetime" title="2022-11-01 14:06">1 month ago</span></dd>
+<span class="datetime" title="2022-12-08 08:21">2 weeks, 4 days ago</span></dd>
 
         <dt>Type</dt>
         <dd>article</dd>
@@ -2027,7 +2027,7 @@ These tables do not support new features, such as larger innodb_page_size or ins
 </li></ul>
 <hr>
 <h4 class="anchored_heading" id="innodb_flush_log_at_timeout"><code>innodb_flush_log_at_timeout</code></h4>
-<ul start="1"><li><strong>Description:</strong> Interval in seconds to write and flush the <a href="/kb/en/xtradbinnodb-redo-log/">InnoDB redo log</a>. Before MariaDB 10, this was fixed at one second, which is still the default, but this can now be changed. It's usually increased to reduce flushing and avoid impacting performance of binary log group commit.
+<ul start="1"><li><strong>Description:</strong> Interval in seconds to write and flush the <a href="/kb/en/innodb-redo-log/">InnoDB redo log</a>. Before MariaDB 10, this was fixed at one second, which is still the default, but this can now be changed. It's usually increased to reduce flushing and avoid impacting performance of binary log group commit.
 </li><li><strong>Scope:</strong> Global
 </li><li><strong>Dynamic:</strong> Yes
 </li><li><strong>Data Type:</strong> <code>numeric</code>
@@ -2039,7 +2039,7 @@ These tables do not support new features, such as larger innodb_page_size or ins
 <ul start="1"><li><strong>Description:</strong> Set to <code>1</code>, along with <a href="/kb/en/replication-and-binary-log-server-system-variables/#sync_binlog">sync_binlog=1</a> for the greatest level of fault tolerance. The value of <a href="#innodb_use_global_flush_log_at_trx_commit">innodb_use_global_flush_log_at_trx_commit</a> determines whether this variable can be reset with a SET statement or not.
 <ul start="1"><li><code>1</code> The default, the log buffer is written to the <a href="/kb/en/innodb-redo-log/">InnoDB redo log</a> file and a flush to disk performed after each transaction. This is required for full ACID compliance. 
 </li><li><code>0</code> Nothing is done on commit; rather the log buffer is written and flushed to the <a href="/kb/en/innodb-redo-log/">InnoDB redo log</a> once a second. This gives better performance, but a server crash can erase the last second of transactions. 
-</li><li><code>2</code> The log buffer is written to the <a href="/kb/en/innodb-redo-log/">InnoDB redo log</a> after each commit, but flushing takes place once a second. Performance is slightly better, but a OS or power outage can cause the last second's transactions to be lost. 
+</li><li><code>2</code> The log buffer is written to the <a href="/kb/en/innodb-redo-log/">InnoDB redo log</a> after each commit, but flushing takes place every <a href="#innodb_flush_log_at_timeout">innodb_flush_log_at_timeout</a> seconds (by default once a second). Performance is slightly better, but a OS or power outage can cause the last second's transactions to be lost. 
 </li><li><code>3</code> Emulates <a href="/kb/en/what-is-mariadb-55/">MariaDB 5.5</a> <a href="/kb/en/group-commit-for-the-binary-log/">group commit</a> (3 syncs per group commit). See <a href="/kb/en/binlog-group-commit-and-innodb_flush_log_at_trx_commit/">Binlog group commit and innodb_flush_log_at_trx_commit</a>. This option has not been working correctly since 10.2 and may be removed in future, see <a href="https://github.com/MariaDB/server/pull/1873">https://github.com/MariaDB/server/pull/1873</a>
 </li></ul>
 </li><li><strong>Commandline:</strong> <code class="fixed" style="white-space:pre-wrap">--innodb-flush-log-at-trx-commit[=#]</code>

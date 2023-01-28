@@ -21,8 +21,8 @@ class CsvItem:
     @classmethod
     def from_dict(cls, row: dict[str, str]):
         url: str = row["URL"]
-        path: Path = url_to_path(DIR_PATH, url)
-        id_path = "/".join(path.parts).removeprefix("../kb_archive/HTML/")
+        path: Path = url_to_path(url)
+        id_path = "/".join(path.parts).removeprefix("../kb_archive/html/")
         slugs: list[str]
         include: int
         depth: int
@@ -70,10 +70,9 @@ def read_csv(filepath: Path|str, num_rows: int) -> list[CsvItem]:
 
 
 def _parse_csv(content: Iterable[dict], num_rows) -> list[CsvItem]:
-    kb_urls = [CsvItem.from_dict(row) for row in content if row["Include"] not in ["", "0"]]
-    if num_rows > 0:
-        return kb_urls[:num_rows]
-    return kb_urls
+    rows = [row for row in content if row["Include"] not in ["", "0"]]
+    rows = rows[:num_rows] if num_rows > 0 else rows
+    return [CsvItem.from_dict(row) for row in rows if row["Include"] not in ["", "0"]]
 
 def apply_depth(kb_urls: list[CsvItem]):
     depths = []

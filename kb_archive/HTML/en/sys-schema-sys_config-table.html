@@ -72,7 +72,7 @@
 
 
         </div>
-        <p class="text-center copyright">Copyright &copy; 2022 MariaDB. All rights reserved.</p>
+        <p class="text-center copyright">Copyright &copy; 2023 MariaDB. All rights reserved.</p>
     </div>
 </div>
 <div id="wrapper">
@@ -259,12 +259,12 @@
         <dt>Created</dt>
         <dd>
 
-<span class="datetime" title="2021-04-24 16:09">1 year, 7 months ago</span></dd>
+<span class="datetime" title="2021-04-24 16:09">1 year, 9 months ago</span></dd>
 
         <dt>Modified</dt>
         <dd>
 
-<span class="datetime" title="2022-03-28 19:28">8 months, 1 week ago</span></dd>
+<span class="datetime" title="2022-12-19 21:27">1 month, 1 week ago</span></dd>
 
         <dt>Type</dt>
         <dd>article</dd>
@@ -415,9 +415,9 @@
 
     
     <div class="answer formatted">
-        <div class="mariadb_from_10_6_0 mariadb from_10_6_0 product"><h5 class="product_title">MariaDB starting with <a href="/kb/en/mariadb-1060-release-notes/">10.6.0</a></h5><p>The Sys Schema <em>sys_config</em> table was added in <a href="/kb/en/mariadb-1060-release-notes/">MariaDB 10.6.0</a>.</p>
-</div><p>The <em>sys_config</em> table holds configuration options for the <a href="/kb/en/sys-schema/">Sys Schema</a>.</p>
-<p>This is a persistent table (using the <a href="/kb/en/innodb/">InnoDB</a> storage engine), with the configuration persisting across upgrades (new options are added with <a href="/kb/en/insert-ignore/">INSERT IGNORE</a>).</p>
+        <div class="mariadb_from_10_6_0 mariadb from_10_6_0 product"><h5 class="product_title">MariaDB starting with <a href="/kb/en/mariadb-1060-release-notes/">10.6.0</a></h5><p>The Sys Schema <em>sys_config</em> table was added in <a href="/kb/en/mariadb-1060-release-notes/">MariaDB 10.6.0</a>.  The <em>sys_config</em> table is also backported to <a href="https://mariadb.com/docs/server/whats-new/prior-series/mariadb-enterprise-server-10-5/">MariaDB-10.5-enterprise</a>.</p>
+</div><p>The <em>sys.sys_config</em> table holds configuration options for the <a href="/kb/en/sys-schema/">Sys Schema</a>.</p>
+<p>This is a persistent table (using the <a href="/kb/en/aria/">Aria</a> storage engine), with the configuration persisting across upgrades (new options are added with <a href="/kb/en/insert-ignore/">INSERT IGNORE</a>.</p>
 <p>The table also has two related triggers, which maintain the user that INSERTs or UPDATEs the configuration - sys_config_insert_set_user and sys_config_update_set_user respectively.</p>
 <p>Its structure is as follows:</p>
 <pre class="fixed">+----------+--------------+------+-----+-------------------+-----------------------------+
@@ -438,7 +438,9 @@
 <tr><td>diagnostics.include_raw</td><td>OFF</td><td>Set to 'ON' to include the raw data (e.g. the original output of "SELECT * FROM sys.metrics") for the diagnostics procedure.</td></tr>
 <tr><td>ps_thread_trx_info.max_length</td><td>65535</td><td>Sets the maximum output length for JSON object output by the ps_thread_trx_info() function.</td></tr>
 </table>
-</div>
+</div><h3 class="anchored_heading" id="notes">Notes</h3>
+<p>Some early versions of <em>sys_config</em> were stored in <a href="/kb/en/innodb/">InnoDB</a> format.</p>
+
     </div>
 
 
@@ -656,7 +658,7 @@
                     <a href="/cookie-policy/" title="Cookies">Cookie Policy</a>
                 </li>
             </ul>
-            <p>Copyright &copy; 2022 MariaDB. All rights reserved.</p>
+            <p>Copyright &copy; 2023 MariaDB. All rights reserved.</p>
         </div>
     </div>
 </footer>

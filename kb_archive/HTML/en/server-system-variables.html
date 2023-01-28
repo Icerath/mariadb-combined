@@ -72,7 +72,7 @@
 
 
         </div>
-        <p class="text-center copyright">Copyright &copy; 2022 MariaDB. All rights reserved.</p>
+        <p class="text-center copyright">Copyright &copy; 2023 MariaDB. All rights reserved.</p>
     </div>
 </div>
 <div id="wrapper">
@@ -247,12 +247,12 @@
         <dt>Created</dt>
         <dd>
 
-<span class="datetime" title="2010-04-08 22:03">12 years, 8 months ago</span></dd>
+<span class="datetime" title="2010-04-08 22:03">12 years, 9 months ago</span></dd>
 
         <dt>Modified</dt>
         <dd>
 
-<span class="datetime" title="2022-11-30 09:08">5 days, 11 hours ago</span></dd>
+<span class="datetime" title="2023-01-22 21:47">4 days, 1 hour ago</span></dd>
 
         <dt>Type</dt>
         <dd>article</dd>
@@ -3106,7 +3106,7 @@ Variables that can be changed at runtime are described as "Dynamic" below, and e
 
 
 <h4 class="anchored_heading" id="character_set_client"><code>character_set_client</code></h4>
-<ul start="1"><li><strong>Description:</strong> Determines the <a href="/kb/en/data-types-character-sets-and-collations/">character set</a> for queries arriving from the client. It can be set per session by the client, although the server can be configured to ignore client requests with the <code>--skip-character-set-client-handshake</code> option. If the client does not request a character set, or requests a character set that the server does not support, the global value will be used. utf16, utf32 and ucs2 cannot be used as client character sets. From <a href="/kb/en/what-is-mariadb-106/">MariaDB 10.6</a>, the <code>utf8</code> <a href="/kb/en/character-sets/">character set</a> (and related collations) is by default an alias for <code>utf8mb3</code> rather than the other way around. It can be set to imply <code>utf8mb4</code> by changing the value of the <a href="/kb/en/server-system-variables/#old_mode">old_mode</a> system variable.
+<ul start="1"><li><strong>Description:</strong> Determines the <a href="/kb/en/data-types-character-sets-and-collations/">character set</a> for queries arriving from the client. It can be set per session by the client, although the server can be configured to ignore client requests with the <code>--skip-character-set-client-handshake</code> option. If the client does not request a character set, or requests a character set that the server does not support, the global value will be used. utf16, utf16le, utf32 and ucs2 cannot be used as client character sets. From <a href="/kb/en/what-is-mariadb-106/">MariaDB 10.6</a>, the <code>utf8</code> <a href="/kb/en/character-sets/">character set</a> (and related collations) is by default an alias for <code>utf8mb3</code> rather than the other way around. It can be set to imply <code>utf8mb4</code> by changing the value of the <a href="/kb/en/server-system-variables/#old_mode">old_mode</a> system variable.
 </li><li><strong>Scope:</strong> Global, Session
 </li><li><strong>Dynamic:</strong> Yes
 </li><li><strong>Data Type:</strong> <code>string</code>
@@ -4413,7 +4413,7 @@ Variables that can be changed at runtime are described as "Dynamic" below, and e
 <hr>
 
 <h4 class="anchored_heading" id="log_slow_admin_statements"><code>log_slow_admin_statements</code></h4>
-<ul start="1"><li><strong>Description:</strong> Log slow <a href="/kb/en/optimize-table/">OPTIMIZE</a>, <a href="/kb/en/analyze-table/">ANALYZE</a>, <a href="/kb/en/alter/">ALTER</a> and other <a href="/kb/en/slow-query-log-overview/#logging-slow-administrative-statements">administrative</a> statements to the <a href="/kb/en/slow-query-log/">slow log</a> if it is open. See also <a href="#log_slow_disabled_statements">log_slow_disabled_statements</a> and <a href="#log_slow_filter">log_slow_filter</a>.
+<ul start="1"><li><strong>Description:</strong> Log slow <a href="/kb/en/optimize-table/">OPTIMIZE</a>, <a href="/kb/en/analyze-table/">ANALYZE</a>, <a href="/kb/en/alter/">ALTER</a> and other <a href="/kb/en/slow-query-log-overview/#logging-slow-administrative-statements">administrative</a> statements to the <a href="/kb/en/slow-query-log/">slow log</a> if it is open. See also <a href="#log_slow_disabled_statements">log_slow_disabled_statements</a> and <a href="#log_slow_filter">log_slow_filter</a>. Deprecated, use <a href="#log_slow_filter">log_slow_filter</a> without <code>admin</code>.
 </li><li><strong>Commandline:</strong> <code class="fixed" style="white-space:pre-wrap">--log-slow-admin-statements</code>
 </li><li><strong>Scope:</strong> Global
 </li><li><strong>Dynamic:</strong> Yes
@@ -4422,6 +4422,7 @@ Variables that can be changed at runtime are described as "Dynamic" below, and e
 <ul start="1"><li><code>ON </code> (&gt;= <a href="/kb/en/mariadb-1024-release-notes/">MariaDB 10.2.4</a>)
 </li><li><code>OFF</code> (&lt;= <a href="/kb/en/mariadb-1023-release-notes/">MariaDB 10.2.3</a>)
 </li></ul>
+</li><li><strong>Deprecated:</strong> <a href="/kb/en/mariadb-1101-release-notes/">MariaDB 11.0.1</a>
 </li></ul>
 <hr>
 <h4 class="anchored_heading" id="log_slow_disabled_statements"><code>log_slow_disabled_statements</code></h4>
@@ -4662,7 +4663,7 @@ This system variable's value cannot be changed after the datadir has been initia
 
 
 <h4 class="anchored_heading" id="max_connect_errors"><code>max_connect_errors</code></h4>
-<ul start="1"><li><strong>Description:</strong> Limit to the number of successive failed connects from a host before the host is blocked from making further connections. The count for a host is reset to zero if they successfully connect. To unblock, flush the host cache with a <a href="/kb/en/flush/">FLUSH HOSTS</a> statement or <a href="/kb/en/mysqladmin/">mysqladmin flush-hosts</a>.
+<ul start="1"><li><strong>Description:</strong> Limit to the number of successive failed connects from a host before the host is blocked from making further connections. The count for a host is reset to zero if they successfully connect. To unblock, flush the host cache with a <a href="/kb/en/flush/">FLUSH HOSTS</a> statement or <a href="/kb/en/mysqladmin/">mysqladmin flush-hosts</a>. The <a href="/kb/en/performance-schema-host_cache-table/">performance_schema.host_cache</a> table contains the status of the current hosts.
 </li><li><strong>Commandline:</strong> <code class="fixed" style="white-space:pre-wrap">--max-connect-errors=#</code>
 </li><li><strong>Scope:</strong> Global
 </li><li><strong>Dynamic:</strong> Yes
@@ -7385,7 +7386,7 @@ the best query execution plan.
                     <a href="/cookie-policy/" title="Cookies">Cookie Policy</a>
                 </li>
             </ul>
-            <p>Copyright &copy; 2022 MariaDB. All rights reserved.</p>
+            <p>Copyright &copy; 2023 MariaDB. All rights reserved.</p>
         </div>
     </div>
 </footer>

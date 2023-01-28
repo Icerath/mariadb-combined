@@ -54,6 +54,6 @@ def _find_languages(row: CsvItem) -> dict[str, str]:
 def _create_lang_row(row: CsvItem, url: str) -> CsvItem:
     new_row = copy(row)
     new_row.url = url
-    new_row.path = url_to_path(DIR_PATH, url)
+    new_row.path = url_to_path(url)
     row.id_path = "/".join(new_row.path.parts).removeprefix(DIR_PATH_STR)
     return new_row

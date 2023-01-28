@@ -72,7 +72,7 @@
 
 
         </div>
-        <p class="text-center copyright">Copyright &copy; 2022 MariaDB. All rights reserved.</p>
+        <p class="text-center copyright">Copyright &copy; 2023 MariaDB. All rights reserved.</p>
     </div>
 </div>
 <div id="wrapper">
@@ -235,12 +235,12 @@
         <dt>Created</dt>
         <dd>
 
-<span class="datetime" title="2018-03-05 07:52">4 years, 9 months ago</span></dd>
+<span class="datetime" title="2018-03-05 07:52">4 years, 10 months ago</span></dd>
 
         <dt>Modified</dt>
         <dd>
 
-<span class="datetime" title="2021-02-26 03:27">1 year, 9 months ago</span></dd>
+<span class="datetime" title="2023-01-08 08:55">4 days, 10 hours ago</span></dd>
 
         <dt>Type</dt>
         <dd>article</dd>
@@ -376,6 +376,10 @@
 <h3>Contents</h3>
  <ol class="toc">
 
+ <li class=""><a href="#systemd-watchdog-kills-maxscale" title="SystemD Watchdog Kills MaxScale">SystemD Watchdog Kills MaxScale</a></li>
+
+ <li class=""><a href="#high-memory-usage" title="High Memory Usage">High Memory Usage</a></li>
+
  <li class=""><a href="#authentication-errors" title="Authentication Errors">Authentication Errors</a> <ol class="toc">
 
     <li class=""><a href="#access-denied" title="Access Denied">Access Denied</a>    <ol class="toc">
@@ -390,31 +394,9 @@
     </ol>
 </li>
 
-    <li class=""><a href="#ssltls-errors-on-connect" title="SSL/TLS Errors on connect">SSL/TLS Errors on connect</a></li>
-
-    <li class=""><a href="#loaded-0-mysql-users" title="Loaded 0 MySQL users">Loaded 0 MySQL users</a></li>
-
-    <li class=""><a href="#other-errors" title="Other Errors">Other Errors</a>    <ol class="toc">
-
-        <li class=""><a href="#authentication-queries" title="Authentication queries">Authentication queries</a>        <ol class="toc">
-
-            <li class=""><a href="#maxscale-250-and-newer" title="MaxScale 2.5.0 and newer">MaxScale 2.5.0 and newer</a></li>
-
-            <li class=""><a href="#maxscale-2214-to-maxscale-250" title="MaxScale 2.2.14 to MaxScale 2.5.0">MaxScale 2.2.14 to MaxScale 2.5.0</a></li>
-
-            <li class=""><a href="#maxscale-2210-to-maxscale-2213" title="MaxScale 2.2.10 to MaxScale 2.2.13">MaxScale 2.2.10 to MaxScale 2.2.13</a></li>
-
-            <li class=""><a href="#maxscale-21-up-to-2210" title="MaxScale 2.1 up to 2.2.10">MaxScale 2.1 up to 2.2.10</a></li>
-
-            <li class=""><a href="#maxscale-20-and-14" title="MaxScale 2.0 and 1.4">MaxScale 2.0 and 1.4</a></li>
-
-            <li class=""><a href="#pre-140" title="Pre-1.4.0">Pre-1.4.0</a>        </ol>
-    </ol>
-</li>
+    <li class=""><a href="#other-errors" title="Other Errors">Other Errors</a></li>
 
     <li class=""><a href="#access-denied-errors-for-user-root" title="Access denied errors for user root!">Access denied errors for user root!</a></li>
-
-    <li class=""><a href="#access-denied-for-userlocalhost" title="Access denied for user@localhost">Access denied for user@localhost</a></li>
 
     <li class=""><a href="#access-denied-on-databasestables-containing-underscores" title="Access denied on databases/tables containing underscores">Access denied on databases/tables containing underscores</a> </ol>
 </li>
@@ -425,9 +407,7 @@
 
     <li class=""><a href="#error-23-too-many-open-files" title="Error 23: Too many open files">Error 23: Too many open files</a>    <ol class="toc">
 
-        <li class=""><a href="#systemd" title="Systemd">Systemd</a></li>
-
-        <li class=""><a href="#sysv" title="SysV">SysV</a>    </ol>
+        <li class=""><a href="#systemd" title="Systemd">Systemd</a>    </ol>
 </li>
 
     <li class=""><a href="#listeners-not-starting" title="Listeners not starting">Listeners not starting</a> </ol>
@@ -447,6 +427,12 @@
     <li class=""><a href="#access-denied-to-cdc-interface" title="Access denied to CDC interface">Access denied to CDC interface</a> </ol>
 </li>
 </div>
+<h1 class="anchored_heading" id="systemd-watchdog-kills-maxscale">SystemD Watchdog Kills MaxScale</h1>
+<p>This can occur if a reverse DNS name lookup takes a long time. To disable name lookups of clients, add <a href="https://mariadb.com/kb/en/mariadb-maxscale-2208-mariadb-maxscale-configuration-guide/#skip_name_resolve">skip_name_resolve=true</a> under the <code>[maxscale]</code> section.</p>
+<h1 class="anchored_heading" id="high-memory-usage">High Memory Usage</h1>
+<p>Set <a href="https://mariadb.com/kb/en/mariadb-maxscale-2208-mariadb-maxscale-configuration-guide/#writeq_high_water">writeq_high_water</a> and <a href="https://mariadb.com/kb/en/mariadb-maxscale-2208-mariadb-maxscale-configuration-guide/#writeq_low_water">writeq_low_water</a> to lower values, for example <code>writeq_high_water=512</code> and <code>writeq_low_water=128</code>. The default is to buffer a maximum of 16MB in memory before network throttling begins which under intensive loads can result in a large amount of memory being used per client.</p>
+<p>The query classifier cache in MaxScale by default takes up to 15% of memory to cache query classification data. This value can be lowered using the <a href="https://mariadb.com/kb/en/mariadb-maxscale-2208-mariadb-maxscale-configuration-guide/#query_classifier_cache_size">query_classifier_cache_size</a> parameter.</p>
+<p>The <a href="https://mariadb.com/kb/en/mariadb-maxscale-2208-mariadb-maxscale-configuration-guide/#retain_last_statements">retain_last_statements</a> and <a href="https://mariadb.com/kb/en/mariadb-maxscale-2208-mariadb-maxscale-configuration-guide/#session_trace">session_trace</a> debugging parameters can cause memory usage to increase. Disabling them under intensive loads is recommended if they are not needed. Note that the <code>maxctrl list queries</code> requires that <code>retain_last_statements=1</code> is set.</p>
 <h1 class="anchored_heading" id="authentication-errors">Authentication Errors</h1>
 <h2 class="anchored_heading" id="access-denied"><code>Access Denied</code></h2>
 <p>If you are receiving authentication errors like this:</p>
@@ -454,6 +440,7 @@
 ERROR 1045 (28000): Access denied for user 'bob'@'office' (using password: YES)
 </pre>
 <p>Make sure you create users for both <code>'bob'@'office'</code> and <code>'bob'@'maxscale'</code>. The host <code>'office'</code> is where the client is attempting to connect from and <code>'maxscale'</code> is the host where MaxScale is installed.</p>
+<p>If you do not want to create a second set of users, you can enable <a href="https://mariadb.com/kb/en/mariadb-maxscale-2208-mariadb-maxscale-configuration-guide/#proxy_protocol">proxy_protocol</a> in MaxScale and configure the MariaDB server to <a href="https://mariadb.com/kb/en/server-system-variables/#proxy_protocol_networks">allow proxied connections</a> from the MaxScale host.</p>
 <h3 class="anchored_heading" id="verifying-that-a-user-is-allowed-to-connect">Verifying that a user is allowed to connect</h3>
 <ul start="1"><li>MaxScale connection
 <ol start="1"><li>SSH to the server where MaxScale is installed
@@ -469,181 +456,30 @@ ERROR 1045 (28000): Access denied for user 'bob'@'office' (using password: YES)
 </li></ul>
 <h3 class="anchored_heading" id="checking-maxscale-has-correct-grants">Checking MaxScale has correct grants</h3>
 <h4 class="anchored_heading" id="service-grants">Service Grants</h4>
-<p>Make sure that the MaxScale services have a user configured and that it has the correct grants.</p>
-<pre>
-CREATE USER 'maxscale'@'maxscalehost' IDENTIFIED BY 'maxscale-password';
-GRANT SELECT ON mysql.user TO 'maxscale'@'maxscalehost';
-GRANT SELECT ON mysql.db TO 'maxscale'@'maxscalehost';
-GRANT SELECT ON mysql.tables_priv TO 'maxscale'@'maxscalehost';
-GRANT SELECT ON mysql.columns_priv TO 'maxscale'@'maxscalehost';
-GRANT SELECT ON mysql.procs_priv TO 'maxscale'@'maxscalehost';
-GRANT SELECT ON mysql.proxies_priv TO 'maxscale'@'maxscalehost';
-GRANT SELECT ON mysql.roles_mapping TO 'maxscale'@'maxscalehost';
-GRANT SHOW DATABASES ON *.* TO 'maxscale'@'maxscalehost';
-</pre>
+<p>Make sure that the MaxScale services have a user configured and that it has the correct grants. Refer to <a href="https://mariadb.com/kb/en/mariadb-maxscale-2208-authentication-modules/#required-grants">the MariaDB protocol documentation</a> on what grants are required for services.</p>
 <h4 class="anchored_heading" id="monitor-grants">Monitor Grants</h4>
 <p>The monitor user requires different grants than the service user and each monitor type requires different grants.</p>
-<ul start="1"><li><a href="https://mariadb.com/kb/en/mariadb-maxscale-25-mariadb-monitor/#required-grants">Asynchronous MariaDB replication with mariadbmon</a>
+<ul start="1"><li><a href="https://mariadb.com/kb/en/mariadb-maxscale-2208-mariadb-monitor/#required-grants">Asynchronous MariaDB replication with mariadbmon</a>
 </li></ul>
-<ul start="1"><li><a href="https://mariadb.com/kb/en/mariadb-maxscale-25-galera-monitor/#required-grants">Galera clusters with galeramon</a>
+<ul start="1"><li><a href="https://mariadb.com/kb/en/mariadb-maxscale-2208-galera-monitor/#required-grants">Galera clusters with galeramon</a>
 </li></ul>
-<h2 class="anchored_heading" id="ssltls-errors-on-connect">SSL/TLS Errors on connect</h2>
-<p>If you are using self-signed certificates, turn off <a href="https://mariadb.com/kb/en/mariadb-maxscale-23-mariadb-maxscale-configuration-usage-scenarios/#ssl_verify_peer_certificate">ssl_verify_peer_certificate</a>. This skips the certificate validation that OpenSSL does when it connects to a server.</p>
-<h2 class="anchored_heading" id="loaded-0-mysql-users">Loaded 0 MySQL users</h2>
-<p>If the databases are configured with <code> init_connect = 'SET NAMES utf8mb4' </code>, then MaxScale will receive the following error:</p>
-<pre>
-ERROR 1267 (HY000): Illegal mix of collations (utf8mb4_unicode_ci,COERCIBLE) and (utf8mb4_general_ci,COERCIBLE) for operation '&lt;&gt;'
-</pre>
-<p> This will result in zero users being loaded and all authentication attempts will fail. To prevent this, remove the <code>init_connect</code> line from <code>my.cnf</code>.</p>
+<ul start="1"><li><a href="https://mariadb.com/kb/en/mariadb-maxscale-2208-xpand-monitor/#required-grants">Xpand replication</a>
+</li></ul>
 <h2 class="anchored_heading" id="other-errors">Other Errors</h2>
-<p>For all authentication errors, executing the following query will show what MaxScale sees and could help you understand if some grants are missing.</p>
-<h3 class="anchored_heading" id="authentication-queries">Authentication queries</h3>
-<h4 class="anchored_heading" id="maxscale-250-and-newer">MaxScale 2.5.0 and newer</h4>
-<p>MaxScale 2.5.0 simplified the user loading by moving the processing into MaxScale. As a result of this, MaxScale 2.5.0 does the same queries for all server versions:</p>
-<pre>
-SELECT * FROM mysql.user;
-SELECT DISTINCT * FROM (
-    (SELECT a.user, a.host, a.db FROM mysql.db AS a) UNION 
-    (SELECT a.user, a.host, a.db FROM mysql.tables_priv AS a) UNION 
-    (SELECT a.user, a.host, a.db FROM mysql.columns_priv AS a) ) AS c;
-SELECT a.user, a.host, a.role FROM mysql.roles_mapping AS a;
-SELECT DISTINCT a.user, a.host FROM mysql.proxies_priv AS a  WHERE a.proxied_host &lt;&gt; '' AND a.proxied_user &lt;&gt; '';
-</pre>
-<h4 class="anchored_heading" id="maxscale-2214-to-maxscale-250">MaxScale 2.2.14 to MaxScale 2.5.0</h4>
-<p>This query is used with MariaDB versions 10.2.2 and newer. Older server versions use the 2.2.10 query.</p>
-<pre>
-WITH RECURSIVE t AS ( 
-    SELECT u.user, u.host, d.db, u.select_priv, 
-           IF(u.password &lt;&gt; '', u.password, u.authentication_string) AS password, 
-           u.is_role, u.default_role
-    FROM mysql.user AS u LEFT JOIN mysql.db AS d 
-    ON (u.user = d.user AND u.host = d.host) 
-    WHERE u.plugin IN ('', 'mysql_native_password') 
-    UNION 
-    SELECT u.user, u.host, t.db, u.select_priv, 
-           IF(u.password &lt;&gt; '', u.password, u.authentication_string), 
-           u.is_role, u.default_role 
-    FROM mysql.user AS u LEFT JOIN mysql.tables_priv AS t 
-    ON (u.user = t.user AND u.host = t.host)
-    WHERE u.plugin IN ('', 'mysql_native_password') 
-  ), users AS (
-    SELECT t.user, t.host, t.db, t.select_priv, t.password, t.default_role AS role FROM t
-    WHERE t.is_role &lt;&gt; 'Y'
-    UNION
-    SELECT u.user, u.host, t.db, t.select_priv, u.password, r.role FROM t
-    JOIN users AS u
-    ON (t.user = u.role)
-    LEFT JOIN mysql.roles_mapping AS r
-    ON (t.user = r.user)
-  )
-  SELECT DISTINCT t.user, t.host, t.db, t.select_priv, t.password FROM users AS t;
-</pre>
-<h4 class="anchored_heading" id="maxscale-2210-to-maxscale-2213">MaxScale 2.2.10 to MaxScale 2.2.13</h4>
-<p>This query is used with MariaDB versions 10.1.1 and newer.</p>
-<pre>
-SELECT t.user, t.host, t.db, t.select_priv, t.password FROM 
-( 
-    SELECT u.user, u.host, d.db, u.select_priv, u.password AS password, u.is_role 
-    FROM mysql.user AS u LEFT JOIN mysql.db AS d 
-    ON (u.user = d.user AND u.host = d.host) 
-    UNION 
-    SELECT u.user, u.host, t.db, u.select_priv, u.password AS password, u.is_role 
-    FROM mysql.user AS u LEFT JOIN mysql.tables_priv AS t 
-    ON (u.user = t.user AND u.host = t.host) 
-) AS t 
--- Discard any users that are roles
-WHERE t.is_role &lt;&gt; 'Y'
-UNION 
--- Then select all users again
-SELECT r.user, r.host, u.db, u.select_priv, t.password FROM 
-( 
-    SELECT u.user, u.host, d.db, u.select_priv, u.password AS password, u.default_role 
-    FROM mysql.user AS u LEFT JOIN mysql.db AS d 
-    ON (u.user = d.user AND u.host = d.host) 
-    UNION 
-    SELECT u.user, u.host, t.db, u.select_priv, u.password AS password, u.default_role 
-    FROM mysql.user AS u LEFT JOIN mysql.tables_priv AS t 
-    ON (u.user = t.user AND u.host = t.host) 
-) AS t 
--- Join it to the roles_mapping table to only have users with roles
-JOIN mysql.roles_mapping AS r 
-ON (r.user = t.user AND r.host = t.host) 
--- Then join it into itself to get the privileges of the role with the name of the user
-JOIN 
-( 
-    SELECT u.user, u.host, d.db, u.select_priv, u.password AS password, u.is_role 
-    FROM mysql.user AS u LEFT JOIN mysql.db AS d 
-    ON (u.user = d.user AND u.host = d.host) 
-    UNION 
-    SELECT u.user, u.host, t.db, u.select_priv, u.password AS password, u.is_role 
-    FROM mysql.user AS u LEFT JOIN mysql.tables_priv AS t 
-    ON (u.user = t.user AND u.host = t.host) 
-) AS u 
-ON (u.user = r.role AND u.is_role = 'Y') 
--- We only care about users that have a default role assigned
-WHERE t.default_role = u.user;
-</pre>
-<h4 class="anchored_heading" id="maxscale-21-up-to-2210">MaxScale 2.1 up to 2.2.10</h4>
-<p>This query is also used when a pre-10.1.1 MariaDB version or a MySQL variant is used.</p>
-<pre>
-SELECT u.user, u.host, d.db, u.select_priv, u.password
-    FROM mysql.user AS u LEFT JOIN mysql.db AS d
-    ON (u.user = d.user AND u.host = d.host)
-UNION
-SELECT u.user, u.host, t.db, u.select_priv, u.password
-    FROM mysql.user AS u LEFT JOIN mysql.tables_priv AS t
-    ON (u.user = t.user AND u.host = t.host);
-</pre>
-<h4 class="anchored_heading" id="maxscale-20-and-14">MaxScale 2.0 and 1.4</h4>
-<pre>
-SELECT DISTINCT
-    user.user AS user,
-    user.host AS host,
-    user.password AS password,
-    concat(user.user,user.host,user.password,
-      IF((user.Select_priv+0)||find_in_set('Select',Coalesce(tp.Table_priv,0)),'Y','N') ,
-      COALESCE( db.db,tp.db, '')) AS userdata,
-    user.Select_priv AS anydb,
-    COALESCE( db.db,tp.db, NULL) AS db
-    FROM
-    mysql.user LEFT JOIN
-    mysql.db ON user.user=db.user AND user.host=db.host LEFT JOIN
-    mysql.tables_priv tp ON user.user=tp.user AND user.host=tp.host
-    WHERE user.user IS NOT NULL AND user.user &lt;&gt; '';
-</pre>
-<h4 class="anchored_heading" id="pre-140">Pre-1.4.0</h4>
-<pre>
-SELECT
-    user.user AS user,
-    user.host AS host,
-    user.password AS password,
-    concat(user.user,user.host,user.password,user.Select_priv,IFNULL(db,'')) AS userdata,
-    user.Select_priv AS anydb,
-    db.db AS db
-    FROM mysql.user LEFT JOIN mysql.db
-    ON user.user=db.user AND user.host=db.host
-    WHERE user.user IS NOT NULL;
-</pre>
-<p>IF you are suspecting some users are lacking permissions, execute the following and check that the right grants are given.</p>
-<pre>SHOW GRANTS FOR user@IP</pre>
-<p>Executing <code>SHOW GRANTS</code> though MaxScale will tell you which user and which grans are being used.</p>
+<p>For all authentication and permission related errors, add <code>debug=enable-statement-logging</code> under the <code>[maxscale]</code> section of your MaxScale configuration file. This will cause all SQL statements to be logged on the notice level which will help you figure out what the problem is.</p>
 <h2 class="anchored_heading" id="access-denied-errors-for-user-root">Access denied errors for user root!</h2>
-<p>If you want to connect as root, you need to set <code>enable_root_user=1</code> in the service declaration within your MaxScale.cnf.</p>
-<h2 class="anchored_heading" id="access-denied-for-userlocalhost">Access denied for user@localhost</h2>
-<p>If you have added your users with wildcard host in MariaDB, you may try the <code>localhost_match_wildcard_host=1</code> option in the service declaration within your maxscale.cnf. Also read the MaxScale documentation regarding permissions.</p>
+<p>If you want to connect as root, you'll need to add <a href="https://mariadb.com/kb/en/mariadb-maxscale-2208-mariadb-maxscale-configuration-guide/#enable_root_user">enable_root_user=true</a> to the service.</p>
 <h2 class="anchored_heading" id="access-denied-on-databasestables-containing-underscores">Access denied on databases/tables containing underscores</h2>
 <p>There seems to be a bug for databases containing underscores. Connect as root and use "SHOW GRANTS FOR user".</p>
 <div style="margin-left:2em"><p> GRANT SELECT ON `my\_database`.* TO 'user'@'%' &lt;-- bad</p>
 </div>
 <div style="margin-left:2em"><p> GRANT SELECT ON `my_database`.* TO 'user'@'%' &lt;-- good</p>
 </div>
-<p>If you got a grant containing a escaped underscore, you can add the `strip_db_esc=true` parameter to the service to automatically strip escape characters or just replace the grant with a unescaped one.</p>
-<p>If you have a lot of grants you want to update, you can use the pt-show-grants utility from percona toolkit like that:</p>
-<pre>pt-show-grants -pyourpw | grep '\_' | sed 's/\_/_/g' &gt; fixedgrants.sql</pre>
-<p>after reviewing fixedgrants.sql, you can apply them.</p>
+<p>If you got a grant containing a escaped underscore, you can add the <a href="https://mariadb.com/kb/en/mariadb-maxscale-2208-mariadb-maxscale-configuration-guide/#strip_db_esc">strip_db_esc=true</a> parameter to the service to automatically strip escape characters or just replace the grant with a unescaped one.</p>
 <h1 class="anchored_heading" id="system-errors">System Errors</h1>
 <h2 class="anchored_heading" id="failed-to-write-message-11-resource-temporarily-unavailable"><code>Failed to write message: 11, Resource temporarily unavailable</code></h2>
-<p>Starting with MaxScale 2.1, MaxScale can log the <code>Failed to write message: 11, Resource temporarily unavailable</code> message under extremely intensive workloads (see <a href="https://jira.mariadb.org/browse/MXS-1983">MXS-1983</a>). To correct it increase the pipe buffer size from the default 1MB to a higher value. At least 8MB is recommended and should be increased until the message stops appearing.</p>
+<p>Starting with MaxScale 2.1 and until MaxScale 6, MaxScale can log the <code>Failed to write message: 11, Resource temporarily unavailable</code> message under extremely intensive workloads (see <a href="https://jira.mariadb.org/browse/MXS-1983">MXS-1983</a>). MaxScale 22.08 no longer uses pipes for internal communication which means this problem will not appear there.</p>
+<p>To correct it increase the pipe buffer size from the default 1MB to a higher value. At least 8MB is recommended and should be increased until the message stops appearing.</p>
 <p>To set the pipe buffer size, execute the following command.</p>
 <pre>
 sudo sysctl -w fs.pipe-max-size=8388608
@@ -652,8 +488,6 @@ sudo sysctl -w fs.pipe-max-size=8388608
 <p>This is a common error when system limits for open files is too low. The fix to this is to increase the limits.</p>
 <h3 class="anchored_heading" id="systemd">Systemd</h3>
 <p>Edit or add <code>LimitNOFILE=&lt;number of files&gt;</code> under the <code>[Service]</code> section in <code>/usr/lib/systemd/system/maxscale.service</code>.</p>
-<h3 class="anchored_heading" id="sysv">SysV</h3>
-<p>Edit the values in <code>/etc/security/limits.conf</code>.</p>
 <h2 class="anchored_heading" id="listeners-not-starting">Listeners not starting</h2>
 <p>While having multiple listeners, it takes time to load all user data from the backend servers. The default value of TimeoutStartSec in <code>/usr/lib/systemd/system/maxscale.service</code> for MaxScale is 120. If all listeners do not start before Systemd times out, increase the value from 120 to 360.</p>
 <h1 class="anchored_heading" id="binlogrouter">Binlogrouter</h1>
@@ -951,7 +785,7 @@ sudo sysctl -w fs.pipe-max-size=8388608
                     <a href="/cookie-policy/" title="Cookies">Cookie Policy</a>
                 </li>
             </ul>
-            <p>Copyright &copy; 2022 MariaDB. All rights reserved.</p>
+            <p>Copyright &copy; 2023 MariaDB. All rights reserved.</p>
         </div>
     </div>
 </footer>

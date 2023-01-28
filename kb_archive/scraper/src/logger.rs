@@ -10,7 +10,7 @@ pub fn init() {
 
     CombinedLogger::init(vec![
         TermLogger::new(
-            LevelFilter::Info,
+            LevelFilter::Warn,
             config.build(),
             TerminalMode::Mixed,
             ColorChoice::Auto,

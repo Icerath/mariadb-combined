@@ -72,7 +72,7 @@
 
 
         </div>
-        <p class="text-center copyright">Copyright &copy; 2022 MariaDB. All rights reserved.</p>
+        <p class="text-center copyright">Copyright &copy; 2023 MariaDB. All rights reserved.</p>
     </div>
 </div>
 <div id="wrapper">
@@ -255,12 +255,12 @@
         <dt>Created</dt>
         <dd>
 
-<span class="datetime" title="2010-05-20 23:30">12 years, 6 months ago</span></dd>
+<span class="datetime" title="2010-05-20 23:30">12 years, 8 months ago</span></dd>
 
         <dt>Modified</dt>
         <dd>
 
-<span class="datetime" title="2019-01-18 12:33">3 years, 10 months ago</span></dd>
+<span class="datetime" title="2023-01-16 14:25">1 week, 3 days ago</span></dd>
 
         <dt>Type</dt>
         <dd>article</dd>
@@ -395,10 +395,13 @@
         <h2 class="anchored_heading" id="syntax">Syntax</h2>
 <pre class="fixed">ROUND(X), ROUND(X,D)
 </pre><h2 class="anchored_heading" id="description">Description</h2>
-<p>Rounds the argument <code>X</code> to <code>D</code> decimal places. The rounding algorithm
-depends on the data type of <code>X</code>. <code>D</code> defaults to <code>0</code> if not specified.
+<p>Rounds the argument <code>X</code> to <code>D</code> decimal places.  <code>D</code> defaults to <code>0</code> if not specified.
 <code>D</code> can be negative to cause <code>D</code> digits left of the decimal point of the
 value <code>X</code> to become zero.</p>
+<p>The rounding algorithm depends on the data type of <code>X</code>:</p>
+<ul start="1"><li>for floating point types (<a href="/kb/en/float/">FLOAT</a>, <a href="/kb/en/double/">DOUBLE</a>) the C libraries rounding function is used, so the behavior *may* differ between operating systems
+</li><li>for fixed point types (<a href="/kb/en/decimal/">DECIMAL</a>, <a href="/kb/en/dec-numeric-fixed/">DEC/NUMBER/FIXED</a>) the "round half up" rule is used, meaning that e.g. a value ending in exactly .5 is always rounded up.
+</li></ul>
 <h2 class="anchored_heading" id="examples">Examples</h2>
 <pre class="fixed"><span class="k">SELECT</span> <span class="n">ROUND</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">23</span><span class="p">);</span>
 <span class="o">+</span><span class="c1">--------------+</span>
@@ -997,7 +1000,7 @@ value <code>X</code> to become zero.</p>
                     <a href="/cookie-policy/" title="Cookies">Cookie Policy</a>
                 </li>
             </ul>
-            <p>Copyright &copy; 2022 MariaDB. All rights reserved.</p>
+            <p>Copyright &copy; 2023 MariaDB. All rights reserved.</p>
         </div>
     </div>
 </footer>

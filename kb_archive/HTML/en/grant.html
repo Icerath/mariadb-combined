@@ -72,7 +72,7 @@
 
 
         </div>
-        <p class="text-center copyright">Copyright &copy; 2022 MariaDB. All rights reserved.</p>
+        <p class="text-center copyright">Copyright &copy; 2023 MariaDB. All rights reserved.</p>
     </div>
 </div>
 <div id="wrapper">
@@ -251,12 +251,12 @@
         <dt>Created</dt>
         <dd>
 
-<span class="datetime" title="2010-07-12 17:53">12 years, 4 months ago</span></dd>
+<span class="datetime" title="2010-07-12 17:53">12 years, 6 months ago</span></dd>
 
         <dt>Modified</dt>
         <dd>
 
-<span class="datetime" title="2022-10-10 20:09">1 month, 3 weeks ago</span></dd>
+<span class="datetime" title="2023-01-27 23:47">18 hours, 43 minutes ago</span></dd>
 
         <dt>Type</dt>
         <dd>article</dd>
@@ -862,7 +862,7 @@ including those created later.</p>
 <p>Shut down the server using <a href="/kb/en/shutdown/">SHUTDOWN</a> or the <a href="/kb/en/mysqladmin/">mysqladmin shutdown</a> command.</p>
 <h5 class="anchored_heading" id="super">SUPER</h5>
 <p>Execute superuser statements: <a href="/kb/en/change-master-to/">CHANGE MASTER TO</a>, <a href="/kb/en/kill/">KILL</a> (users who do not have this privilege can only <code>KILL</code> their own threads), <a href="/kb/en/purge-binary-logs/">PURGE LOGS</a>, <a href="/kb/en/set/">SET global system variables</a>, or the <a href="/kb/en/mysqladmin/">mysqladmin debug</a> command. Also, this permission allows the user to write data even if the <a href="/kb/en/server-system-variables/#read_only">read_only</a> startup option is set, enable or disable logging, enable or disable replication on replica, specify a <code>DEFINER</code> for statements that support that clause, connect once reaching the <code>MAX_CONNECTIONS</code>. If a statement has been specified for the <a href="/kb/en/server-system-variables/#init_connect">init-connect</a> <code>mysqld</code> option, that command will not be executed when a user with <code>SUPER</code> privileges connects to the server.</p>
-<p>The SUPER privilege has been split into multiple smaller privileges from <a href="/kb/en/mariadb-1052-release-notes/">MariaDB 10.5.2</a> to allow for more fine-grained privileges, although it remains an alias for these smaller privileges.</p>
+<p>The SUPER privilege has been split into multiple smaller privileges from <a href="/kb/en/mariadb-1052-release-notes/">MariaDB 10.5.2</a> to allow for more fine-grained privileges.</p>
 <p>From <a href="/kb/en/mdb-10-11-0-rn/">MariaDB 10.11.0</a>, the <a href="#read_only-admin">READ_ONLY ADMIN</a> privilege has been removed from <code>SUPER</code>. The benefit of this is that one can remove the READ_ONLY ADMIN privilege from all users and ensure that no one can make any changes on any non-temporary tables. This is useful on replicas when one wants to ensure that the replica is kept identical to the primary.</p>
 <h4 class="anchored_heading" id="database-privileges">Database Privileges</h4>
 <p>The following table lists the privileges that can be granted at the database
@@ -1111,7 +1111,7 @@ statement to change a user's password with <code>GRANT</code>.</p>
 <em>grantee</em>:
     rolename
     username [<em>authentication_option</em>]
-</pre><p>The GRANT statement is also used to grant the use a <a href="/kb/en/roles/">role</a> to one or more users or other roles. In order to be able to grant a role, the grantor doing so must have permission to do so (see WITH ADMIN in the <a href="/kb/en/create-role/">CREATE ROLE</a> article).</p>
+</pre><p>The GRANT statement is also used to grant the use of a <a href="/kb/en/roles/">role</a> to one or more users or other roles. In order to be able to grant a role, the grantor doing so must have permission to do so (see WITH ADMIN in the <a href="/kb/en/create-role/">CREATE ROLE</a> article).</p>
 <p>Specifying the <code>WITH ADMIN OPTION</code> permits the grantee to in turn grant the role to another.</p>
 <p>For example, the following commands show how to grant the same role to a couple different users.</p>
 <pre class="fixed"><span class="k">GRANT</span> <span class="n">journalist</span> <span class="k">TO</span> <span class="n">hulda</span><span class="p">;</span>
@@ -1454,7 +1454,7 @@ REVOKE &lt;privilege&gt; ON &lt;database&gt;.&lt;object&gt; FROM PUBLIC;
                     <a href="/cookie-policy/" title="Cookies">Cookie Policy</a>
                 </li>
             </ul>
-            <p>Copyright &copy; 2022 MariaDB. All rights reserved.</p>
+            <p>Copyright &copy; 2023 MariaDB. All rights reserved.</p>
         </div>
     </div>
 </footer>

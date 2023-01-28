@@ -72,7 +72,7 @@
 
 
         </div>
-        <p class="text-center copyright">Copyright &copy; 2022 MariaDB. All rights reserved.</p>
+        <p class="text-center copyright">Copyright &copy; 2023 MariaDB. All rights reserved.</p>
     </div>
 </div>
 <div id="wrapper">
@@ -255,12 +255,12 @@
         <dt>Created</dt>
         <dd>
 
-<span class="datetime" title="2010-08-16 15:34">12 years, 3 months ago</span></dd>
+<span class="datetime" title="2010-08-16 15:34">12 years, 5 months ago</span></dd>
 
         <dt>Modified</dt>
         <dd>
 
-<span class="datetime" title="2022-05-30 12:35">6 months, 1 week ago</span></dd>
+<span class="datetime" title="2023-01-05 00:00">3 weeks, 1 day ago</span></dd>
 
         <dt>Type</dt>
         <dd>article</dd>
@@ -506,7 +506,7 @@ privilege. See <a href="/kb/en/grant/">GRANT</a>.</p>
 <tr><td><code>CHANGED_PAGE_BITMAPS</code></td><td><a href="/kb/en/about-xtradb/">XtraDB</a> only. Internal command used for backup purposes. See the <a href="/kb/en/information-schema-changed_page_bitmaps-table/">Information Schema CHANGED_PAGE_BITMAPS Table</a>.</td></tr>
 <tr><td><code>CLIENT_STATISTICS</code></td><td>Reset client statistics (see <a href="/kb/en/show-client-statistics/">SHOW CLIENT_STATISTICS</a>).</td></tr>
 <tr><td><code>DES_KEY_FILE</code></td><td>Reloads the DES key file (Specified with the <a href="/kb/en/mysqld-options-full-list/">--des-key-file startup option</a>).</td></tr>
-<tr><td><code>HOSTS</code></td><td>Flush the hostname cache (used for converting ip to host names and for unblocking blocked hosts. See <a href="/kb/en/server-system-variables/#max_connect_errors">max_connect_errors</a>)</td></tr>
+<tr><td><code>HOSTS</code></td><td>Flush the hostname cache (used for converting ip to host names and for unblocking blocked hosts. See <a href="/kb/en/server-system-variables/#max_connect_errors">max_connect_errors</a> and <a href="/kb/en/performance-schema-host_cache-table/">performance_schema.host_cache</a></td></tr>
 <tr><td><code>INDEX_STATISTICS</code></td><td>Reset index statistics (see <a href="/kb/en/show-index-statistics/">SHOW INDEX_STATISTICS</a>).</td></tr>
 <tr><td><code><code class="fixed" style="white-space:pre-wrap">[ERROR | ENGINE | GENERAL | SLOW | BINARY | RELAY] LOGS</code></code></td><td>Close and reopen the specified log type, or all log types if none are specified. <code>FLUSH RELAY LOGS [connection-name]</code> can be used to flush the relay logs for a specific connection. Only one connection can be specified per <code>FLUSH</code> command. See <a href="/kb/en/multi-source-replication/">Multi-source replication</a>. <code>FLUSH ENGINE LOGS</code> will delete all unneeded <a href="/kb/en/aria/">Aria</a> redo logs. Since <a href="/kb/en/mariadb-10130-release-notes/">MariaDB 10.1.30</a> and <a href="/kb/en/mariadb-10211-release-notes/">MariaDB 10.2.11</a>, <code>FLUSH BINARY LOGS DELETE_DOMAIN_ID=(list-of-domains)</code> can be used to discard obsolete <a href="/kb/en/gtid/">GTID</a> domains from the server's <a href="/kb/en/binary-log/">binary log</a> state. In order for this to be successful, no event group from the listed <a href="/kb/en/gtid/">GTID</a> domains can be present in existing <a href="/kb/en/binary-log/">binary log</a> files. If some still exist, then they must be purged prior to executing this command. If the command completes successfully, then it also rotates the <a href="/kb/en/binary-log/">binary log</a>.</td></tr>
 <tr><td><code>MASTER</code></td><td>Deprecated option, use <a href="/kb/en/reset/">RESET MASTER</a> instead.</td></tr>
@@ -911,7 +911,7 @@ to instead use meta data locks.</p>
                     <a href="/cookie-policy/" title="Cookies">Cookie Policy</a>
                 </li>
             </ul>
-            <p>Copyright &copy; 2022 MariaDB. All rights reserved.</p>
+            <p>Copyright &copy; 2023 MariaDB. All rights reserved.</p>
         </div>
     </div>
 </footer>
