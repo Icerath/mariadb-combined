@@ -42,7 +42,7 @@ def process_pages(kburls: list[CsvItem], outline: list[TocItem], config: Config)
 def process_article(row: CsvItem) -> tuple[str, str]:
     if not row.path.exists():
         log.error(f"Could not read path: {row.path} from url: {row.url}")
-        return "Failed to Read", ""
+        exit(1)
     if not row.path.is_file():
         log.error(f"Path was not File: {row.path} from url: {row.url}")
         exit(1)
