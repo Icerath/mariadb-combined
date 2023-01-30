@@ -3,6 +3,7 @@ from setup.paths import BASE_KB
 from setup.config import Config
 from setup.logger import log
 from pathlib import Path
+from datetime import datetime
 
 from .contents import create_contents, TocItem
 import re
@@ -16,7 +17,7 @@ def merge_html(pages: list[str], kburls: list[CsvItem], outline: list[TocItem], 
     html = create_contents(outline, config.toc_config) + html
     html = absolute_links(html)
     html = internalise_links(html, kburls)
-    preface = Path(PREFACE_PATH).read_text(encoding="utf-8")
+    preface = read_preface()
     html = START_BOILERPLATE + preface + html + PAGE_BREAK + END_BOILERPLATE
     return html
 
@@ -39,6 +40,9 @@ def internalise_links(html: str, kburls: list[CsvItem]) -> str:
 
     return html
 
+def read_preface() -> str:
+    formatted_date = datetime.today().date()
+    return Path(PREFACE_PATH).read_text(encoding="utf-8").replace("[generated_time]", str(formatted_date))
 
 # region: -- Boilerplate
 END_BOILERPLATE = "\n\n</body>\n</html>"
