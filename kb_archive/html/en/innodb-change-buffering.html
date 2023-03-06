@@ -247,12 +247,12 @@
         <dt>Created</dt>
         <dd>
 
-<span class="datetime" title="2013-04-06 23:25">9 years, 9 months ago</span></dd>
+<span class="datetime" title="2013-04-06 23:25">9 years, 11 months ago</span></dd>
 
         <dt>Modified</dt>
         <dd>
 
-<span class="datetime" title="2022-11-28 17:49">2 months ago</span></dd>
+<span class="datetime" title="2023-01-30 13:20">1 month ago</span></dd>
 
         <dt>Type</dt>
         <dd>article</dd>
@@ -416,9 +416,8 @@
 
     
     <div class="answer formatted">
-        <div class="cstm-style greenbox"><p>The change buffer has been disabled by default from <a href="/kb/en/mariadb-10515-release-notes/">MariaDB 10.5.15</a>, <a href="/kb/en/mariadb-1067-release-notes/">MariaDB 10.6.7</a>, <a href="/kb/en/mariadb-1073-release-notes/">MariaDB 10.7.3</a> and <a href="/kb/en/mariadb-1082-release-notes/">MariaDB 10.8.2</a> (<a href="https://jira.mariadb.org/browse/MDEV-27734">MDEV-27734</a>) and the feature is deprecated and ignored from <a href="/kb/en/mariadb-1090-release-notes/">MariaDB 10.9.0</a> (<a href="https://jira.mariadb.org/browse/MDEV-27735">MDEV-27735</a>).</p>
+        <div class="cstm-style greenbox"><p>The change buffer has been disabled by default from <a href="/kb/en/mariadb-10515-release-notes/">MariaDB 10.5.15</a>, <a href="/kb/en/mariadb-1067-release-notes/">MariaDB 10.6.7</a>, <a href="/kb/en/mariadb-1073-release-notes/">MariaDB 10.7.3</a> and <a href="/kb/en/mariadb-1082-release-notes/">MariaDB 10.8.2</a> (<a href="https://jira.mariadb.org/browse/MDEV-27734">MDEV-27734</a>), was deprecated and ignored from <a href="/kb/en/mariadb-1090-release-notes/">MariaDB 10.9.0</a> (<a href="https://jira.mariadb.org/browse/MDEV-27735">MDEV-27735</a>), and was removed in <a href="/kb/en/mdb-11-0-0-rn/">MariaDB 11.0.0</a> (<a href="https://jira.mariadb.org/browse/MDEV-29694">MDEV-29694</a>).</p>
 <p>Benchmarks attached to <a href="https://jira.mariadb.org/browse/MDEV-19514">MDEV-19514</a> show that the change buffer sometimes reduces performance, and in the best case seem to bring a few per cent improvement to throughput. However, such improvement could come with a price: If the buffered changes are never merged (<a href="https://jira.mariadb.org/browse/MDEV-19514">MDEV-19514</a>, motivated by the reduction of random crashes and the removal of an innodb_force_recovery option that can inflict further corruption), then the InnoDB system tablespace can grow out of control (<a href="https://jira.mariadb.org/browse/MDEV-21952">MDEV-21952</a>).</p>
-<p>All code related to the change buffer will be removed in a future version (<a href="https://jira.mariadb.org/browse/MDEV-29694">MDEV-29694</a>)</p>
 </div><div class="table_of_contents well well-small">
 <h3>Contents</h3>
  <ol class="toc">
@@ -912,6 +911,6 @@ INSERT, UPDATE and DELETE statements can be particularly heavy operations to per
 
 </body>
 
-<script type="text/javascript" src="/kb/static/js/main.636174abe200.js" charset="utf-8"></script>
+<script type="text/javascript" src="/kb/static/js/main.453a68a9c5ea.js" charset="utf-8"></script>
 
 </html>

@@ -48,7 +48,6 @@ def main():
         version_filepath(version).write_text(new_sql)
 
 if __name__ == "__main__":
-    debug.error("TODO: Help Not Implemented Yet")
     start = time.perf_counter()
     main()
     taken = time.perf_counter() - start

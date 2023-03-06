@@ -1,0 +1,1857 @@
+
+<!DOCTYPE html>
+<html>
+<head data-cookie-domain=""
+      data-cookie-path="/">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/kb/static/images/favicons/apple-touch-icon.159e713979be.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/kb/static/images/favicons/favicon-32x32.bc0ac1d5d11e.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/kb/static/images/favicons/favicon-16x16.5801f8f0f34e.png">
+    <link rel="shortcut icon" href="/kb/static/images/favicons/favicon.d122d305dee4.ico" type="image/x-icon" />
+
+    <title>Recent Changes
+ - MariaDB Knowledge Base</title>
+
+    <link href="/kb/static/css/main.9a0d7dcebefd.css" rel="stylesheet" type="text/css" />
+
+    
+
+    <!-- FB Open Graph tags -->
+    <meta property="og:title" content="Recent Changes
+" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mariadb.com/kb/+changes/" />
+    <meta property="og:image" content="http://mariadb.comaskmonty-logo.png" />
+    <meta property="og:site_name" content="MariaDB KnowledgeBase" />
+    <meta property="fb:admins" content="514852603" />
+    <meta property="og:description" content="" />
+
+    <meta name="description" content="" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="//fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet"/>
+    
+</head>
+<body class="mpkb nodes recent jqui" id="recent">
+
+
+
+
+
+<div id="menu-mobile" class="visible-sm visible-xs">
+
+    <div>
+        <div id="mobile-close-menu" class="text-right">
+            <a href="javascript:void(0)" title="Close Menu" id="back-main" class="toggle-menu">X<span></span></a>
+        </div>
+    </div>
+    <div class="mainmenu-mobile">
+        <ul class="ls-none ul-menu">
+            <li data-sub="submenu5"><a class="open-form-search" href="/kb/search/" title="Search">Search </a></li>
+            <li data-sub="submenu0"><a href="/products" title="Products">Products</a><span class="arrow-main"></span></li>
+            <li data-sub="submenu1"><a href="/services" title="Services">Services</a><span class="arrow-main"></span></li>
+            <li data-sub="submenu2"><a href="/resources" title="Resources">Resources</a><span class="arrow-main"></span></li>
+            <li data-sub="submenu3"><a href="/about-us" title="About">About</a><span class="arrow-main"></span></li>
+            <li data-sub="submenu4"><a href="/contact" title="Contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <div class="nav-top-mobile">
+        <div class="select-box form">
+
+            <ul class="inline-block-md mb-none top-nav">
+                <li>
+
+                </li>
+                
+                    <li>
+                        <a href="/kb/user/login?next=/kb/+changes/"> Login</a>
+                    </li>
+                
+            </ul>
+
+
+
+        </div>
+        <p class="text-center copyright">Copyright &copy; 2023 MariaDB. All rights reserved.</p>
+    </div>
+</div>
+<div id="wrapper">
+<div id="top-nav">
+    <div class="container">
+        <ul class="hidden-sm hidden-xs" >
+            <li><a href="https://mariadb.com/kb/">Knowledge Base</a></li>
+            <li><a href="https://mariadb.com/contact/">Contact</a></li>
+            
+                
+                    <li>
+                        <a href="/kb/user/login?next=/kb/+changes/" rel="nofollow">Login</a>
+                    </li>
+                
+            
+            
+            <li id="search-form">
+                <form action="/kb/en/+search/" method="get" id="search-block-form" accept-charset="UTF-8">
+                    <input id="search" title="Enter the terms you wish to search for."
+                           placeholder="Search . . ." type="text"
+                           name="q" value="" size="15" maxlength="128" class="form-text"
+                           data-autocomplete-url="/kb/en/+search/autocomplete/">
+                    <input type="hidden" name="quick" value="1" />
+                    <input type="hidden" name="source" value="kb" />
+                </form>
+            </li>
+            <li><a id="search-toggler" href="/kb/search/">Search</a></li>
+            
+        </ul>
+    </div>
+</div>
+<div id="navbar-bottom" class="navbar">
+    <div class="container">
+        
+        
+        
+        
+        <div class="row">
+            <div class="col-md-3 col-sm-9 col-xs-9">
+                <a class="brand" href="/" title="MariaDB">
+                    <img src="/kb/static/images/logo-2018-black.95f5978ae14d.png">
+                </a>
+            </div>
+            <div class="col-md-9 hidden-sm hidden-xs">
+                <div class="main-menu">
+                    <ul id="main-menu" class="nav navbar-nav inline-block-sm">
+    <li class="has-sub full-menu">
+        <a href="/products" title="Products">Products</a>
+    </li>
+    <li class="has-sub full-menu active">
+        <a href="/services" title="Services">Services</a>
+    </li>
+    <li class="has-sub full-menu active">
+        <a href="/pricing" title="Pricing">Pricing</a>
+    </li>
+    <li class="has-sub full-menu">
+        <a href="/resources" title="Resources">Resources</a>
+    </li>
+    <li class="has-sub full-menu">
+        <a href="/about-us" title="About Us">About Us</a>
+    </li>
+    <li class="">
+        <a class="button electric-eel small top-bar-right-download" href="/downloads/">Download</a>
+    </li>
+</ul>
+                </div>
+            </div>
+            <div class="col-md-3 visible-sm visible-xs col-sm-3 col-xs-3 ps-rv">
+                <div class="navbar-header text-right pull-right">
+                    <button type="button" class="menu-control toggle-menu" id="open-menu">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="main">
+    <div class="container">
+        
+
+        <div id="subheader1" class="clearfix">
+            <div class="pull-left">
+                
+                    <div id="breadcrumb-placeholder">&nbsp;</div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="container" id="container-main">
+        <div class="row">
+            
+            
+            
+            
+            
+            <section id="content" class=" col-md-12 clearfix">
+                
+                    <h1>Recent Changes
+</h1>
+                
+
+                
+
+
+
+                <div>
+                    
+    
+    
+    
+        <nav>
+        <div>
+            <ul class="pagination">
+                
+                    <li class="previous"><a href="/kb/en/+changes/?p=11">&laquo;</a></li>
+                
+                
+                    
+                        <li ><a href="/kb/en/+changes/?p=1">1</a></li>
+                    
+                
+                    
+                        <li class="disabled"><a href="" class="noop">&hellip;</a></li>
+                    
+                
+                    
+                        <li ><a href="/kb/en/+changes/?p=8">8</a></li>
+                    
+                
+                    
+                        <li ><a href="/kb/en/+changes/?p=9">9</a></li>
+                    
+                
+                    
+                        <li ><a href="/kb/en/+changes/?p=10">10</a></li>
+                    
+                
+                    
+                        <li ><a href="/kb/en/+changes/?p=11">11</a></li>
+                    
+                
+                    
+                        <li class="active"><a href="/kb/en/+changes/?p=12">12</a></li>
+                    
+                
+                    
+                        <li ><a href="/kb/en/+changes/?p=13">13</a></li>
+                    
+                
+                    
+                        <li ><a href="/kb/en/+changes/?p=14">14</a></li>
+                    
+                
+                    
+                        <li ><a href="/kb/en/+changes/?p=15">15</a></li>
+                    
+                
+                    
+                        <li ><a href="/kb/en/+changes/?p=16">16</a></li>
+                    
+                
+                    
+                        <li class="disabled"><a href="" class="noop">&hellip;</a></li>
+                    
+                
+                    
+                        <li ><a href="/kb/en/+changes/?p=20">20</a></li>
+                    
+                
+                
+                    <li><a href="/kb/en/+changes/?p=13">&raquo;</a></li>
+                
+            </ul>
+            <div class="pull-right results-count">
+    551 - 600 of 1000
+</div>
+        </div>
+        </nav>
+    
+
+
+    
+        <ol class="history">
+        
+            <li class="history_item" value="551"><a href="/kb/en/is-columnstore-free/+comments/6098">Comment #6098</a> added to <a href="/kb/en/is-columnstore-free/">Is ColumnStore free</a> by 
+<span class="user" id="user-6255">
+<a href="/kb/user/id/6255" title="Roman Nozdrin">Roman Nozdrin</a>
+</span> 
+
+<span class="datetime" title="2023-02-10 13:05">3 weeks, 3 days ago</span>
+        <div class="extra">
+            
+
+            
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="552">Question <a href="/kb/en/is-columnstore-free/">Is ColumnStore free</a> created by 
+<span class="user" id="user-13140">
+<a href="/kb/user/id/13140" title="Antonis Panagi">Antonis Panagi</a>
+</span> 
+
+<span class="datetime" title="2023-02-10 11:55">3 weeks, 3 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/is-columnstore-free/+r/123498/">View Revision</a>
+            
+
+            
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="553"><a href="/kb/en/maridb-replication-centos-to-windows/+comments/6097">Comment #6097</a> added to <a href="/kb/en/maridb-replication-centos-to-windows/">Maridb Replication  centos to Windows</a> by 
+<span class="user" id="user-13052">
+<a href="/kb/user/id/13052" title="Daniel Black">Daniel Black</a>
+</span> 
+
+<span class="datetime" title="2023-02-09 22:41">3 weeks, 3 days ago</span>
+        <div class="extra">
+            
+
+            
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="554">Article <a href="/kb/en/backup-and-restore-overview/">Backup and Restore Overview</a> edited by 
+<span class="user" id="user-12544">
+<a href="/kb/user/id/12544" title="Alena Subotina">Alena Subotina</a>
+</span> 
+
+<span class="datetime" title="2023-02-09 14:41">3 weeks, 4 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/backup-and-restore-overview/+r/123496/">View Revision</a>
+            
+
+            
+                <a href="/kb/en/backup-and-restore-overview/+revision/123496/112940/">Diff to previous revision</a>
+                [<span title="levenshtein distance">820]</span>
+            
+            
+                <span class="history_comment">
+        
+        </span>
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="555">Article <a href="/kb/en/mdb-10-11-2-cl/">MariaDB 10.11.2 Changelog</a> created by 
+<span class="user" id="user-2">
+<a href="/kb/user/id/2" title="Daniel Bartholomew">Daniel Bartholomew</a>
+</span> 
+
+<span class="datetime" title="2023-02-09 13:56">3 weeks, 4 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/mdb-10-11-2-cl/+r/123493/">View Revision</a>
+            
+
+            
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="556">Article <a href="/kb/en/pgp/">GPG</a> edited by 
+<span class="user" id="user-2">
+<a href="/kb/user/id/2" title="Daniel Bartholomew">Daniel Bartholomew</a>
+</span> 
+
+<span class="datetime" title="2023-02-09 13:34">3 weeks, 4 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/pgp/+r/123492/">View Revision</a>
+            
+
+            
+                <a href="/kb/en/pgp/+revision/123492/123313/">Diff to previous revision</a>
+                [<span title="levenshtein distance">352]</span>
+            
+            
+                <span class="history_comment">
+        
+        </span>
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="557">Question <a href="/kb/en/maridb-replication-centos-to-windows/">Maridb Replication  centos to Windows</a> created by 
+<span class="user" id="user-11089">
+<a href="/kb/user/id/11089" title="Sohail Jafferi">Sohail Jafferi</a>
+</span> 
+
+<span class="datetime" title="2023-02-09 11:56">3 weeks, 4 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/maridb-replication-centos-to-windows/+r/123491/">View Revision</a>
+            
+
+            
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="558">Article <a href="/kb/en/mcn-310-cl/">MariaDB Connector/Node.js 3.1.0 Changelog</a> edited by 
+<span class="user" id="user-2">
+<a href="/kb/user/id/2" title="Daniel Bartholomew">Daniel Bartholomew</a>
+</span> 
+
+<span class="datetime" title="2023-02-08 16:40">3 weeks, 4 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/mcn-310-cl/+r/123487/">View Revision</a>
+            
+
+            
+                <a href="/kb/en/mcn-310-cl/+revision/123487/123312/">Diff to previous revision</a>
+                [<span title="levenshtein distance">99]</span>
+            
+            
+                <span class="history_comment">
+        
+        </span>
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="559">Article <a href="/kb/en/mcn-310-rn/">MariaDB Connector/Node.js 3.1.0 Release Notes</a> edited by 
+<span class="user" id="user-2">
+<a href="/kb/user/id/2" title="Daniel Bartholomew">Daniel Bartholomew</a>
+</span> 
+
+<span class="datetime" title="2023-02-08 16:39">3 weeks, 4 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/mcn-310-rn/+r/123486/">View Revision</a>
+            
+
+            
+                <a href="/kb/en/mcn-310-rn/+revision/123486/123311/">Diff to previous revision</a>
+                [<span title="levenshtein distance">100]</span>
+            
+            
+                <span class="history_comment">
+        
+        </span>
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="560">Article <a href="/kb/en/pgp/">GPG</a> edited by 
+<span class="user" id="user-2">
+<a href="/kb/user/id/2" title="Daniel Bartholomew">Daniel Bartholomew</a>
+</span> 
+
+<span class="datetime" title="2023-02-08 15:35">3 weeks, 4 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/pgp/+r/123313/">View Revision</a>
+            
+
+            
+                <a href="/kb/en/pgp/+revision/123313/120446/">Diff to previous revision</a>
+                [<span title="levenshtein distance">1544]</span>
+            
+            
+                <span class="history_comment">
+        
+        </span>
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="561">Article <a href="/kb/en/mcn-310-cl/">MariaDB Connector/Node.js 3.1.0 Changelog</a> created by 
+<span class="user" id="user-3114">
+<a href="/kb/user/id/3114" title="Diego Dupin">Diego Dupin</a>
+</span> 
+
+<span class="datetime" title="2023-02-08 09:30">3 weeks, 5 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/mcn-310-cl/+r/123312/">View Revision</a>
+            
+
+            
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="562">Article <a href="/kb/en/mcn-310-rn/">MariaDB Connector/Node.js 3.1.0 Release Notes</a> edited by 
+<span class="user" id="user-3114">
+<a href="/kb/user/id/3114" title="Diego Dupin">Diego Dupin</a>
+</span> 
+
+<span class="datetime" title="2023-02-08 09:28">3 weeks, 5 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/mcn-310-rn/+r/123311/">View Revision</a>
+            
+
+            
+                <a href="/kb/en/mcn-310-rn/+revision/123311/123310/">Diff to previous revision</a>
+                [<span title="levenshtein distance">41]</span>
+            
+            
+                <span class="history_comment">
+        
+        </span>
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="563">Article <a href="/kb/en/mcn-310-rn/">MariaDB Connector/Node.js 3.1.0 Release Notes</a> created by 
+<span class="user" id="user-3114">
+<a href="/kb/user/id/3114" title="Diego Dupin">Diego Dupin</a>
+</span> 
+
+<span class="datetime" title="2023-02-08 09:25">3 weeks, 5 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/mcn-310-rn/+r/123310/">View Revision</a>
+            
+
+            
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="564">Article <a href="/kb/en/mariadb-10338-release-notes/">MariaDB 10.3.38 Release Notes</a> edited by 
+<span class="user" id="user-1368">
+<a href="/kb/user/id/1368" title="Ian Gilfillan">Ian Gilfillan</a>
+</span> 
+
+<span class="datetime" title="2023-02-08 08:34">3 weeks, 5 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/mariadb-10338-release-notes/+r/123309/">View Revision</a>
+            
+
+            
+                <a href="/kb/en/mariadb-10338-release-notes/+revision/123309/123263/">Diff to previous revision</a>
+                [<span title="levenshtein distance">69]</span>
+            
+            
+                <span class="history_comment">
+        
+        </span>
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="565">Article <a href="/kb/en/mdb-10428-rn/">MariaDB 10.4.28 Release Notes</a> edited by 
+<span class="user" id="user-1368">
+<a href="/kb/user/id/1368" title="Ian Gilfillan">Ian Gilfillan</a>
+</span> 
+
+<span class="datetime" title="2023-02-08 08:33">3 weeks, 5 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/mdb-10428-rn/+r/123308/">View Revision</a>
+            
+
+            
+                <a href="/kb/en/mdb-10428-rn/+revision/123308/123262/">Diff to previous revision</a>
+                [<span title="levenshtein distance">69]</span>
+            
+            
+                <span class="history_comment">
+        
+        </span>
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="566">Article <a href="/kb/en/mdb-10519-rn/">MariaDB 10.5.19 Release Notes</a> edited by 
+<span class="user" id="user-1368">
+<a href="/kb/user/id/1368" title="Ian Gilfillan">Ian Gilfillan</a>
+</span> 
+
+<span class="datetime" title="2023-02-08 08:33">3 weeks, 5 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/mdb-10519-rn/+r/123307/">View Revision</a>
+            
+
+            
+                <a href="/kb/en/mdb-10519-rn/+revision/123307/123276/">Diff to previous revision</a>
+                [<span title="levenshtein distance">69]</span>
+            
+            
+                <span class="history_comment">
+        
+        </span>
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="567">Article <a href="/kb/en/mdb-10612-rn/">MariaDB 10.6.12 Release Notes</a> edited by 
+<span class="user" id="user-1368">
+<a href="/kb/user/id/1368" title="Ian Gilfillan">Ian Gilfillan</a>
+</span> 
+
+<span class="datetime" title="2023-02-08 08:33">3 weeks, 5 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/mdb-10612-rn/+r/123306/">View Revision</a>
+            
+
+            
+                <a href="/kb/en/mdb-10612-rn/+revision/123306/123275/">Diff to previous revision</a>
+                [<span title="levenshtein distance">77]</span>
+            
+            
+                <span class="history_comment">
+        
+        </span>
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="568">Article <a href="/kb/en/mdb-1078-rn/">MariaDB 10.7.8 Release Notes</a> edited by 
+<span class="user" id="user-1368">
+<a href="/kb/user/id/1368" title="Ian Gilfillan">Ian Gilfillan</a>
+</span> 
+
+<span class="datetime" title="2023-02-08 08:32">3 weeks, 5 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/mdb-1078-rn/+r/123305/">View Revision</a>
+            
+
+            
+                <a href="/kb/en/mdb-1078-rn/+revision/123305/123278/">Diff to previous revision</a>
+                [<span title="levenshtein distance">77]</span>
+            
+            
+                <span class="history_comment">
+        
+        </span>
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="569">Article <a href="/kb/en/mdb-1087-rn/">MariaDB 10.8.7 Release Notes</a> edited by 
+<span class="user" id="user-1368">
+<a href="/kb/user/id/1368" title="Ian Gilfillan">Ian Gilfillan</a>
+</span> 
+
+<span class="datetime" title="2023-02-08 08:32">3 weeks, 5 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/mdb-1087-rn/+r/123304/">View Revision</a>
+            
+
+            
+                <a href="/kb/en/mdb-1087-rn/+revision/123304/123273/">Diff to previous revision</a>
+                [<span title="levenshtein distance">77]</span>
+            
+            
+                <span class="history_comment">
+        
+        </span>
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="570">Article <a href="/kb/en/mdb-10103-rn/">MariaDB 10.10.3 Release Notes</a> edited by 
+<span class="user" id="user-1368">
+<a href="/kb/user/id/1368" title="Ian Gilfillan">Ian Gilfillan</a>
+</span> 
+
+<span class="datetime" title="2023-02-08 08:31">3 weeks, 5 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/mdb-10103-rn/+r/123303/">View Revision</a>
+            
+
+            
+                <a href="/kb/en/mdb-10103-rn/+revision/123303/123271/">Diff to previous revision</a>
+                [<span title="levenshtein distance">87]</span>
+            
+            
+                <span class="history_comment">
+        
+        </span>
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="571">Article <a href="/kb/en/mariadb-1095-release-notes/">MariaDB 10.9.5 Release Notes</a> edited by 
+<span class="user" id="user-1368">
+<a href="/kb/user/id/1368" title="Ian Gilfillan">Ian Gilfillan</a>
+</span> 
+
+<span class="datetime" title="2023-02-08 08:31">3 weeks, 5 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/mariadb-1095-release-notes/+r/123302/">View Revision</a>
+            
+
+            
+                <a href="/kb/en/mariadb-1095-release-notes/+revision/123302/123272/">Diff to previous revision</a>
+                [<span title="levenshtein distance">73]</span>
+            
+            
+                <span class="history_comment">
+        
+        </span>
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="572">Article <a href="/kb/en/google-summer-of-code-2023/">Google Summer of Code 2023</a> edited by 
+<span class="user" id="user-12683">
+<a href="/kb/user/id/12683" title="Andrew Hutchings">Andrew Hutchings</a>
+</span> 
+
+<span class="datetime" title="2023-02-08 07:54">3 weeks, 5 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/google-summer-of-code-2023/+r/123301/">View Revision</a>
+            
+
+            
+                <a href="/kb/en/google-summer-of-code-2023/+revision/123301/123282/">Diff to previous revision</a>
+                [<span title="levenshtein distance">557]</span>
+            
+            
+                <span class="history_comment">
+        Add RocksDB
+        </span>
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="573">Article <a href="/kb/en/mariadb-connector-c-333-changelog/">MariaDB Connector/C 3.3.3 Changelog</a> edited by 
+<span class="user" id="user-2">
+<a href="/kb/user/id/2" title="Daniel Bartholomew">Daniel Bartholomew</a>
+</span> 
+
+<span class="datetime" title="2023-02-07 21:22">3 weeks, 5 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/mariadb-connector-c-333-changelog/+r/123300/">View Revision</a>
+            
+
+            
+                <a href="/kb/en/mariadb-connector-c-333-changelog/+revision/123300/120542/">Diff to previous revision</a>
+                [<span title="levenshtein distance">29]</span>
+            
+            
+                <span class="history_comment">
+        
+        </span>
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="574">Article <a href="/kb/en/mariadb-connector-c-333-release-notes/">MariaDB Connector/C 3.3.3 Release Notes</a> edited by 
+<span class="user" id="user-2">
+<a href="/kb/user/id/2" title="Daniel Bartholomew">Daniel Bartholomew</a>
+</span> 
+
+<span class="datetime" title="2023-02-07 21:22">3 weeks, 5 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/mariadb-connector-c-333-release-notes/+r/123299/">View Revision</a>
+            
+
+            
+                <a href="/kb/en/mariadb-connector-c-333-release-notes/+revision/123299/120541/">Diff to previous revision</a>
+                [<span title="levenshtein distance">29]</span>
+            
+            
+                <span class="history_comment">
+        
+        </span>
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="575">Article <a href="/kb/en/mariadb-connector-c-3-1-20-changelog/">MariaDB Connector/C 3.1.20 Changelog</a> edited by 
+<span class="user" id="user-2">
+<a href="/kb/user/id/2" title="Daniel Bartholomew">Daniel Bartholomew</a>
+</span> 
+
+<span class="datetime" title="2023-02-07 21:22">3 weeks, 5 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/mariadb-connector-c-3-1-20-changelog/+r/123298/">View Revision</a>
+            
+
+            
+                <a href="/kb/en/mariadb-connector-c-3-1-20-changelog/+revision/123298/123283/">Diff to previous revision</a>
+                [<span title="levenshtein distance">75]</span>
+            
+            
+                <span class="history_comment">
+        
+        </span>
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="576">Article <a href="/kb/en/mcc-3120-rn/">MariaDB Connector/C 3.1.20 Release Notes</a> edited by 
+<span class="user" id="user-2">
+<a href="/kb/user/id/2" title="Daniel Bartholomew">Daniel Bartholomew</a>
+</span> 
+
+<span class="datetime" title="2023-02-07 21:21">3 weeks, 5 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/mcc-3120-rn/+r/123297/">View Revision</a>
+            
+
+            
+                <a href="/kb/en/mcc-3120-rn/+revision/123297/123286/">Diff to previous revision</a>
+                [<span title="levenshtein distance">75]</span>
+            
+            
+                <span class="history_comment">
+        
+        </span>
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="577">Article <a href="/kb/en/mcc-334-cl/">MariaDB Connector/C 3.3.4 Changelog</a> edited by 
+<span class="user" id="user-2">
+<a href="/kb/user/id/2" title="Daniel Bartholomew">Daniel Bartholomew</a>
+</span> 
+
+<span class="datetime" title="2023-02-07 21:21">3 weeks, 5 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/mcc-334-cl/+r/123296/">View Revision</a>
+            
+
+            
+                <a href="/kb/en/mcc-334-cl/+revision/123296/123287/">Diff to previous revision</a>
+                [<span title="levenshtein distance">75]</span>
+            
+            
+                <span class="history_comment">
+        
+        </span>
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="578">Article <a href="/kb/en/mcc-334-rn/">MariaDB Connector/C 3.3.4 Release Notes</a> edited by 
+<span class="user" id="user-2">
+<a href="/kb/user/id/2" title="Daniel Bartholomew">Daniel Bartholomew</a>
+</span> 
+
+<span class="datetime" title="2023-02-07 21:20">3 weeks, 5 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/mcc-334-rn/+r/123295/">View Revision</a>
+            
+
+            
+                <a href="/kb/en/mcc-334-rn/+revision/123295/123289/">Diff to previous revision</a>
+                [<span title="levenshtein distance">75]</span>
+            
+            
+                <span class="history_comment">
+        
+        </span>
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="579">Article <a href="/kb/en/about-mariadb-connector-c/">About MariaDB Connector/C</a> edited by 
+<span class="user" id="user-2">
+<a href="/kb/user/id/2" title="Daniel Bartholomew">Daniel Bartholomew</a>
+</span> 
+
+<span class="datetime" title="2023-02-07 21:20">3 weeks, 5 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/about-mariadb-connector-c/+r/123294/">View Revision</a>
+            
+
+            
+                <a href="/kb/en/about-mariadb-connector-c/+revision/123294/123292/">Diff to previous revision</a>
+                [<span title="levenshtein distance">4]</span>
+            
+            
+                <span class="history_comment">
+        
+        </span>
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="580">Article <a href="/kb/en/list-of-mariadb-connector-c-releases/">List of MariaDB Connector/C Releases</a> edited by 
+<span class="user" id="user-2">
+<a href="/kb/user/id/2" title="Daniel Bartholomew">Daniel Bartholomew</a>
+</span> 
+
+<span class="datetime" title="2023-02-07 21:20">3 weeks, 5 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/list-of-mariadb-connector-c-releases/+r/123293/">View Revision</a>
+            
+
+            
+                <a href="/kb/en/list-of-mariadb-connector-c-releases/+revision/123293/120544/">Diff to previous revision</a>
+                [<span title="levenshtein distance">449]</span>
+            
+            
+                <span class="history_comment">
+        
+        </span>
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="581">Article <a href="/kb/en/about-mariadb-connector-c/">About MariaDB Connector/C</a> edited by 
+<span class="user" id="user-2">
+<a href="/kb/user/id/2" title="Daniel Bartholomew">Daniel Bartholomew</a>
+</span> 
+
+<span class="datetime" title="2023-02-07 21:19">3 weeks, 5 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/about-mariadb-connector-c/+r/123292/">View Revision</a>
+            
+
+            
+                <a href="/kb/en/about-mariadb-connector-c/+revision/123292/120543/">Diff to previous revision</a>
+                [<span title="levenshtein distance">458]</span>
+            
+            
+                <span class="history_comment">
+        
+        </span>
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="582">Article <a href="/kb/en/latest-c/">latest-c</a> edited by 
+<span class="user" id="user-2">
+<a href="/kb/user/id/2" title="Daniel Bartholomew">Daniel Bartholomew</a>
+</span> 
+
+<span class="datetime" title="2023-02-07 21:17">3 weeks, 5 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/latest-c/+r/123291/">View Revision</a>
+            
+
+            
+                <a href="/kb/en/latest-c/+revision/123291/120540/">Diff to previous revision</a>
+                [<span title="levenshtein distance">4]</span>
+            
+            
+                <span class="history_comment">
+        
+        </span>
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="583">Article <a href="/kb/en/mcc-334-rn/">MariaDB Connector/C 3.3.4 Release Notes</a> edited by 
+<span class="user" id="user-2">
+<a href="/kb/user/id/2" title="Daniel Bartholomew">Daniel Bartholomew</a>
+</span> 
+
+<span class="datetime" title="2023-02-07 17:28">3 weeks, 5 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/mcc-334-rn/+r/123289/">View Revision</a>
+            
+
+            
+                <a href="/kb/en/mcc-334-rn/+revision/123289/123280/">Diff to previous revision</a>
+                [<span title="levenshtein distance">73]</span>
+            
+            
+                <span class="history_comment">
+        
+        </span>
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="584">Article <a href="/kb/en/mcc-334-cl/">MariaDB Connector/C 3.3.4 Changelog</a> created by 
+<span class="user" id="user-2">
+<a href="/kb/user/id/2" title="Daniel Bartholomew">Daniel Bartholomew</a>
+</span> 
+
+<span class="datetime" title="2023-02-07 17:27">3 weeks, 5 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/mcc-334-cl/+r/123287/">View Revision</a>
+            
+
+            
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="585">Article <a href="/kb/en/mcc-3120-rn/">MariaDB Connector/C 3.1.20 Release Notes</a> edited by 
+<span class="user" id="user-2">
+<a href="/kb/user/id/2" title="Daniel Bartholomew">Daniel Bartholomew</a>
+</span> 
+
+<span class="datetime" title="2023-02-07 17:19">3 weeks, 5 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/mcc-3120-rn/+r/123286/">View Revision</a>
+            
+
+            
+                <a href="/kb/en/mcc-3120-rn/+revision/123286/123281/">Diff to previous revision</a>
+                [<span title="levenshtein distance">74]</span>
+            
+            
+                <span class="history_comment">
+        
+        </span>
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="586">Article <a href="/kb/en/mariadb-connector-c-3-1-20-changelog/">MariaDB Connector/C 3.1.20 Changelog</a> created by 
+<span class="user" id="user-2">
+<a href="/kb/user/id/2" title="Daniel Bartholomew">Daniel Bartholomew</a>
+</span> 
+
+<span class="datetime" title="2023-02-07 17:17">3 weeks, 5 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/mariadb-connector-c-3-1-20-changelog/+r/123283/">View Revision</a>
+            
+
+            
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="587">Article <a href="/kb/en/google-summer-of-code-2023/">Google Summer of Code 2023</a> created by 
+<span class="user" id="user-2559">
+<a href="/kb/user/id/2559" title="Vicențiu Ciorbaru">Vicențiu Ciorbaru</a>
+</span> 
+
+<span class="datetime" title="2023-02-07 15:52">3 weeks, 5 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/google-summer-of-code-2023/+r/123282/">View Revision</a>
+            
+
+            
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="588">Article <a href="/kb/en/mcc-3120-rn/">MariaDB Connector/C 3.1.20 Release Notes</a> edited by 
+<span class="user" id="user-16">
+<a href="/kb/user/id/16" title="Georg Richter">Georg Richter</a>
+</span> 
+
+<span class="datetime" title="2023-02-07 15:47">3 weeks, 5 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/mcc-3120-rn/+r/123281/">View Revision</a>
+            
+
+            
+                <a href="/kb/en/mcc-3120-rn/+revision/123281/123024/">Diff to previous revision</a>
+                [<span title="levenshtein distance">13]</span>
+            
+            
+                <span class="history_comment">
+        
+        </span>
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="589">Article <a href="/kb/en/mcc-334-rn/">MariaDB Connector/C 3.3.4 Release Notes</a> edited by 
+<span class="user" id="user-16">
+<a href="/kb/user/id/16" title="Georg Richter">Georg Richter</a>
+</span> 
+
+<span class="datetime" title="2023-02-07 15:46">3 weeks, 5 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/mcc-334-rn/+r/123280/">View Revision</a>
+            
+
+            
+                <a href="/kb/en/mcc-334-rn/+revision/123280/123026/">Diff to previous revision</a>
+                [<span title="levenshtein distance">13]</span>
+            
+            
+                <span class="history_comment">
+        
+        </span>
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="590">Question <a href="/kb/en/mariadb-full-text-searching-skipped-a-stopword-even-in-boolean-mode/">MariaDB full-text searching skipped a stopword even in Boolean Mode</a> created by 
+<span class="user" id="user-13183">
+<a href="/kb/user/id/13183" title="Mike Zhao">Mike Zhao</a>
+</span> 
+
+<span class="datetime" title="2023-02-07 15:10">3 weeks, 5 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/mariadb-full-text-searching-skipped-a-stopword-even-in-boolean-mode/+r/123279/">View Revision</a>
+            
+
+            
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="591">Article <a href="/kb/en/mdb-1078-rn/">MariaDB 10.7.8 Release Notes</a> edited by 
+<span class="user" id="user-2814">
+<a href="/kb/user/id/2814" title="Ralf Gebhardt">Ralf Gebhardt</a>
+</span> 
+
+<span class="datetime" title="2023-02-07 08:51">3 weeks, 6 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/mdb-1078-rn/+r/123278/">View Revision</a>
+            
+
+            
+                <a href="/kb/en/mdb-1078-rn/+revision/123278/123277/">Diff to previous revision</a>
+                [<span title="levenshtein distance">41]</span>
+            
+            
+                <span class="history_comment">
+        
+        </span>
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="592">Article <a href="/kb/en/mdb-1078-rn/">MariaDB 10.7.8 Release Notes</a> edited by 
+<span class="user" id="user-2814">
+<a href="/kb/user/id/2814" title="Ralf Gebhardt">Ralf Gebhardt</a>
+</span> 
+
+<span class="datetime" title="2023-02-07 08:50">3 weeks, 6 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/mdb-1078-rn/+r/123277/">View Revision</a>
+            
+
+            
+                <a href="/kb/en/mdb-1078-rn/+revision/123277/123274/">Diff to previous revision</a>
+                [<span title="levenshtein distance">74]</span>
+            
+            
+                <span class="history_comment">
+        
+        </span>
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="593">Article <a href="/kb/en/mdb-10519-rn/">MariaDB 10.5.19 Release Notes</a> edited by 
+<span class="user" id="user-1368">
+<a href="/kb/user/id/1368" title="Ian Gilfillan">Ian Gilfillan</a>
+</span> 
+
+<span class="datetime" title="2023-02-06 21:02">3 weeks, 6 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/mdb-10519-rn/+r/123276/">View Revision</a>
+            
+
+            
+                <a href="/kb/en/mdb-10519-rn/+revision/123276/123269/">Diff to previous revision</a>
+                [<span title="levenshtein distance">23]</span>
+            
+            
+                <span class="history_comment">
+        
+        </span>
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="594">Article <a href="/kb/en/mdb-10612-rn/">MariaDB 10.6.12 Release Notes</a> edited by 
+<span class="user" id="user-1368">
+<a href="/kb/user/id/1368" title="Ian Gilfillan">Ian Gilfillan</a>
+</span> 
+
+<span class="datetime" title="2023-02-06 21:02">3 weeks, 6 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/mdb-10612-rn/+r/123275/">View Revision</a>
+            
+
+            
+                <a href="/kb/en/mdb-10612-rn/+revision/123275/123268/">Diff to previous revision</a>
+                [<span title="levenshtein distance">23]</span>
+            
+            
+                <span class="history_comment">
+        
+        </span>
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="595">Article <a href="/kb/en/mdb-1078-rn/">MariaDB 10.7.8 Release Notes</a> edited by 
+<span class="user" id="user-1368">
+<a href="/kb/user/id/1368" title="Ian Gilfillan">Ian Gilfillan</a>
+</span> 
+
+<span class="datetime" title="2023-02-06 21:02">3 weeks, 6 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/mdb-1078-rn/+r/123274/">View Revision</a>
+            
+
+            
+                <a href="/kb/en/mdb-1078-rn/+revision/123274/123267/">Diff to previous revision</a>
+                [<span title="levenshtein distance">23]</span>
+            
+            
+                <span class="history_comment">
+        
+        </span>
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="596">Article <a href="/kb/en/mdb-1087-rn/">MariaDB 10.8.7 Release Notes</a> edited by 
+<span class="user" id="user-1368">
+<a href="/kb/user/id/1368" title="Ian Gilfillan">Ian Gilfillan</a>
+</span> 
+
+<span class="datetime" title="2023-02-06 21:02">3 weeks, 6 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/mdb-1087-rn/+r/123273/">View Revision</a>
+            
+
+            
+                <a href="/kb/en/mdb-1087-rn/+revision/123273/123266/">Diff to previous revision</a>
+                [<span title="levenshtein distance">23]</span>
+            
+            
+                <span class="history_comment">
+        
+        </span>
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="597">Article <a href="/kb/en/mariadb-1095-release-notes/">MariaDB 10.9.5 Release Notes</a> edited by 
+<span class="user" id="user-1368">
+<a href="/kb/user/id/1368" title="Ian Gilfillan">Ian Gilfillan</a>
+</span> 
+
+<span class="datetime" title="2023-02-06 21:02">3 weeks, 6 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/mariadb-1095-release-notes/+r/123272/">View Revision</a>
+            
+
+            
+                <a href="/kb/en/mariadb-1095-release-notes/+revision/123272/123265/">Diff to previous revision</a>
+                [<span title="levenshtein distance">23]</span>
+            
+            
+                <span class="history_comment">
+        
+        </span>
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="598">Article <a href="/kb/en/mdb-10103-rn/">MariaDB 10.10.3 Release Notes</a> edited by 
+<span class="user" id="user-1368">
+<a href="/kb/user/id/1368" title="Ian Gilfillan">Ian Gilfillan</a>
+</span> 
+
+<span class="datetime" title="2023-02-06 21:01">3 weeks, 6 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/mdb-10103-rn/+r/123271/">View Revision</a>
+            
+
+            
+                <a href="/kb/en/mdb-10103-rn/+revision/123271/123264/">Diff to previous revision</a>
+                [<span title="levenshtein distance">23]</span>
+            
+            
+                <span class="history_comment">
+        
+        </span>
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="599">Article <a href="/kb/en/xtradbinnodb-system-variables/">InnoDB System Variables</a> edited by 
+<span class="user" id="user-1368">
+<a href="/kb/user/id/1368" title="Ian Gilfillan">Ian Gilfillan</a>
+</span> 
+
+<span class="datetime" title="2023-02-06 21:01">3 weeks, 6 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/xtradbinnodb-system-variables/+r/123270/">View Revision</a>
+            
+
+            
+                <a href="/kb/en/xtradbinnodb-system-variables/+revision/123270/123142/">Diff to previous revision</a>
+                [<span title="levenshtein distance">23]</span>
+            
+            
+                <span class="history_comment">
+        
+        </span>
+            
+
+            
+        </div>
+    
+</li>
+        
+            <li class="history_item" value="600">Article <a href="/kb/en/mdb-10519-rn/">MariaDB 10.5.19 Release Notes</a> edited by 
+<span class="user" id="user-1368">
+<a href="/kb/user/id/1368" title="Ian Gilfillan">Ian Gilfillan</a>
+</span> 
+
+<span class="datetime" title="2023-02-06 20:59">3 weeks, 6 days ago</span>
+        <div class="extra">
+            
+                
+                    
+                
+                <a href="/kb/en/mdb-10519-rn/+r/123269/">View Revision</a>
+            
+
+            
+                <a href="/kb/en/mdb-10519-rn/+revision/123269/123261/">Diff to previous revision</a>
+                [<span title="levenshtein distance">53]</span>
+            
+            
+                <span class="history_comment">
+        
+        </span>
+            
+
+            
+        </div>
+    
+</li>
+        
+        </ol>
+    
+    
+    
+    
+        <nav>
+        <div>
+            <ul class="pagination">
+                
+                    <li class="previous"><a href="/kb/en/+changes/?p=11">&laquo;</a></li>
+                
+                
+                    
+                        <li ><a href="/kb/en/+changes/?p=1">1</a></li>
+                    
+                
+                    
+                        <li class="disabled"><a href="" class="noop">&hellip;</a></li>
+                    
+                
+                    
+                        <li ><a href="/kb/en/+changes/?p=8">8</a></li>
+                    
+                
+                    
+                        <li ><a href="/kb/en/+changes/?p=9">9</a></li>
+                    
+                
+                    
+                        <li ><a href="/kb/en/+changes/?p=10">10</a></li>
+                    
+                
+                    
+                        <li ><a href="/kb/en/+changes/?p=11">11</a></li>
+                    
+                
+                    
+                        <li class="active"><a href="/kb/en/+changes/?p=12">12</a></li>
+                    
+                
+                    
+                        <li ><a href="/kb/en/+changes/?p=13">13</a></li>
+                    
+                
+                    
+                        <li ><a href="/kb/en/+changes/?p=14">14</a></li>
+                    
+                
+                    
+                        <li ><a href="/kb/en/+changes/?p=15">15</a></li>
+                    
+                
+                    
+                        <li ><a href="/kb/en/+changes/?p=16">16</a></li>
+                    
+                
+                    
+                        <li class="disabled"><a href="" class="noop">&hellip;</a></li>
+                    
+                
+                    
+                        <li ><a href="/kb/en/+changes/?p=20">20</a></li>
+                    
+                
+                
+                    <li><a href="/kb/en/+changes/?p=13">&raquo;</a></li>
+                
+            </ul>
+            <div class="pull-right results-count">
+    551 - 600 of 1000
+</div>
+        </div>
+        </nav>
+    
+
+
+
+                    <div id="content_disclaimer" class="graybox">
+                        Content reproduced on this site is the property of its respective owners,
+                        and this content is not reviewed in advance by MariaDB. The views, information and opinions
+                        expressed by this content do not necessarily represent those of MariaDB or any other party.
+                    </div>
+                </div>
+            </section>
+
+            
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer id="footer">
+    <div class="footer">
+        <div class="container">
+            <div class="row row-10">
+                <div class="col-md-2 col-xs-4 item">
+                    <h5>
+                        <a href="/products" title="Products">Products</a>
+                    </h5>
+                    <ul>
+                        <li id="menu-item-7816" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7816"><a href="https://mariadb.com/products/mariadb-platform/">MariaDB Platform</a></li>
+                        <li id="menu-item-7815" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7815"><a href="https://mariadb.com/products/skysql/">MariaDB SkySQL</a></li>
+                        <li id="menu-item-4172" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4172"><a href="https://mariadb.com/pricing/">Pricing</a></li>
+                        <li id="menu-item-4163" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4163"><a href="https://mariadb.com/downloads/">Download MariaDB</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 col-xs-4 item">
+                    <h5>
+                        <a href="/services" title="Services">Services</a>
+                    </h5>
+                    <ul>
+                        <li id="menu-item-4169" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4169"><a href="https://mariadb.com/services/remote-dba/">Remote DBA</a></li>
+                        <li id="menu-item-41691" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4169"><a href="https://mariadb.com/services/skydba/">SkyDBA</a></li>
+                        <li id="menu-item-4167" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4167"><a href="https://mariadb.com/services/enterprise-architect/">Enterprise Architect</a></li>
+                        <li id="menu-item-4170" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4170"><a href="https://mariadb.com/services/technical-support-services/">Technical Support</a></li>
+                        <li id="menu-item-4168" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4168"><a href="https://mariadb.com/services/migration-practice/">Migration Practice</a></li>
+                        <li id="menu-item-4166" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4166"><a href="https://mariadb.com/services/consulting/">Consulting</a></li>
+                        <li id="menu-item-4171" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4171"><a href="https://mariadb.com/services/training/">Training</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 col-xs-4 item">
+                    <h5>
+                        <a href="/resources" title="Resources">Resources</a>
+                    </h5>
+                    <ul>
+                        <li id="menu-item-41751" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4175"><a href="https://mariadb.com/docs/">Documentation</a></li>
+                        <li id="menu-item-41752" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4175"><a href="https://mariadb.com/developers/">Developers</a></li>
+                        <li id="menu-item-4175" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4175"><a href="https://mariadb.com/resources/blog/">Blog</a></li>
+                        <li id="menu-item-5462" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5462"><a href="https://support.mariadb.com">Support</a></li>
+                        <li id="menu-item-6004" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6004"><a href="https://mariadb.com/openworks/">OpenWorks</a></li>
+                        <li id="menu-item-60041" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6004"><a href="https://mariadb.com/resources/customer-stories/">Customer Stories</a></li>
+                        <li id="menu-item-7817" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7817"><a href="https://mariadb.com/resources/events/">Events</a></li>
+                        <li id="menu-item-4177" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4177"><a href="https://mariadb.com/roadshow/">MariaDB Roadshow</a></li>
+                    </ul>
+                </div>
+                <div class="visible-xs visible-sm clear"></div>
+                <div class="col-md-2 col-xs-5 item">
+                    <h5>
+                        <a href="/about-us" title="About MariaDB">About</a>
+                    </h5>
+                    <ul>
+                        <li id="menu-item-4173" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4173"><a href="https://mariadb.com/contact/">Contact</a></li>
+                        <li id="menu-item-4161" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4161"><a href="https://mariadb.com/about-us/leadership/">Leadership</a></li>
+                        <li id="menu-item-4162" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4162"><a href="https://mariadb.com/about-us/partners/">Partners</a></li>
+                        <li id="menu-item-4174" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4174"><a href="https://mariadb.com/newsroom/">Newsroom</a></li>
+                        <li id="menu-item-4160" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4160"><a href="https://mariadb.com/about-us/investors/">Investors</a></li>
+                        <li id="menu-item-4159" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4159"><a href="https://mariadb.com/about-us/careers/">Careers</a></li>
+                        <li id="menu-item-41591" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4159"><a href="https://mariadb.com/trust/">Trust Center</a></li>
+                        <li id="menu-item-41592" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4159"><a href="https://mariadb.com/vulnerability-reporting/">Vulnerability Reporting</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-xs-7 item">
+                    <div id="block-footercontact" class="block block-block-content block-block-content22b3af28-0754-44ec-a5c6-4466568f37e3">
+                        <h5><a href="/contact" title="Contact">Contact</a></h5>
+                    </div>
+                    <div class="social">
+                        <ul class="list-inline">
+                            <li>
+                                <a target="_blank" href="https://www.facebook.com/MariaDB.dbms/" title="Facebook">
+                                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="https://twitter.com/mariadb" title="Twitter">
+                                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="https://www.linkedin.com/company/mariadb-corporation?trk=company_logo " title="LinkedIn">
+                                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="block-footerformcontact" class="block block-block-content block-block-contentd754ee1b-3cc9-40e7-9ef4-f504f1197fb1">
+                        
+                            <p>Subscribe to our newsletter!</p>
+                            <script src="//app-sj15.marketo.com/js/forms2/js/forms2.min.js"></script><form id="mktoForm_1498"></form>
+                            <script>
+                                <!--//--><![CDATA[// ><!--
+                                MktoForms2.loadForm("//app-sj15.marketo.com", "573-PXI-984", 1498);
+                                //--><!]]]]><![CDATA[>
+                                //--><!]]>
+                            </script>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container text-center">
+            <ul class="list-inline no-margin">
+                <li>
+                    <a href="/legal" title="Legal">Legal</a>
+                </li>
+                <li>
+                    <a href="/privacy-policy" title="Privacy Policy">Privacy Policy</a>
+                </li>
+                <li>
+                    <a href="/cookie-policy/" title="Cookies">Cookie Policy</a>
+                </li>
+            </ul>
+            <p>Copyright &copy; 2023 MariaDB. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+</div>
+
+<div id="ajax_loading">
+    <img src="/kb/static/images/ajax-loader.a51c5608d01a.gif" />
+</div>
+
+    <!-- Google Tag Manager -->
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MK2847"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MK2847');</script>
+    <!-- End Google Tag Manager -->
+
+</body>
+
+<script type="text/javascript" src="/kb/static/js/main.453a68a9c5ea.js" charset="utf-8"></script>
+
+</html>

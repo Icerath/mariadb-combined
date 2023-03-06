@@ -243,12 +243,12 @@
         <dt>Created</dt>
         <dd>
 
-<span class="datetime" title="2010-07-30 15:28">12 years, 6 months ago</span></dd>
+<span class="datetime" title="2010-07-30 15:28">12 years, 7 months ago</span></dd>
 
         <dt>Modified</dt>
         <dd>
 
-<span class="datetime" title="2022-06-20 11:19">7 months, 1 week ago</span></dd>
+<span class="datetime" title="2023-03-02 10:30">4 days, 4 hours ago</span></dd>
 
         <dt>Type</dt>
         <dd>article</dd>
@@ -443,11 +443,15 @@
         <li class=""><a href="#mysql-80" title="MySQL 8.0">MySQL 8.0</a>    </ol>
 </li>
 
-    <li class=""><a href="#incompatibilities-between-currently-supported-mariadb-versions-and-mysql" title="Incompatibilities between Currently Supported MariaDB Versions and MySQL">Incompatibilities between Currently Supported MariaDB Versions and MySQL</a>    <ol class="toc">
+    <li class=""><a href="#incompatibilities-between-currently-maintained-mariadb-versions-and-mysql" title="Incompatibilities between Currently Maintained MariaDB Versions and MySQL">Incompatibilities between Currently Maintained MariaDB Versions and MySQL</a>    <ol class="toc">
+
+        <li class=""><a href="#incompatibilities-between-mariadb-1011-and-mysql-80" title="Incompatibilities between MariaDB 10.11 and MySQL 8.0">Incompatibilities between MariaDB 10.11 and MySQL 8.0</a></li>
+
+        <li class=""><a href="#incompatibilities-between-mariadb-1010-and-mysql-80" title="Incompatibilities between MariaDB 10.10 and MySQL 8.0">Incompatibilities between MariaDB 10.10 and MySQL 8.0</a></li>
+
+        <li class=""><a href="#incompatibilities-between-mariadb-109-and-mysql-80" title="Incompatibilities between MariaDB 10.9 and MySQL 8.0">Incompatibilities between MariaDB 10.9 and MySQL 8.0</a></li>
 
         <li class=""><a href="#incompatibilities-between-mariadb-108-and-mysql-80" title="Incompatibilities between MariaDB 10.8 and MySQL 8.0">Incompatibilities between MariaDB 10.8 and MySQL 8.0</a></li>
-
-        <li class=""><a href="#incompatibilities-between-mariadb-107-and-mysql-80" title="Incompatibilities between MariaDB 10.7 and MySQL 8.0">Incompatibilities between MariaDB 10.7 and MySQL 8.0</a></li>
 
         <li class=""><a href="#incompatibilities-between-mariadb-106-and-mysql-80" title="Incompatibilities between MariaDB 10.6 and MySQL 8.0">Incompatibilities between MariaDB 10.6 and MySQL 8.0</a></li>
 
@@ -455,12 +459,14 @@
 
         <li class=""><a href="#incompatibilities-between-mariadb-104-and-mysql-80" title="Incompatibilities between MariaDB 10.4 and MySQL 8.0">Incompatibilities between MariaDB 10.4 and MySQL 8.0</a></li>
 
-        <li class=""><a href="#incompatibilities-between-mariadb-103-and-mysql-57" title="Incompatibilities between MariaDB 10.3 and MySQL 5.7">Incompatibilities between MariaDB 10.3 and MySQL 5.7</a></li>
-
-        <li class=""><a href="#incompatibilities-between-mariadb-102-and-mysql-57" title="Incompatibilities between MariaDB 10.2 and MySQL 5.7">Incompatibilities between MariaDB 10.2 and MySQL 5.7</a>    </ol>
+        <li class=""><a href="#incompatibilities-between-mariadb-103-and-mysql-57" title="Incompatibilities between MariaDB 10.3 and MySQL 5.7">Incompatibilities between MariaDB 10.3 and MySQL 5.7</a>    </ol>
 </li>
 
-    <li class=""><a href="#incompatibilities-between-currently-unsupported-mariadb-versions-and-mysql" title="Incompatibilities between Currently Unsupported MariaDB Versions and MySQL">Incompatibilities between Currently Unsupported MariaDB Versions and MySQL</a>    <ol class="toc">
+    <li class=""><a href="#incompatibilities-between-unmaintained-mariadb-versions-and-mysql" title="Incompatibilities between Unmaintained MariaDB Versions and MySQL">Incompatibilities between Unmaintained MariaDB Versions and MySQL</a>    <ol class="toc">
+
+        <li class=""><a href="#incompatibilities-between-mariadb-107-and-mysql-80" title="Incompatibilities between MariaDB 10.7 and MySQL 8.0">Incompatibilities between MariaDB 10.7 and MySQL 8.0</a></li>
+
+        <li class=""><a href="#incompatibilities-between-mariadb-102-and-mysql-57" title="Incompatibilities between MariaDB 10.2 and MySQL 5.7">Incompatibilities between MariaDB 10.2 and MySQL 5.7</a></li>
 
         <li class=""><a href="#incompatibilities-between-mariadb-101-and-mysql-57" title="Incompatibilities between MariaDB 10.1 and MySQL 5.7">Incompatibilities between MariaDB 10.1 and MySQL 5.7</a></li>
 
@@ -517,7 +523,7 @@ versions on the <a href="/kb/en/what-is-in-the-different-mariadb-releases/">What
 </li><li>The MySQL Server version
 </li><li>The role of each server
 </li></ul>
-<p>Replication compatibility details are described below for each MySQL version that is still currently supported.</p>
+<p>Replication compatibility details are described below for each MySQL version that is still maintained.</p>
 <p>For replication compatibility details between MariaDB versions, see <a href="/kb/en/replication-overview/#cross-version-replication-compatibility">Cross-Version Replication Compatibility</a>.</p>
 <h3 class="anchored_heading" id="mysql-57">MySQL 5.7</h3>
 <p>MariaDB Server 10.2 and later can replicate from a MySQL 5.7 primary server.</p>
@@ -526,22 +532,60 @@ versions on the <a href="/kb/en/what-is-in-the-different-mariadb-releases/">What
 <p>MariaDB can't make any claims about whether a MySQL 5.7 replica server can replicate from a MariaDB primary server.</p>
 <h3 class="anchored_heading" id="mysql-80">MySQL 8.0</h3>
 <p>MariaDB Server cannot replicate from a MySQL 8.0 primary server, because MySQL 8.0 has a binary log format that is incompatible.</p>
-<h2 class="anchored_heading" id="incompatibilities-between-currently-supported-mariadb-versions-and-mysql">Incompatibilities between Currently Supported MariaDB Versions and MySQL</h2>
+<h2 class="anchored_heading" id="incompatibilities-between-currently-maintained-mariadb-versions-and-mysql">Incompatibilities between Currently Maintained MariaDB Versions and MySQL</h2>
+<h3 class="anchored_heading" id="incompatibilities-between-mariadb-1011-and-mysql-80">Incompatibilities between <a href="/kb/en/what-is-mariadb-1011/">MariaDB 10.11</a> and MySQL 8.0</h3>
+<div class="cstm-style hidden"><ul start="1"><li>See <a href="incompatibilities-and-feature-differences-between-mariadb-10-11-and-mysql-8-0">Incompatibilities and Feature Differences Between MariaDB 10.11 and MySQL 8.0</a> for details.
+</li></ul>
+</div><ul start="1"><li><a href="/kb/en/function-differences-between-mariadb-10-11-and-mysql-8-0/">Function Differences Between MariaDB 10.11 and MySQL 8.0</a>
+</li><li><a href="/kb/en/system-variable-differences-between-mariadb-10-11-and-mysql-8-0/">System Variable Differences Between MariaDB 10.11 and MySQL 8.0</a>
+</li></ul>
+<h3 class="anchored_heading" id="incompatibilities-between-mariadb-1010-and-mysql-80">Incompatibilities between <a href="/kb/en/what-is-mariadb-1010/">MariaDB 10.10</a> and MySQL 8.0</h3>
+<div class="cstm-style hidden"><ul start="1"><li>See <a href="incompatibilities-and-feature-differences-between-mariadb-10-10-and-mysql-8-0">Incompatibilities and Feature Differences Between MariaDB 10.10 and MySQL 8.0</a> for details.
+</li></ul>
+</div><ul start="1"><li><a href="/kb/en/function-differences-between-mariadb-10-10-and-mysql-8-0/">Function Differences Between MariaDB 10.10 and MySQL 8.0</a>
+</li><li><a href="/kb/en/system-variable-differences-between-mariadb-10-10-and-mysql-8-0/">System Variable Differences Between MariaDB 10.10 and MySQL 8.0</a>
+</li></ul>
+<h3 class="anchored_heading" id="incompatibilities-between-mariadb-109-and-mysql-80">Incompatibilities between <a href="/kb/en/what-is-mariadb-109/">MariaDB 10.9</a> and MySQL 8.0</h3>
+<div class="cstm-style hidden"><ul start="1"><li>See <a href="incompatibilities-and-feature-differences-between-mariadb-10-9-and-mysql-8-0">Incompatibilities and Feature Differences Between MariaDB 10.9 and MySQL 8.0</a> for details.
+</li></ul>
+</div><ul start="1"><li><a href="/kb/en/function-differences-between-mariadb-10-9-and-mysql-8-0/">Function Differences Between MariaDB 10.9 and MySQL 8.0</a>
+</li><li><a href="/kb/en/system-variable-differences-between-mariadb-109-and-mysql-80/">System Variable Differences Between MariaDB 10.9 and MySQL 8.0</a>
+</li></ul>
 <h3 class="anchored_heading" id="incompatibilities-between-mariadb-108-and-mysql-80">Incompatibilities between <a href="/kb/en/what-is-mariadb-108/">MariaDB 10.8</a> and MySQL 8.0</h3>
-<p>See <a href="/kb/en/incompatibilities-and-feature-differences-between-mariadb-108-and-mysql-80/">Incompatibilities and Feature Differences Between MariaDB 10.8 and MySQL 8.0</a> for details.</p>
-<h3 class="anchored_heading" id="incompatibilities-between-mariadb-107-and-mysql-80">Incompatibilities between <a href="/kb/en/what-is-mariadb-107/">MariaDB 10.7</a> and MySQL 8.0</h3>
-<p>See <a href="/kb/en/incompatibilities-and-feature-differences-between-mariadb-107-and-mysql-80/">Incompatibilities and Feature Differences Between MariaDB 10.7 and MySQL 8.0</a> for details.</p>
+<ul start="1"><li>See <a href="/kb/en/incompatibilities-and-feature-differences-between-mariadb-108-and-mysql-80/">Incompatibilities and Feature Differences Between MariaDB 10.8 and MySQL 8.0</a> for details.
+</li><li><a href="/kb/en/function-differences-between-mariadb-10-8-and-mysql-8-0/">Function Differences Between MariaDB 10.8 and MySQL 8.0</a>
+</li><li><a href="/kb/en/system-variable-differences-between-mariadb-108-and-mysql-80/">System Variable Differences Between MariaDB 10.8 and MySQL 8.0</a>
+</li></ul>
 <h3 class="anchored_heading" id="incompatibilities-between-mariadb-106-and-mysql-80">Incompatibilities between <a href="/kb/en/what-is-mariadb-106/">MariaDB 10.6</a> and MySQL 8.0</h3>
-<p>See <a href="/kb/en/incompatibilities-and-feature-differences-between-mariadb-106-and-mysql-80/">Incompatibilities and Feature Differences Between MariaDB 10.6 and MySQL 8.0</a> for details.</p>
+<ul start="1"><li>See <a href="/kb/en/incompatibilities-and-feature-differences-between-mariadb-106-and-mysql-80/">Incompatibilities and Feature Differences Between MariaDB 10.6 and MySQL 8.0</a> for details.
+</li><li><a href="/kb/en/function-differences-between-mariadb-10-6-and-mysql-8-0/">Function Differences Between MariaDB 10.6 and MySQL 8.0</a>
+</li><li><a href="/kb/en/system-variable-differences-between-mariadb-106-and-mysql-80/">System Variable Differences Between MariaDB 10.6 and MySQL 8.0</a>
+</li></ul>
 <h3 class="anchored_heading" id="incompatibilities-between-mariadb-105-and-mysql-80">Incompatibilities between <a href="/kb/en/what-is-mariadb-105/">MariaDB 10.5</a> and MySQL 8.0</h3>
-<p>See <a href="/kb/en/incompatibilities-and-feature-differences-between-mariadb-105-and-mysql-80/">Incompatibilities and Feature Differences Between MariaDB 10.5 and MySQL 8.0</a> for details.</p>
+<ul start="1"><li>See <a href="/kb/en/incompatibilities-and-feature-differences-between-mariadb-105-and-mysql-80/">Incompatibilities and Feature Differences Between MariaDB 10.5 and MySQL 8.0</a> for details.
+</li><li><a href="/kb/en/function-differences-between-mariadb-10-5-and-mysql-8-0/">Function Differences Between MariaDB 10.5 and MySQL 8.0</a>
+</li><li><a href="/kb/en/system-variable-differences-between-mariadb-105-and-mysql-80/">System Variable Differences Between MariaDB 10.5 and MySQL 8.0</a>
+</li></ul>
 <h3 class="anchored_heading" id="incompatibilities-between-mariadb-104-and-mysql-80">Incompatibilities between <a href="/kb/en/what-is-mariadb-104/">MariaDB 10.4</a> and MySQL 8.0</h3>
-<p>See <a href="/kb/en/incompatibilities-and-feature-differences-between-mariadb-104-and-mysql-80/">Incompatibilities and Feature Differences Between MariaDB 10.4 and MySQL 8.0</a> for details.</p>
+<ul start="1"><li>See <a href="/kb/en/incompatibilities-and-feature-differences-between-mariadb-104-and-mysql-80/">Incompatibilities and Feature Differences Between MariaDB 10.4 and MySQL 8.0</a> for details.
+</li><li><a href="/kb/en/function-differences-between-mariadb-10-4-and-mysql-8-0/">Function Differences Between MariaDB 10.4 and MySQL 8.0</a>
+</li><li><a href="/kb/en/system-variable-differences-between-mariadb-104-and-mysql-80/">System Variable Differences Between MariaDB 10.4 and MySQL 8.0</a>
+</li></ul>
 <h3 class="anchored_heading" id="incompatibilities-between-mariadb-103-and-mysql-57">Incompatibilities between <a href="/kb/en/what-is-mariadb-103/">MariaDB 10.3</a> and MySQL 5.7</h3>
-<p>See <a href="/kb/en/incompatibilities-and-feature-differences-between-mariadb-103-and-mysql-57/">Incompatibilities and Feature Differences Between MariaDB 10.3 and MySQL 5.7</a> for details.</p>
+<ul start="1"><li>See <a href="/kb/en/incompatibilities-and-feature-differences-between-mariadb-103-and-mysql-57/">Incompatibilities and Feature Differences Between MariaDB 10.3 and MySQL 5.7</a> for details.
+</li><li><a href="/kb/en/function-differences-between-mariadb-103-and-mysql-57/">Function Differences Between MariaDB 10.3 and MySQL 5.7</a>
+</li><li><a href="/kb/en/system-variable-differences-between-mariadb-103-and-mysql-57/">System Variable Differences Between MariaDB 10.3 and MySQL 5.7</a>
+</li></ul>
+<h2 class="anchored_heading" id="incompatibilities-between-unmaintained-mariadb-versions-and-mysql">Incompatibilities between Unmaintained MariaDB Versions and MySQL</h2>
+<h3 class="anchored_heading" id="incompatibilities-between-mariadb-107-and-mysql-80">Incompatibilities between <a href="/kb/en/what-is-mariadb-107/">MariaDB 10.7</a> and MySQL 8.0</h3>
+<ul start="1"><li>See <a href="/kb/en/incompatibilities-and-feature-differences-between-mariadb-107-and-mysql-80/">Incompatibilities and Feature Differences Between MariaDB 10.7 and MySQL 8.0</a> for details.
+</li><li><a href="/kb/en/function-differences-between-mariadb-10-7-and-mysql-8-0/">Function Differences Between MariaDB 10.7 and MySQL 8.0</a>
+</li><li><a href="/kb/en/system-variable-differences-between-mariadb-107-and-mysql-80/">System Variable Differences Between MariaDB 10.7 and MySQL 8.0</a>
+</li></ul>
 <h3 class="anchored_heading" id="incompatibilities-between-mariadb-102-and-mysql-57">Incompatibilities between <a href="/kb/en/what-is-mariadb-102/">MariaDB 10.2</a> and MySQL 5.7</h3>
-<p>See <a href="/kb/en/incompatibilities-and-feature-differences-between-mariadb-102-and-mysql-57/">Incompatibilities and Feature Differences Between MariaDB 10.2 and MySQL 5.7</a> for details.</p>
-<h2 class="anchored_heading" id="incompatibilities-between-currently-unsupported-mariadb-versions-and-mysql">Incompatibilities between Currently Unsupported MariaDB Versions and MySQL</h2>
+<ul start="1"><li>See <a href="/kb/en/incompatibilities-and-feature-differences-between-mariadb-102-and-mysql-57/">Incompatibilities and Feature Differences Between MariaDB 10.2 and MySQL 5.7</a> for details.
+</li><li><a href="/kb/en/system-variable-differences-between-mariadb-107-and-mysql-80/">System Variable Differences Between MariaDB 10.2 and MySQL 5.7</a>
+</li></ul>
 <h3 class="anchored_heading" id="incompatibilities-between-mariadb-101-and-mysql-57">Incompatibilities between <a href="/kb/en/what-is-mariadb-101/">MariaDB 10.1</a> and MySQL 5.7</h3>
 <ul start="1"><li><a href="/kb/en/what-is-mariadb-101/">MariaDB 10.1</a> and above does not support MySQL 5.7's packed JSON objects.  MariaDB follows the SQL standard and stores the JSON as a normal TEXT/BLOB.  If you want to replicate JSON columns from MySQL to MariaDB, you should store JSON objects in MySQL in a TEXT column or use statement based replication.  If you are using JSON columns and want to upgrade to MariaDB, you can either convert the JSON columns to TEXT or use <a href="/kb/en/mysqldump/">mysqldump</a> to copy these tables to MariaDB. In MySQL, JSON is compared according to json values. In MariaDB JSON strings are normal strings and compared as strings.
 </li><li><a href="/kb/en/what-is-mariadb-101/">MariaDB 10.1</a>'s InnoDB encryption is implemented differently than MySQL 5.7's InnoDB encryption.
@@ -778,18 +822,18 @@ configuration options:</p>
             
                 
                     <li>
-                        <a href="/kb/en/incompatibilities-and-feature-differences-between-mariadb-10-8-and-mysql-8-/">
+                        <a href="/kb/en/incompatibilities-and-feature-differences-between-mariadb-10-9-and-mysql-8-/">
                             
-                            Incompatibilities and Feature Differences Between MariaDB 10.8 and MySQL 8.0
+                            Incompatibilities and Feature Differences Between MariaDB 10.9 and MySQL 8.0
                         </a>
                     </li>
                 
             
                 
                     <li>
-                        <a href="/kb/en/incompatibilities-and-feature-differences-between-mariadb-10-7-and-mysql-8-/">
+                        <a href="/kb/en/incompatibilities-and-feature-differences-between-mariadb-10-8-and-mysql-8-/">
                             
-                            Incompatibilities and Feature Differences Between MariaDB 10.7 and MySQL 8.0
+                            Incompatibilities and Feature Differences Between MariaDB 10.8 and MySQL 8.0
                         </a>
                     </li>
                 
@@ -826,15 +870,6 @@ configuration options:</p>
                         <a href="/kb/en/compatibility-differences-incompatibilities-and-feature-differences-between/">
                             
                             Incompatibilities and Feature Differences Between MariaDB 10.3 and MySQL 5.7
-                        </a>
-                    </li>
-                
-            
-                
-                    <li>
-                        <a href="/kb/en/incompatibilities-and-feature-differences-between-mariadb-10-2-and-mysql-5-/">
-                            
-                            Incompatibilities and Feature Differences Between MariaDB 10.2 and MySQL 5.7
                         </a>
                     </li>
                 
@@ -898,6 +933,15 @@ configuration options:</p>
                         <a href="/kb/en/migrating-to-mariadb-from-sql-server/">
                             <span class="pull-right not_primary"></span>
                             Migrating to MariaDB from SQL Server
+                        </a>
+                    </li>
+                
+            
+                
+                    <li>
+                        <a href="/kb/en/incompatibilities-and-feature-differences-between-mariadb-and-mysql-unmaint/">
+                            
+                            Incompatibilities and Feature Differences Between MariaDB and MySQL - Unmaintained Series
                         </a>
                     </li>
                 
@@ -1047,6 +1091,6 @@ configuration options:</p>
 
 </body>
 
-<script type="text/javascript" src="/kb/static/js/main.636174abe200.js" charset="utf-8"></script>
+<script type="text/javascript" src="/kb/static/js/main.453a68a9c5ea.js" charset="utf-8"></script>
 
 </html>

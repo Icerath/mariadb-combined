@@ -28,8 +28,8 @@ fn main() {
         println!("{:?}", clear_archive());
     }
     let scraper = scrape::Scraper::new(DEFAULT_WAIT_TIME, args.ignore_existing).unwrap();
+    println!("Scrape Method: {:?}", args.scrape_method);
     scraper.scrape(args.scrape_method);
-    set_last_updated();
 }
 
 #[derive(Debug)]
@@ -41,7 +41,7 @@ struct AppArgs {
 
 fn parse_args() -> AppArgs {
     let matches = Command::new("KbScraper")
-        .arg(arg!([scrape_method] "[standard|resume|recent|pdf|pdf_langs]"))
+        .arg(arg!([scrape_method] "[standard|recent|pdf|pdf_langs]"))
         .arg(arg!(-c --clear "Clears out the html directory"))
         .arg(arg!(-r --resume "Resumes the scrape ignoring already scraped directories"))
         .get_matches();
@@ -57,7 +57,6 @@ fn parse_args() -> AppArgs {
         "pdf_langs" => ScrapeMethod::PdfLangs,
         other => panic!("Invalid Scrape Method: '{other}'"),
     };
-
     let clear = matches.get_one::<bool>("clear").copied().unwrap_or(false);
     let ignore_existing = matches.get_one::<bool>("resume").copied().unwrap_or(false);
     AppArgs {

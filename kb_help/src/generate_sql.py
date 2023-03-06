@@ -127,7 +127,7 @@ def generate_descriptions(kb_urls: list[KbItem], version: Version, concat_size: 
         html = archive.read_html(row.url)
 
         topic_keywords.append((help_topic_id, row.keywords))
-        description = html_to_text(html)
+        description = html_to_text(html, row.url)
         page_name = read_page_name(html, row.url)
         help_topics.append(
             insert_help_topic(help_topic_id, row, page_name, description, concat_size)

@@ -247,12 +247,12 @@
         <dt>Created</dt>
         <dd>
 
-<span class="datetime" title="2015-01-19 09:12">8 years ago</span></dd>
+<span class="datetime" title="2015-01-19 09:12">8 years, 1 month ago</span></dd>
 
         <dt>Modified</dt>
         <dd>
 
-<span class="datetime" title="2022-04-27 11:14">9 months ago</span></dd>
+<span class="datetime" title="2023-02-27 07:02">1 week ago</span></dd>
 
         <dt>Type</dt>
         <dd>article</dd>
@@ -408,7 +408,8 @@
 </li><li>Increases the size of <code>ibdata1</code> because the contiguous data and index pages are appended to <code>ibdata1</code>.
 </li></ul>
 <h2 class="anchored_heading" id="innodb-defragmentation">InnoDB Defragmentation</h2>
-<p><a href="/kb/en/what-is-mariadb-101/">MariaDB 10.1</a> merged Facebook's defragmentation code prepared for MariaDB by Matt, Seong Uck Lee from Kakao. The only major difference to Facebook's code and Matt’s patch is that MariaDB does not introduce new literals to SQL and makes no changes to the server code. Instead, <a href="/kb/en/optimize-table/">OPTIMIZE TABLE</a> is used and all code changes are inside the InnoDB/XtraDB storage engines. </p>
+<div class="cstm-style bluebox"><p>The feature described below has been deprecated in <a href="/kb/en/what-is-mariadb-110/">MariaDB 11.0</a> and will be removed in a future release. See <a href="https://jira.mariadb.org/browse/MDEV-30544">MDEV-30544</a> and <a href="https://jira.mariadb.org/browse/MDEV-30545">MDEV-30545</a>.</p>
+</div><p><a href="/kb/en/what-is-mariadb-101/">MariaDB 10.1</a> merged Facebook's defragmentation code prepared for MariaDB by Matt, Seong Uck Lee from Kakao. The only major difference to Facebook's code and Matt’s patch is that MariaDB does not introduce new literals to SQL and makes no changes to the server code. Instead, <a href="/kb/en/optimize-table/">OPTIMIZE TABLE</a> is used and all code changes are inside the InnoDB/XtraDB storage engines. </p>
 <p>The behaviour of <code>OPTIMIZE TABLE</code> is unchanged by default, and to enable this new feature, you need to set the <a href="/kb/en/innodb-system-variables/#innodb_defragment">innodb_defragment</a> system variable to <code>1</code>. </p>
 <pre class="fixed">[mysqld]
 ...
@@ -417,17 +418,17 @@ innodb-defragment=1
 <p>Note that tablespace files (including ibdata1) will not shrink as the result of defragmentation, but one will get better memory utilization in the InnoDB buffer pool as there are fewer data pages in use.</p>
 <p>A number of new system and status variables for controlling and monitoring the feature are introduced.</p>
 <h3 class="anchored_heading" id="system-variables">System Variables</h3>
-<ul start="1"><li><a href="/kb/en/xtradbinnodb-server-system-variables/#innodb_defragment">innodb_defragment</a>: Enable InnoDB defragmentation.
-</li><li><a href="/kb/en/xtradbinnodb-server-system-variables/#innodb_defragment_n_pages">innodb_defragment_n_pages</a>: Number of pages considered at once when merging multiple pages to defragment.
-</li><li><a href="/kb/en/xtradbinnodb-server-system-variables/#innodb_defragment_stats_accuracy">innodb_defragment_stats_accuracy</a>: Number of defragment stats changes there are before the stats are written to persistent storage. 
-</li><li><a href="/kb/en/xtradbinnodb-server-system-variables/#innodb_defragment_fill_factor_n_recs">innodb_defragment_fill_factor_n_recs</a>: Number of records of space that defragmentation should leave on the page.
-</li><li><a href="/kb/en/xtradbinnodb-server-system-variables/#innodb_defragment_fill_factor">innodb_defragment_fill_factor</a>: Indicates how full defragmentation should fill a page.
-</li><li><a href="/kb/en/xtradbinnodb-server-system-variables/#innodb_defragment_frequency">innodb_defragment_frequency</a>: Maximum times per second for defragmenting a single index.
+<ul start="1"><li><a href="/kb/en/innodb-system-variables/#innodb_defragment">innodb_defragment</a>: Enable InnoDB defragmentation.
+</li><li><a href="/kb/en/innodb-system-variables/#innodb_defragment_n_pages">innodb_defragment_n_pages</a>: Number of pages considered at once when merging multiple pages to defragment.
+</li><li><a href="/kb/en/innodb-system-variables/#innodb_defragment_stats_accuracy">innodb_defragment_stats_accuracy</a>: Number of defragment stats changes there are before the stats are written to persistent storage. 
+</li><li><a href="/kb/en/innodb-system-variables/#innodb_defragment_fill_factor_n_recs">innodb_defragment_fill_factor_n_recs</a>: Number of records of space that defragmentation should leave on the page.
+</li><li><a href="/kb/en/innodb-system-variables/#innodb_defragment_fill_factor">innodb_defragment_fill_factor</a>: Indicates how full defragmentation should fill a page.
+</li><li><a href="/kb/en/innodb-system-variables/#innodb_defragment_frequency">innodb_defragment_frequency</a>: Maximum times per second for defragmenting a single index.
 </li></ul>
 <h3 class="anchored_heading" id="status-variables">Status Variables</h3>
-<ul start="1"><li><a href="/kb/en/xtradbinnodb-server-status-variables/#innodb_defragment_compression_failures">Innodb_defragment_compression_failures</a>: Number of defragment re-compression failures
-</li><li><a href="/kb/en/xtradbinnodb-server-status-variables/#innodb_defragment_failures">Innodb_defragment_failures</a>: Number of defragment failures.
-</li><li><a href="/kb/en/xtradbinnodb-server-status-variables/#innodb_defragment_count">Innodb_defragment_count</a>: Number of defragment operations.
+<ul start="1"><li><a href="/kb/en/innodb-status-variables/#innodb_defragment_compression_failures">Innodb_defragment_compression_failures</a>: Number of defragment re-compression failures
+</li><li><a href="/kb/en/innodb-status-variables/#innodb_defragment_failures">Innodb_defragment_failures</a>: Number of defragment failures.
+</li><li><a href="/kb/en/innodb-status-variables/#innodb_defragment_count">Innodb_defragment_count</a>: Number of defragment operations.
 </li></ul>
 <h2 class="anchored_heading" id="example">Example</h2>
 <pre class="fixed wrap"><span class="k">set</span> <span class="o">@@</span><span class="k">global</span><span class="p">.</span><span class="n">innodb_file_per_table</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
@@ -846,6 +847,6 @@ Innodb_defragment_count	4
 
 </body>
 
-<script type="text/javascript" src="/kb/static/js/main.636174abe200.js" charset="utf-8"></script>
+<script type="text/javascript" src="/kb/static/js/main.453a68a9c5ea.js" charset="utf-8"></script>
 
 </html>

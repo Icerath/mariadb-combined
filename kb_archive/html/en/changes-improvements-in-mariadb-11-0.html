@@ -23,9 +23,9 @@
     <meta property="og:image" content="http://mariadb.comaskmonty-logo.png" />
     <meta property="og:site_name" content="MariaDB KnowledgeBase" />
     <meta property="fb:admins" content="514852603" />
-    <meta property="og:description" content="Current Version: 11.0.0 | Status: Alpha | Release Date: 27 Dec 2022" />
+    <meta property="og:description" content="Current Version: 11.0.1 | Status: RC | Release Date: 22 Feb 2023" />
 
-    <meta name="description" content="Current Version: 11.0.0 | Status: Alpha | Release Date: 27 Dec 2022" />
+    <meta name="description" content="Current Version: 11.0.1 | Status: RC | Release Date: 22 Feb 2023" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="//fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet"/>
@@ -239,12 +239,12 @@
         <dt>Created</dt>
         <dd>
 
-<span class="datetime" title="2022-12-22 15:27">1 month, 1 week ago</span></dd>
+<span class="datetime" title="2022-12-22 15:27">2 months, 1 week ago</span></dd>
 
         <dt>Modified</dt>
         <dd>
 
-<span class="datetime" title="2023-01-18 12:49">1 week, 3 days ago</span></dd>
+<span class="datetime" title="2023-02-27 07:11">1 week ago</span></dd>
 
         <dt>Type</dt>
         <dd>article</dd>
@@ -376,7 +376,10 @@
 
     
     <div class="answer formatted">
-        <p></p>
+        <div class="cstm-style bluebox text-center centered"><p>The most recent release of <a href="/kb/en/what-is-mariadb-110/">MariaDB 11.0</a> is:<br>
+<span class="cstm-style lead"><strong><a href="/kb/en/mariadb-11-0-1-release-notes/">MariaDB 11.0.1</a> (RC)</strong> <a class="btn btn-success btn-mini" href="https://mariadb.com/downloads/">Download<span>&nbsp;</span>Now</a></span><br>
+<sub><em><a href="https://mariadb.org/download/?tab=mariadb&amp;release=11.0.1&amp;product=mariadb">Alternate download from mariadb.org</a></em></sub></p>
+</div>
 <div class="table_of_contents well well-small">
 <h3>Contents</h3>
  <ol class="toc">
@@ -387,6 +390,8 @@
 
         <li class=""><a href="#optimizer" title="Optimizer">Optimizer</a></li>
 
+        <li class=""><a href="#innodb" title="InnoDB">InnoDB</a></li>
+
         <li class=""><a href="#variables" title="Variables">Variables</a>    </ol>
 </li>
 
@@ -396,29 +401,48 @@
 </li>
 </div>
 <p><a href="/kb/en/what-is-mariadb-110/">MariaDB 11.0</a> is a current short-term maintenance branch. See <a href="/kb/en/plans-for-mariadb-11-0/">Plans for MariaDB 11.0</a>.</p>
-<div class="cstm-style hidden"><h2 class="anchored_heading" id="upgrading">Upgrading</h2>
-<ul start="1"><li>See <a href="/kb/en/upgrading-between-major-mariadb-versions/">Upgrading Between Major MariaDB Versions</a> and <a href="upgrading-from-mariadb-10-11-to-mariadb-11-0">Upgrading from MariaDB 10.11 to MariaDB 11.0</a>.
+<h2 class="anchored_heading" id="upgrading">Upgrading</h2>
+<ul start="1"><li>See <a href="/kb/en/upgrading-between-major-mariadb-versions/">Upgrading Between Major MariaDB Versions</a> and <a href="/kb/en/upgrading-from-mariadb-10-11-to-mariadb-11-0/">Upgrading from MariaDB 10.11 to MariaDB 11.0</a>.
 </li></ul>
-</div><h2 class="anchored_heading" id="new-features-improvements">New Features &amp; Improvements</h2>
+<h2 class="anchored_heading" id="new-features-improvements">New Features &amp; Improvements</h2>
 <h3 class="anchored_heading" id="optimizer">Optimizer</h3>
 <ul start="1"><li>Major improvements to the Optimizer. See <a href="/kb/en/the-optimizer-cost-model-from-mariadb-11-0/">The Optimizer Cost Model from MariaDB 11.0</a>.
 </li></ul>
-<div class="cstm-style hidden"><h3 class="anchored_heading" id="variables">Variables</h3>
+<h3 class="anchored_heading" id="innodb">InnoDB</h3>
+<ul start="1"><li>The <a href="/kb/en/innodb-change-buffering/">InnoDB Change Buffer</a> has been removed (<a href="https://jira.mariadb.org/browse/MDEV-29694">MDEV-29694</a>)
+</li></ul>
+<h3 class="anchored_heading" id="variables">Variables</h3>
 <ul start="1"><li>For a list of all new variables, see <a href="system-variables-added-in-mariadb-11-0">System Variables Added in MariaDB 11.0</a>  and <a href="status-variables-added-in-mariadb-11-0">Status Variables Added in MariaDB 11.0</a>.
 </li></ul>
-<p>The following variables have been deprecated:</p>
-<ul start="1"><li><a href="/kb/en/innodb-system-variables/#innodb_prefix_index_cluster_optimization">innodb_prefix_index_cluster_optimization</a>
+<ul start="1"><li>The default value for <a href="/kb/en/innodb-system-variables/#innodb_undo_tablespaces">innodb_undo_tablespaces</a> has been changed from 0 to 3 (<a href="https://jira.mariadb.org/browse/MDEV-29986">MDEV-29986</a>)
 </li></ul>
-</div><div class="cstm-style hidden"><h2 class="anchored_heading" id="security-vulnerabilities-fixed-in-mariadb-110">Security Vulnerabilities Fixed in <a href="/kb/en/what-is-mariadb-110/">MariaDB 11.0</a></h2>
+<ul><li>The following variables have been deprecated:
+<ul start="1"><li><a href="/kb/en/innodb-system-variables/#innodb_defragment">innodb_defragment</a>
+</li><li><a href="/kb/en/innodb-system-variables/#innodb_defragment_n_pages">innodb_defragment_n_pages</a>
+</li><li><a href="/kb/en/innodb-system-variables/#innodb_defragment_stats_accuracy">innodb_defragment_stats_accuracy</a>
+</li><li><a href="/kb/en/innodb-system-variables/#innodb_defragment_fill_factor_n_recs">innodb_defragment_fill_factor_n_recs</a>
+</li><li><a href="/kb/en/innodb-system-variables/#innodb_defragment_fill_factor">innodb_defragment_fill_factor</a>
+</li><li><a href="/kb/en/innodb-system-variables/#innodb_defragment_frequency">innodb_defragment_frequency</a>
+</li><li><a href="/kb/en/innodb-system-variables/#innodb_file_per_table">innodb_file_per_table</a>
+</li><li><a href="/kb/en/innodb-system-variables/#innodb_flush_method">innodb_flush_method</a>
+</li></ul>
+</li></ul>
+<ul><li>The following deprecated variables have been removed:
+<ul start="1"><li><a href="/kb/en/innodb-system-variables/#innodb_change_buffer_max_size">innodb_change_buffer_max_size</a>
+</li><li><a href="/kb/en/innodb-system-variables/#innodb_change_buffering">innodb_change_buffering</a>
+</li></ul>
+</li></ul>
+<div class="cstm-style hidden"><h2 class="anchored_heading" id="security-vulnerabilities-fixed-in-mariadb-110">Security Vulnerabilities Fixed in <a href="/kb/en/what-is-mariadb-110/">MariaDB 11.0</a></h2>
 <div class="cstm-style graybox"><p>For a complete list of security vulnerabilities (CVEs) fixed across all
 versions of MariaDB, see the <a href="/kb/en/cve/">Security Vulnerabilities Fixed in MariaDB</a>
 page.</p>
 </div><div><ul class="cves"></ul></div>
-</div><div class="cstm-style hidden"><h2 class="anchored_heading" id="list-of-all-mariadb-110-releases">List of All <a href="/kb/en/what-is-mariadb-110/">MariaDB 11.0</a> Releases</h2>
+</div><h2 class="anchored_heading" id="list-of-all-mariadb-110-releases">List of All <a href="/kb/en/what-is-mariadb-110/">MariaDB 11.0</a> Releases</h2>
 <div class="cstm-style underheader graybox centered"><table><tr><th>Date</th><th>Release</th><th>Status</th><th>Release Notes</th><th>Changelog</th></tr>
-<tr><td>23 Jun 2022</td><td><strong><a href="/kb/en/mariadb-10100-release-notes/">MariaDB 10.10.0</a></strong></td><td>Alpha</td><td><a href="/kb/en/mariadb-10100-release-notes/">Release Notes</a></td><td></td></tr>
+<tr><td>22 Feb 2023</td><td><strong><a href="/kb/en/mdb-11-0-1-rn/">MariaDB 11.0.1</a></strong></td><td>RC (Release Candidate)</td><td><a href="/kb/en/mariadb-11-0-1-release-notes/">Release Notes</a></td><td><a href="/kb/en/mariadb-11-0-1-changelog/">Changelog</a></td></tr>
+<tr><td>27 Dec 2022</td><td><strong><a href="/kb/en/mdb-11-0-0-rn/">MariaDB 11.0.0</a></strong></td><td>Alpha</td><td><a href="/kb/en/mariadb-11-0-0-release-notes/">Release Notes</a></td><td></td></tr>
 </table>
-</div></div>
+</div>
     </div>
 
 
@@ -500,6 +524,15 @@ page.</p>
                         <a href="/kb/en/release-notes-mariadb-11-0-series/">
                             <span class="pull-right not_primary"></span>
                             Release Notes - MariaDB 11.0 Series
+                        </a>
+                    </li>
+                
+            
+                
+                    <li>
+                        <a href="/kb/en/changelogs-mariadb-11-0-series/">
+                            <span class="pull-right not_primary"></span>
+                            Changelogs - MariaDB 11.0 Series
                         </a>
                     </li>
                 
@@ -649,6 +682,6 @@ page.</p>
 
 </body>
 
-<script type="text/javascript" src="/kb/static/js/main.636174abe200.js" charset="utf-8"></script>
+<script type="text/javascript" src="/kb/static/js/main.453a68a9c5ea.js" charset="utf-8"></script>
 
 </html>
