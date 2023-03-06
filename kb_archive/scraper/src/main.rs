@@ -30,6 +30,12 @@ fn main() {
     let scraper = scrape::Scraper::new(DEFAULT_WAIT_TIME, args.ignore_existing).unwrap();
     println!("Scrape Method: {:?}", args.scrape_method);
     scraper.scrape(args.scrape_method);
+    if matches!(
+        args.scrape_method,
+        ScrapeMethod::Standard | ScrapeMethod::RecentChanges
+    ) {
+        set_last_updated();
+    }
 }
 
 #[derive(Debug)]

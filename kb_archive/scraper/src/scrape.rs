@@ -42,11 +42,8 @@ impl Scraper {
             ScrapeMethod::Pdf => self.pdf_scrape(),
             ScrapeMethod::PdfLangs => self.pdf_langs_scrape(),
         };
-        // Pdf and Pdflangs don't completely update the archive.
-        if !matches!(scrape_method, ScrapeMethod::Pdf | ScrapeMethod::PdfLangs) {
-            self.write_url_locations()
-                .expect("Failed to write url locations");
-        }
+        self.write_url_locations()
+            .expect("Failed to write url locations");
     }
 }
 
